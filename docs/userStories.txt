@@ -1,0 +1,52 @@
+Our client - Social Worker/Social Services
+
+Name - Something Connect
+
+user - social worker
+- Can intake an individual, fill out in take form and dat from form is stored.
+- They will also have access to a resource library which is connected to a database - add drop down filter
+- They will be able to provide appropriate resource based on proximity - Google Maps API
+- They will have built in calendar to track appointments and meetings - Google Calendar API
+- Built-in chat top connect with other users - Twilio
+
+###DATA TABLES
+- Social Workers
+-- ID
+-- Name
+-- Clients
+-- Contact Info
+
+
+- Clients
+-- ID
+-- Name
+-- Housed(Y/N)
+-- Address
+-- Known Locations
+-- Contact Info
+-- Children
+-- Resource (Boolean)
+-- Resource Provided
+-- Flagged (Y/N) (Comment history Pop-up/Determines level of need an attention)
+
+
+- Resources
+-- ID
+-- Provider
+-- Provider Info
+-- Resource Type
+
+---- Types of Resources ----
+[] Counselling
+[] Legal
+[] Addictions
+[] Child Care
+[] Housing
+[] Shelter
+[] Career
+
+- Flags
+-- ID
+-- Client ID
+-- Comments
+-- Social Worker ID
