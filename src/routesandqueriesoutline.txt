@@ -3,8 +3,14 @@ Route       |       Query
 Login and Logout - Can implement stronger auth 
 GET / | landing page
 POST / | loginQuery - (query that redirects to /home)
-GET /home | vertifyLogin - (not a query - verifies if user is logged in)
 Get /logout | destroySession - (not a query - destroys session data and redirects to landing page)
+
+Page: Dashboard
+GET /dashboard | vertifyLogin - (not a query - verifies if user is logged in)
+
+Page: Client-File
+
+Page: Intake Form 
 
 Table: Clients
 GET /clients/socialworker/:socialworkerid | getClientsBySocialWorker()
