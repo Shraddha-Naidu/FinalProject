@@ -26,9 +26,9 @@ POST to-dos | createToDo()
 DELETE /to-dos/:id | deleteToDo()
 
 Table: Client Comments
-GET /comments/:clients/:id  | getCommentsByClientID
-POST comments/:clients/:id | createCommentByClientID
-DELETE comments/:clients/:id | deleteCommentsByClientID
+GET /comments/:client-id  | getCommentsByClientID
+POST comments/:client-id | createCommentByClientID
+DELETE comments/:client-id | deleteCommentByClientID
 
 
 
