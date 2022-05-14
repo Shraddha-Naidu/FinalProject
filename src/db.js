@@ -11,6 +11,7 @@ const pool = new Pool({
 // example query for test purposes
 const getUsers = (request, response) => {
   pool.query('SELECT * FROM users ORDER BY id ASC', (error, results) => {
+    console.log('RESULTS', results)
     if (error) {
       throw error
     }
@@ -23,14 +24,13 @@ const loginQuery = (request, response) => {
   // Capture the input fields
 	let username = request.body.username;
 	let password = request.body.password;
+  console.log("REQUEST BODY", request.body)
 	// Ensure the input fields exists and are not empty
 	if (username && password) {
 		// Execute SQL query that'll select the account from the database based on the specified username and password
-		connection.query('SELECT * FROM social-workers WHERE username = ? AND password = ?', [username, password], function(error, results, fields) {
-			// If there is an issue with the query, output the error
-			if (error) throw error;
+		pool.query('SELECT * FROM social_workers WHERE username = $1 AND password = $2', [username, password], (error, results) => {
 			// If the account exists
-			if (results.length > 0) {
+			if (results) {
 				// Authenticate the social worker
         // Create session variables
 				request.session.loggedin = true;
