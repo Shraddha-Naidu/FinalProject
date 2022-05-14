@@ -8,6 +8,7 @@ const pool = new Pool({
   port: 5432,
 })
 
+// example query for test purposes
 const getUsers = (request, response) => {
   pool.query('SELECT * FROM users ORDER BY id ASC', (error, results) => {
     if (error) {

@@ -7,6 +7,7 @@ route.get('/', (req, res) => {
   res.render('index');
 });
 
+// example route for test purposes using db querying
 route.get('/users', db.getUsers)
 
 module.exports = route;
