@@ -49,19 +49,20 @@ const loginQuery = (request, response) => {
 }
 
 const verifyLogin = (request, response) => {
-	// If the user is loggedin
-	if (request.session.loggedin) {
-		// Output username
-		response.send('Welcome back, ' + request.session.username + '!');
-    // Render homepage
-    response.render('dashboard.html', { username: request.session.username });
-	} else {
-		// Not logged in
-		response.send('Please login to view this page!');
-    // Redirect to login page
-		response.redirect('/');
-	}
-	response.end();
+	// // If the user is loggedin
+	// if (//request.session.loggedin) {
+	// 	// Output username
+	// 	response.send('Welcome back, ' + request.session.username + '!');
+  //   // Render homepage
+  //   response.render('dashboard.ejs', { username: request.session.username });
+	// } else {
+	// 	// Not logged in
+	// 	response.send('Please login to view this page!');
+  //   // Redirect to login page
+	// 	response.redirect('/');
+	// }
+	// response.end();
+  response.render('dashboard.ejs');
 }
 
 const destroySession = (request, response) => {
