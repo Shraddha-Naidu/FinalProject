@@ -21,7 +21,7 @@ route.get('/logout', db.destroySession)
 
 
 // Client Routes
-route.get('/clients/:socialWorkerId', db.getClientsBySocialWorker)
+route.get('/clients/socialworker/:id', db.getClientsBySocialWorker)
 route.get('/clients/:id', db.getClientById)
 route.post('clients', db.createClient)
 route.put('/clients/:id', db.updateClient)
@@ -31,17 +31,17 @@ route.get('/resources', db.getResources)
 route.get('/resources/:id', db.getResourcesById)
 
 // Flags Routes
-route.get('/flags/:clientId', db.getFlagsByClientId)
+route.get('/flags/clients/:id', db.getFlagsByClientId)
 route.post('flags', db.createFlag)
 route.delete('/flags/:id', db.deleteFlag)
 
 // To-Dos Routes
-route.get('/to-dos/:day', db.getToDosByDay)
+route.get('/to-dos/today', db.getToDosByDay)
 route.post('to-dos', db.createToDo)
 route.delete('to-dos/:id', db.deleteToDo)
 
 // Client File Comments Routes
-route.get('/comments/:clientId', db.getCommentsByClientId)
+route.get('/comments/clients/:id', db.getCommentsByClientId)
 route.post('comments', db.createComment)
 route.delete('comments/:id', db.deleteComment)
 

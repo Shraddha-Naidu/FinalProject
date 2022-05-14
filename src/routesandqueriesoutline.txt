@@ -7,7 +7,7 @@ GET /home | vertifyLogin - (not a query - verifies if user is logged in)
 Get /logout | destroySession - (not a query - destroys session data and redirects to landing page)
 
 Table: Clients
-GET /clients/:socialWorkerId | getClientsBySocialWorker()
+GET /clients/socialworker/:id | getClientsBySocialWorker()
 GET /clients/:id | getClientbyId()
 POST clients | createClient()
 PUT /clients/:id | updateClient()
@@ -17,18 +17,18 @@ GET /resources | getResources()
 GET /resources/:id | getResourcebyId()
 
 Table: Flags
-GET /flags/:clientId | getFlagsByClientId()
+GET /flags/clients/:id | getFlagsByClientId()
 POST flags | createFlag()
 DELETE /flags/:id | deleteFlag()
 
 ---> Additional tables for Daily To Dos, and Client Comments
 Table: To Dos
-GET /to-dos/:day | getToDosByDay()
+GET /to-dos/today | getToDosByDay()
 POST to-dos | createToDo()
 DELETE /to-dos/:id | deleteToDo()
 
 Table: Client File Comments
-GET /comments/:clientId  | getCommentsByClientID
+GET /comments/clients/:id  | getCommentsByClientID
 POST comments |  createComment
 DELETE comments/:id | deleteComment
 
