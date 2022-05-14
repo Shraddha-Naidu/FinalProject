@@ -21,31 +21,32 @@ const getUsers = (request, response) => {
 
 // Login queries
 const loginQuery = (request, response) => {
-  // Capture the input fields
-	let username = request.body.username;
-	let password = request.body.password;
-  console.log("REQUEST BODY", request.body)
-	// Ensure the input fields exists and are not empty
-	if (username && password) {
-		// Execute SQL query that'll select the account from the database based on the specified username and password
-		pool.query('SELECT * FROM social_workers WHERE username = $1 AND password = $2', [username, password], (error, results) => {
-			// If the account exists
-			if (results) {
-				// Authenticate the social worker
-        // Create session variables
-				request.session.loggedin = true;
-				request.session.username = username;
-				// Redirect to home page
-				response.redirect('/dashboard');
-			} else {
-				response.send('Incorrect Username and/or Password!');
-			}			
-			response.end();
-		});
-	} else {
-		response.send('Please enter Username and Password!');
-		response.end();
-}
+//   // Capture the input fields
+// 	let username = request.body.username;
+// 	let password = request.body.password;
+//   console.log("REQUEST BODY", request.body)
+// 	// Ensure the input fields exists and are not empty
+// 	if (username && password) {
+// 		// Execute SQL query that'll select the account from the database based on the specified username and password
+// 		pool.query('SELECT * FROM social_workers WHERE username = $1 AND password = $2', [username, password], (error, results) => {
+// 			// If the account exists
+// 			if (results) {
+// 				// Authenticate the social worker
+//         // Create session variables
+// 				request.session.loggedin = true;
+// 				request.session.username = username;
+// 				// Redirect to home page
+// 				response.redirect('/dashboard');
+// 			} else {
+// 				response.send('Incorrect Username and/or Password!');
+// 			}			
+// 			response.end();
+// 		});
+// 	} else {
+// 		response.send('Please enter Username and Password!');
+// 		response.end();
+// }
+	response.redirect('/dashboard');
 }
 
 const destroySession = (request, response) => {
