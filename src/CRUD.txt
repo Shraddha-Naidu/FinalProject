@@ -21,14 +21,14 @@ DELETE /flags/:id | deleteFlag()
 
 ---> Additional tables for Daily To Dos and Client Comments
 Table: To Dos
-GET /to-dos/day | getRemindersByDay()
+GET /to-dos/:day | getRemindersByDay()
 POST to-dos | createToDo()
 DELETE /to-dos/:id | deleteToDo()
 
 Table: Client Comments
-GET /comments/clients/id  | getCommentsByClientID
-POST comments/clients/id | createCommentByClientID
-DELETE comments/clients/id | deleteCommentsByClientID
+GET /comments/:clients/:id  | getCommentsByClientID
+POST comments/:clients/:id | createCommentByClientID
+DELETE comments/:clients/:id | deleteCommentsByClientID
 
 
 
