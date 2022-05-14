@@ -8,7 +8,7 @@ route.get('/users', db.getUsers)
 
 // Landing page
 route.get('/', (req, res) => {
-  res.render('index');
+  res.render('dashboard');
 });
 
 // Login/Logout Routes
