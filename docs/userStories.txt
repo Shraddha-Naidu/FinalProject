@@ -3,11 +3,20 @@ Our client - Social Worker/Social Services
 Name - Something Connect
 
 user - social worker
-- Can intake an individual, fill out in take form and data from form is stored.
-- They will also have access to a resource library which is connected to a database - add drop down filter
-- They will be able to provide appropriate resource based on proximity - Google Maps API
-- They will have built in calendar to track appointments and meetings - Google Calendar API
-- Built-in chat top connect with other users - Twilio
+- As a social worker I want to manage my cases and client schedules to feel more organized on a daily basis
+- After login, I am able to see my Dashboard which provides a visual snapshot of what clients, appointments, and tasks I have for the day.
+- From the dashboard I am able to access my calendar and client list.
+- I am also able to access an internal chat from my dashboard???
+- I am able to intake an individual, fill out intake form with the following: name, address/location, contact info, dependents, need for housing and other resources. 
+- Data will then be stored once intake form is submitted.
+- Once I am made aware of required resources, I can access a resource library to research and provide client with appropriate resources
+- I am able to filter through the resource library based on resource type and filtered using a drop down menu.
+- Based on resources provided, confirmed appointments can be added to my calendar (Return to dashboard to add appointments)
+- I can view and add client appointments on the client file page.
+
+
+
+
 
 ###DATA TABLES
 - Social Workers
@@ -15,6 +24,7 @@ user - social worker
 -- Name
 -- Clients
 -- Contact Info
+
 
 
 - Clients
@@ -50,3 +60,11 @@ user - social worker
 -- Client ID
 -- Comments
 -- Social Worker ID
+
+- appointments
+-- ID
+-- resource_ID
+-- client_ID
+-- socialWorker_ID
+-- data
+-- time
