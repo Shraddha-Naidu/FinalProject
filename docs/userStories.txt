@@ -3,7 +3,7 @@ Our client - Social Worker/Social Services
 Name - Something Connect
 
 user - social worker
-- Can intake an individual, fill out in take form and dat from form is stored.
+- Can intake an individual, fill out in take form and data from form is stored.
 - They will also have access to a resource library which is connected to a database - add drop down filter
 - They will be able to provide appropriate resource based on proximity - Google Maps API
 - They will have built in calendar to track appointments and meetings - Google Calendar API
