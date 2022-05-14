@@ -76,9 +76,9 @@ const destroySession = (request, response) => {
 
 // Client queries
 const getClientsBySocialWorker = (request, response) => {
-  const socialWorkerId = parseInt(request.params.socialWorkerId)
+  const socialworkerid = parseInt(request.params.socialworkerid)
 
-  pool.query('SELECT * FROM clients WHERE socialWorkerId = $1', [socialWorkerId], (error, results) => {
+  pool.query('SELECT * FROM clients WHERE socialworkerid = $1', [socialworkerid], (error, results) => {
     if (error) {
       throw error
     }
@@ -192,9 +192,9 @@ const deleteFlag = (request, response) => {
 
 // To-Do Queries
 const getToDosByDay = (request, response) => {
-  const day = parseInt(request.params.day)
+  const day = request.params.day
 
-  pool.query('SELECT * FROM to-dos WHERE day = $1', [day], (error, results) => {
+  pool.query('SELECT * FROM to_dos WHERE day = $1', [day], (error, results) => {
     if (error) {
       throw error
     }
@@ -205,7 +205,7 @@ const getToDosByDay = (request, response) => {
 const createToDo = (request, response) => {
   const { day, comment } = request.body
 
-  pool.query('INSERT INTO to-dos (day, comment) VALUES ($1, $2)', [day, comment], (error, results) => {
+  pool.query('INSERT INTO to_dos (day, comment) VALUES ($1, $2)', [day, comment], (error, results) => {
     if (error) {
       throw error
     }
@@ -216,7 +216,7 @@ const createToDo = (request, response) => {
 const deleteToDo = (request, response) => {
   const id = parseInt(request.params.id)
 
-  pool.query('DELETE FROM to-dos WHERE id = $1', [id], (error, results) => {
+  pool.query('DELETE FROM to_dos WHERE id = $1', [id], (error, results) => {
     if (error) {
       throw error
     }
