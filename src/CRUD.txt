@@ -19,7 +19,7 @@ GET /flags | getFlags()
 POST flags | createFlag()
 DELETE /flags/:id | deleteFlag()
 
----> Additional tables for Daily To Dos and Client Comments
+---> Additional tables for Daily To Dos, and Client Comments
 Table: To Dos
 GET /to-dos/:day | getRemindersByDay()
 POST to-dos | createToDo()
@@ -29,6 +29,8 @@ Table: Client Comments
 GET /comments/:clients/:id  | getCommentsByClientID
 POST comments/:clients/:id | createCommentByClientID
 DELETE comments/:clients/:id | deleteCommentsByClientID
+
+
 
 
 
