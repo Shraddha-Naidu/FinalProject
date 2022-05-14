@@ -1,4 +1,4 @@
-// PG Database Client/Connection Setup
+// this connects the local database and is jumping off point for queries
 const Pool = require('pg').Pool
 const pool = new Pool({
   user: 'me',

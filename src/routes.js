@@ -1,5 +1,6 @@
 const express = require('express');
 const route = express.Router();
+// this connects the database connection and queries to the routing folder
 const db = require('./db.js')
 
 route.get('/', (req, res) => {
@@ -8,5 +9,4 @@ route.get('/', (req, res) => {
 
 route.get('/users', db.getUsers)
 
-// this is a comment for the username config testing branch
 module.exports = route;
