@@ -1,0 +1,29 @@
+route       |       query
+
+Table: Clients
+GET /clients | getclients()
+GET /clients/:id | getClientbyId()
+POST clients | createClient()
+PUT /clients/:id | updateClient()
+
+Table: Social Workers
+Login?
+GET /social-workers/:id | getSocialWorkerbyId()
+
+Table: Resources
+GET /resources | getResources()
+GET /resources/:id | getResourcesbyId()
+
+Table: Flags
+GET /flags | getFlags()
+POST flags | createFlag()
+DELETE /flags/:id | deleteFlag()
+
+---> Additional tables for To Dos, and Comments
+
+
+
+
+
+
+
