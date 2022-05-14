@@ -62,6 +62,8 @@ const verifyLogin = (request, response) => {
 	// 	response.redirect('/');
 	// }
 	// response.end();
+  
+  // for development 
   response.render('dashboard.ejs');
 }
 
