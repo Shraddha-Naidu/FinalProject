@@ -1,7 +1,7 @@
 Route       |       Query
 
 Table: Clients
-GET /clients | getclients()
+GET /clients | getClients()
 GET /clients/:id | getClientbyId()
 POST clients | createClient()
 PUT /clients/:id | updateClient()
