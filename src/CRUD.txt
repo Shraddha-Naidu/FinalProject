@@ -12,7 +12,7 @@ GET /social-workers/:id | getSocialWorkerbyId()
 
 Table: Resources
 GET /resources | getResources()
-GET /resources/:id | getResourcesbyId()
+GET /resources/:id | getResourcebyId()
 
 Table: Flags
 GET /flags | getFlags()
