@@ -15,7 +15,7 @@ route.get('/', (req, res) => {
 // authenticates user
 route.post('/', db.loginQuery)
 // verifies that the user is logged in
-route.get('/home', db.verifyLogin)
+route.get('/dashboard', db.verifyLogin)
 //logout
 route.get('/logout', db.destroySession)
 

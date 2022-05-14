@@ -1,17 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Express + EJS Boilerplate</title>
-  <link rel="stylesheet" href="/styles/style.css">
-</head>
-<body>
-  <h1>Hello, world!</h1>
-  <h2>This is a simple boilerplate for Express + EJS projects.</h2>
-  <p>Feel free to edit whatever you need. <span>&#128155;</span></p>
+<html>
 
-  <script src="/scripts/main.js"></script>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,minimum-scale=1">
+  <title>Login</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+</head>
+
+<body>
+  <div class="login">
+
+    <h1>Login</h1>
+
+    <div class="links">
+      <a href="/login" class="active">Login</a>
+      <a href="/register">Register</a>
+    </div>
+
+    <form class="ajax-form" action="" method="post">
+
+      <label for="username">
+        <i class="fas fa-user"></i>
+      </label>
+      <input type="text" name="username" placeholder="Username" id="username" required>
+
+      <label for="password">
+        <i class="fas fa-lock"></i>
+      </label>
+      <input type="password" name="password" placeholder="Password" id="password" required>
+
+      <label id="rememberme">
+        <input type="checkbox" name="rememberme">Remember me
+      </label>
+      <a href="/forgotpassword">Forgot Password?</a>
+
+      <input type="hidden" name="token" value="{{ token }}">
+
+      <div class="msg">{{ msg }}</div>
+
+      <input type="submit" value="Login">
+
+    </form>
+
+  </div>
+  <script src="script.js"></script>
 </body>
+
 </html>

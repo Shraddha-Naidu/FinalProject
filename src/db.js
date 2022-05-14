@@ -36,7 +36,7 @@ const loginQuery = (request, response) => {
 				request.session.loggedin = true;
 				request.session.username = username;
 				// Redirect to home page
-				response.redirect('/home');
+				response.redirect('/dashboard');
 			} else {
 				response.send('Incorrect Username and/or Password!');
 			}			
@@ -54,7 +54,7 @@ const verifyLogin = (request, response) => {
 		// Output username
 		response.send('Welcome back, ' + request.session.username + '!');
     // Render homepage
-    response.render('home.html', { username: request.session.username });
+    response.render('dashboard.html', { username: request.session.username });
 	} else {
 		// Not logged in
 		response.send('Please login to view this page!');
