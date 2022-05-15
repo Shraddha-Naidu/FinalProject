@@ -6,10 +6,10 @@ const db = require('../models/db')
 // Dashboard
 route.get('/', (req, res) => {
      db.getClientsBySocialWorkerId(function (err, result) {
-          console.log("CLIENT RESULT", result.rows)
+          console.log("CLIENT RESULT", result)
           db.getToDosForDay(function(err, result1) {
-               console.log("TODOS RESULTS", result1.rows)
-               res.render('dashboard', { result: result.rows, result1: result1.rows});
+               console.log("TODOS RESULTS", result1)
+               res.render('dashboard', { result: result, result1: result1});
            })
         })
 });
