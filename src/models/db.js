@@ -2,12 +2,13 @@
 const Pool = require('pg').Pool
 
 const dbParams = {
-	host: process.env.DB_HOST,
-	port: process.env.DB_PORT,
-	user: process.env.DB_USER,
-	password: process.env.DB_PASS,
-	database: process.env.DB_NAME
+	host: 'localhost',
+	port: 5432,
+	user: 'me',
+	password: 'password',
+	database: 'api'
 };
+
 const pool = new Pool(dbParams)
 
 // test 
