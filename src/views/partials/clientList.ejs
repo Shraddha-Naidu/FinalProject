@@ -1,28 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
+<P>Client List</P>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Express + EJS Boilerplate</title>
-  <link rel="stylesheet" href="/styles/style.css">
-</head>
-
-<body>
-  <P>Client List</P>
-
-  <li>
-    <div style="color: white" class="content">
-      <ul>
-        <% if (result) { %>
-          <li>
-            <%= result[0].name %>
-          </li>
-          <% } %>
-      </ul>
-    </div>
-  </li>
-</body>
-
-</html>
+<li>
+  <div style="color: white" class="content">
+    <ul>
+      <% if (result) { %>
+        <li>
+          <%= result[0].name %>
+        </li>
+        <% } %>
+    </ul>
+  </div>
+</li>

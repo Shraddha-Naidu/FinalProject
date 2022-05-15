@@ -1,29 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
+<p>To Dos</p>
+<li>
+  <div style="color: white" class="content">
+    <ul>
+      <% if (result1) { %>
+        <li>
+          <%= result1[0].comment %>
+        </li>
+        <% } %>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Express + EJS Boilerplate</title>
-  <link rel="stylesheet" href="/styles/style.css">
-</head>
-
-<body>
-  <P>ToDos</P>
-
-  <li>
-    <div style="color: white" class="content">
-      <ul>
-        <% if (result1) { %>
-          <li>
-            <%= result1[0].comment %>
-          </li>
-          <% } %>
-
-      </ul>
-    </div>
-  </li>
-</body>
-
-</html>
+    </ul>
+  </div>
+</li>
