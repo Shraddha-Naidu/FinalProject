@@ -12,7 +12,7 @@ const route = require('./src/routes');
 
 const app = express();
 
-app.use(bodyParser.urlencoded({extended : true}));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(session({
 	secret: 'your secret key',
@@ -29,8 +29,8 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'src', 'views'));
 
 app.listen(8000, () => {
-  console.log('Access through http://localhost:8000');
-  console.log('Server running...');
+	console.log('Access through http://localhost:8000');
+	console.log('Server running...');
 });
 
 
