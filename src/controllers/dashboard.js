@@ -3,13 +3,15 @@ const route = express.Router();
 // this connects the database connection and queries to the routing folder
 const db = require('../models/db')
 
-// db.getAllClients
-// db.getToDosForDay
-// db.getCalendarForDay
-
 // Dashboard
 route.get('/', (req, res) => {
-     res.render('dashboard', {result, result1});
+     db.getClientsBySocialWorkerId(function (err, result) {
+          console.log("CLIENT RESULT", result.rows)
+          db.getToDosForDay(function(err, result1) {
+               console.log("TODOS RESULTS", result1.rows)
+               res.render('dashboard', { result: result.rows, result1: result1.rows});
+           })
+        })
 });
 
 module.exports = route;

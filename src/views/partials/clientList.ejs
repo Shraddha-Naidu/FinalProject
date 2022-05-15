@@ -10,13 +10,19 @@
 </head>
 
 <body>
-  <div class="content">
-    <h2>Dashboard</h2>
-    <p class="block">Welcome back!</p>
-    <%- include('partials/clientList.ejs', {result: result}) %>
-    <%- include('partials/toDos.ejs'), {result1: result1} %>
+  <P>Client List</P>
 
-  </div>
+  <li>
+    <div style="color: white" class="content">
+      <ul>
+        <% if (result) { %>
+          <li>
+            <%= result[0].name %>
+          </li>
+          <% } %>
+      </ul>
+    </div>
+  </li>
 </body>
 
 </html>

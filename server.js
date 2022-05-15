@@ -16,7 +16,8 @@ const intakeForm = require('./src/controllers/intakeForm');
 // test
 var users = require ('./src/controllers/user');
 // partials routes defined
-
+const clientList = require('./src/controllers/dashboard_partials_controllers/clientList')
+const toDos = require('./src/controllers/dashboard_partials_controllers/toDos')
 
 // app routes used
 app.use ('/', dashboard);
@@ -25,6 +26,8 @@ app.use ('/intakeForm', intakeForm);
 // test
 app.use('/users', users);
 // partials routes used
+app.use('/partials/clientList', clientList)
+app.use('/partials/toDos', toDos)
 
 
 
