@@ -1,8 +1,8 @@
-DROP TABLE IF EXISTS socialworkers CASCADE;
+DROP TABLE IF EXISTS social_workers CASCADE;
 
-CREATE TABLE socialworkers (
+CREATE TABLE social_workers (
   id SERIAL PRIMARY KEY NOT NULL,
-  name VARCHAR(255) NOT NULL,
+  username VARCHAR(255) NOT NULL,
   email VARCHAR(255) NOT NULL,
   password VARCHAR(255) NOT NULL,
   phone VARCHAR(255) NOT NULL

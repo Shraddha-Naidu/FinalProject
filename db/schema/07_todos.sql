@@ -2,10 +2,10 @@ DROP TABLE IF EXISTS todos CASCADE;
 
 CREATE TABLE todos (
   id SERIAL PRIMARY KEY NOT NULL,
-  socialworker_id INTEGER REFERENCES socialworkers(id) ON DELETE CASCADE,
+  socialworker_id INTEGER REFERENCES social_workers(id) ON DELETE CASCADE,
   applicant_id INTEGER REFERENCES applicants(id) ON DELETE CASCADE,
   item TEXT NOT NULL,
   date DATE NOT NULL,
-  time TIMESTAMPS NOT NULL,
+  time TIMESTAMP NOT NULL,
   completed BOOLEAN NOT NULL DEFAULT FALSE
 );

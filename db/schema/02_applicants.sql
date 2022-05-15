@@ -2,7 +2,7 @@ DROP TABLE IF EXISTS applicants CASCADE;
 
 CREATE TABLE applicants (
   id SERIAL PRIMARY KEY NOT NULL,
-  socialworker_id INTEGER REFERENCES socialworkers(id) ON DELETE CASCADE,
+  socialworker_id INTEGER REFERENCES social_workers(id) ON DELETE CASCADE,
   name VARCHAR(255) NOT NULL,
   email VARCHAR(255) NOT NULL,
   phone VARCHAR(255) NOT NULL,
@@ -10,7 +10,7 @@ CREATE TABLE applicants (
   address VARCHAR(255) NOT NULL,
   known_locations VARCHAR(255) NOT NULL,
   dependants VARCHAR(255) NOT NULL,
-  resource_provided INTEGER REFERENCES resources(id) ON DELETE CASCADE,
+  resource_provided VARCHAR(255) NOT NULL,
   isFlagged BOOLEAN NOT NULL DEFAULT FALSE,
   applied_at DATE NOT NULL DEFAULT CURRENT_DATE,
   isActive BOOLEAN NOT NULL DEFAULT TRUE
