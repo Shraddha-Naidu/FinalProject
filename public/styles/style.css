@@ -53,6 +53,14 @@ p {
   transition: 1s ease;
 }
 
+.main-content_large {
+  width: 90%;
+}
+
+.sidebar_small {
+  width: 10%;
+}
+
 button {
   position: absolute;
   border: none;
