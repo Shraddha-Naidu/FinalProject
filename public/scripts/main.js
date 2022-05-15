@@ -7,3 +7,5 @@ document.querySelector('button').onclick = function () {
   sidebar.classList.toggle('sidebar_small');
   mainContent.classList.toggle('main-content_large')
 }
+
+//// GETS  DATE ////
