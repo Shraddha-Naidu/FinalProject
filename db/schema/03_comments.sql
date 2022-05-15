@@ -1,0 +1,8 @@
+DROP TABLE IF EXISTS comments CASCADE;
+
+CREATE TABLE comments (
+  id SERIAL PRIMARY KEY NOT NULL,
+  socialworker_id INTEGER REFERENCES social_workers(id) ON DELETE CASCADE,
+  applicant_id INTEGER REFERENCES applicants(id) ON DELETE CASCADE,
+  text TEXT NOT NULL
+);

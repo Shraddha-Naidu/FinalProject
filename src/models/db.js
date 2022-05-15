@@ -1,17 +1,20 @@
 // this connects the local database and is jumping off point for queries
 const Pool = require('pg').Pool
-const pool = new Pool({
-  user: 'me',
-  host: 'localhost',
-  database: 'api',
-  password: 'password',
-  port: 5432,
-})
+
+const dbParams = {
+	host: process.env.DB_HOST,
+	port: process.env.DB_PORT,
+	user: process.env.DB_USER,
+	password: process.env.DB_PASS,
+	database: process.env.DB_NAME
+};
+const pool = new Pool(dbParams)
 
 // test 
 module.exports.getUsers = function (callback){
-	pool.query('SELECT * FROM users', callback);
+	pool.query('SELECT * FROM social_workers ORDER BY id ASC', callback);
 }
+
 
 module.exports.getClientsBySocialWorkerId = function (callback){
   const socialWorkerId = 1;
