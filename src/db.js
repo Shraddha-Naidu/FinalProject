@@ -8,16 +8,11 @@ const dbParams = {
 	password: process.env.DB_PASS,
 	database: process.env.DB_NAME
 };
-
 const pool = new Pool(dbParams)
-pool.connect(() => {
-	console.log("Connected to Database")
-});
-
 
 // example query for test purposes
 const getUsers = (request, response) => {
-	pool.query('SELECT * FROM users ORDER BY id ASC', (error, results) => {
+	pool.query('SELECT * FROM social_workers ORDER BY id ASC', (error, results) => {
 		console.log('RESULTS', results)
 		if (error) {
 			throw error
