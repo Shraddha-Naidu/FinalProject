@@ -38,12 +38,14 @@ db.connect();
 const dashboard = require('./src/controllers/dashboard');
 const clientFile = require('./src/controllers/clientFile');
 const intakeForm = require('./src/controllers/intakeForm');
+const day = require('./src/controllers/day');
 
 
 
 
 // app routes used
 app.use ('/', dashboard(db));
+app.use ('/day', day(db));
 
 
 app.set('view engine', 'ejs');
