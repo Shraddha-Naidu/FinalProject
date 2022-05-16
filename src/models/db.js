@@ -16,15 +16,15 @@ module.exports.getUsers = function (callback){
 	pool.query('SELECT * FROM social_workers ORDER BY id ASC', callback);
 }
 
-
 module.exports.getClientsBySocialWorkerId = function (callback){
-  const socialWorkerId = 1;
-	pool.query('SELECT * FROM clients WHERE socialWorkerId = $1', [socialWorkerId], callback);
+  const socialworker_id = 1;
+	pool.query('SELECT * FROM applicants WHERE socialworker_id = $1', [socialworker_id], callback);
 }
 
 module.exports.getToDosForDay = function (callback){
-  const day = '2021-08-09 15:00:00'
-	pool.query('SELECT * FROM to_dos WHERE day = $1', [day], callback);
+  const date = '01-01-2022'
+	const socialworker_id = 1
+	pool.query('SELECT * FROM todos JOIN applicants ON applicants.id = todos.applicant_id WHERE date = $1 AND todos.socialworker_id = $2', [date, socialworker_id], callback);
 }
 
 
