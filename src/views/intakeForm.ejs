@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>INTAKE FORM</title>
+
+  <!--STYLESHEETS-->
+  <link rel="stylesheet" href="/styles/style.css">
+  <link rel="stylesheet" href="/styles/intakeForm.css">
+
+  <!--FONT AWESOME-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!--SIDE BAR-->
+  <%- include('partials/_sideBar') %>
+
+</head>
+<body>
+  <div class="form-box">
+    <h1>INTAKE FORM</h1>
+        <label for="name">Full Name:</label>
+        <input id="name" type="text" name="Name">
+      
+        <label for="phone">Phone</label>
+        <input id="phone" type="text" name="Phone">
+
+        <label for="email">Email</label>
+        <input id="email" type="email" name="Email">
+       
+        <div class="housed">
+        <label for="housed">Housed?</label>
+        <div class="dropdown">
+          <button class="dropbtn">Select One</button>
+          <div class="dropdown-content">
+            <a href="#">Yes</a>
+            <a href="#">No</a>
+          </div>
+        </div>
+      </div>
+
+      <label for="address">Address</label>
+      <input id="address" name="Address">
+
+      <label for="locations">Known Locations</label>
+      <input id="locations" type="text" name="Locations">
+
+      <div class="dependents">
+        <label for="dependents">Dependents?</label>
+        <div class="dropdown">
+          <button class="dropbtn">Select One</button>
+          <div class="dropdown-content">
+            <a href="#">Yes</a>
+            <a href="#">No</a>
+          </div>
+        </div>
+      </div>
+      
+        <label for="message">Message</label>
+        <textarea id="message" name="Message"></textarea>
+      <input class="button-primary" type="submit" value="Create File" />
+    </form>
+  </div>
+</body>
+</html>ß

@@ -1,8 +1,12 @@
 <div class="content">
   <table>
-    <p>Client List</p>
     <thead>
-
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Flag</th>
+      </tr>
     </thead>
     <% for (let i=0; i < result.rows.length; i++){ %>
       <tr>
@@ -30,13 +34,6 @@
         <th>Is Flagged?</th>
         <td>
           <%= result.rows[i].isflagged %>
-        </td>
-      </tr>
-
-      <tr>
-        <th>Is Active?</th>
-        <td>
-          <%= result.rows[i].isactive %>
         </td>
       </tr>
       <% } %>
