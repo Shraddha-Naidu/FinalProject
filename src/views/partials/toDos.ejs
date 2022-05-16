@@ -1,35 +1,78 @@
-<table>
-  <p>To Dos</p>
-  <thead>
-    <tr>
-      <th>Related to applicant id:</th>
-      <th>Applicant name:</th>
-      <th>Todo:</th>
-      <th>Date:</th>
-      <th>Time:</th>
-      <th>Is Completed?</th>
-  </thead>
-  </tr>
-  <% for (let i=0; i < result1.rows.length; i++){ %>
-    <tr>
-      <td>
-        <%= result1.rows[i].applicant_id %>
-      </td>
-      <td>
-        <%= result1.rows[i].name %>
-      </td>
-      <td>
-        <%= result1.rows[i].item %>
-      </td>
-      <td>
-        <%= result1.rows[i].date %>
-      </td>
-      <td>
-        <%= result1.rows[i].time %>
-      </td>
-      <td>
-        <%= result1.rows[i].completed %>
-      </td>
-    </tr>
+<style>
+  table,
+  th,
+  td {
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+
+  th,
+  td {
+    padding: 5px;
+    text-align: left;
+  }
+</style>
+<form action="/" method="POST" id="post-form">
+  <div>
+    <input name="date" id="date" type="date">
+    <input id="date" type="submit" value="Change day">
+  </div>
+</form>
+<% if (result1.rows.length===0) { %>
+  <p></p>
+
+  </table>
+  <% } else{ %>
+    <table>
+
+      <thead>
+        <p>To Dos: <%= result1.rows.date %>
+        </p>
+      </thead>
+      <% for (let i=0; i < result1.rows.length; i++){ %>
+        <tr>
+          <th>Related to applicant id:</th>
+          <td>
+            <%= result1.rows[i].applicant_id %>
+          </td>
+        </tr>
+
+        <tr>
+          <th>Applicant name:</th>
+          <td>
+            <%= result1.rows[i].name %>
+          </td>
+        <tr>
+
+        <tr>
+          <th>Todo:</th>
+          <td>
+            <%= result1.rows[i].item %>
+          </td>
+        </tr>
+
+        <tr>
+          <th>Date:</th>
+          <td>
+            <%= result1.rows[i].date %>
+          </td>
+        </tr>
+
+        <tr>
+          <th>Time:</th>
+          <td>
+            <%= result1.rows[i].time %>
+          </td>
+        </tr>
+
+        <tr></tr>
+        <th>Is Completed?</th>
+        <td>
+          <%= result1.rows[i].completed %>
+        </td>
+        </tr>
+        <% } %>
+    </table>
     <% } %>
-</table>
+      <script>
+      </script>
