@@ -1,36 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 
 body {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
   font-family: 'Poppins', sans-serif;
-  padding: 10px;
-  text-align: center;
 }
 
-h1 {
-  color: #fffffe;
-  font-size: 24px;
-}
-
-h2 {
-  color: #a7a9be;
-  font-size: 26px;
-}
-
-p {
-  color: #a7a9be;
-  font-size: 22px;
-}
 
 /* SIDE BAR STYLNG*/
 /* The sidebar menu */
@@ -50,7 +24,7 @@ p {
 .sidenav a {
   padding: 6px 8px 6px 16px;
   text-decoration: none;
-  font-size: 20px;
+  font-size: 15px;
   color: #cbcbcb;
   display: block;
   text-align: left;
@@ -60,11 +34,89 @@ p {
 .sidenav a:hover {
   color: #647bcd;
 }
+/* Top Logo */
+.sidenav i {
+  color: white;
+  font-size: 45px;
+  padding-top: 30px;
+  padding-bottom: 25px;
+  text-align: center;
+  }
 
-/* Style page content */
+  /*Welcome Statement*/
+  .sidenav h3{
+    color: white;
+    font-size: 15px;
+    padding-bottom: 5px;
+    text-align: center;
+  }
+
+  /* Today's Date */
+  .sidenav h4{
+    color: white;
+    font-size: 15px;
+    padding-bottom: 25px;
+    text-align: center;
+  }
+
+  /* Bottom Menu Items */
+  .sidenav div{
+    color: white;
+    font-size: 5px;
+    padding-top: 85px;
+  }
+  /* LOGOUT */
+  .sidenav div a{
+    color: white;
+    text-align: left;
+    font-size: 10px;
+  }
+
+  /* Settings Gear */
+  .sidenav div i{
+    color: white;
+    text-align: left;
+    font-size: 10px;
+    padding-top: 5px;
+    float: left;
+    padding-left: 20px;
+  }
+
+/* Style Dashboard */
 .main {
   margin-left: 160px;
   padding: 0px 10px;
+  display: grid;
+  justify-content: space-between;
+}
+
+/* Row Styling for Calendar and Client List*/
+div .row {
+  align-items: flex-start;
+  justify-content: space-around;
+  display: flex;
+}
+
+/* Calendar Styling*/
+div #calendar-box {
+  width: 300px;
+  border: 10px black;
+  font-size: 15px;
+}
+
+
+/* Contact List Styling*/
+div #client-list-box {
+  width: 300px;
+  border: 5px black;
+  font-size: 15px;
+}
+
+/* To-Do list Styling*/
+div #todo-box {
+  border: 5px black;
+  font-size: 15px;
+  padding-top: 50px;
 }
 
 /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
@@ -72,11 +124,5 @@ p {
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
 }
-.sidenav i {
-color: white;
-font-size: 45px;
-padding-top: 10px;
-padding-bottom: 10px;
-}
 
-/* CALENDAR STYLING*/
+
