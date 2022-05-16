@@ -1,1 +1,35 @@
-<p>To Dos</p>
+<table>
+  <caption>To Dos</caption>
+  <thead>
+    <tr>
+      <th>Related to applicant id:</th>
+      <th>Applicant name:</th>
+      <th>Todo:</th>
+      <th>Date:</th>
+      <th>Time:</th>
+      <th>Is Completed?</th>
+  </thead>
+  </tr>
+  <% for (let i=0; i < result1.rows.length; i++){ %>
+    <tr>
+      <td>
+        <%= result1.rows[i].applicant_id %>
+      </td>
+      <td>
+        <%= result1.rows[i].name %>
+      </td>
+      <td>
+        <%= result1.rows[i].item %>
+      </td>
+      <td>
+        <%= result1.rows[i].date %>
+      </td>
+      <td>
+        <%= result1.rows[i].time %>
+      </td>
+      <td>
+        <%= result1.rows[i].completed %>
+      </td>
+    </tr>
+    <% } %>
+</table>
