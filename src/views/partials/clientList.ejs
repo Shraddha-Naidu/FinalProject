@@ -2,29 +2,39 @@
   <table>
     <p>Client List</p>
     <thead>
-      <tr>
-        <th>Name of Client:</th>
-        <th>Email Address</th>
-        <th>Phone</th>
-        <th>Is Flagged?</th>
-        <th>Is Active?</th>
 
-      </tr>
     </thead>
     <% for (let i=0; i < result.rows.length; i++){ %>
       <tr>
+        <th>Name of Client:</th>
         <td>
           <%= result.rows[i].name %>
         </td>
+      </tr>
+
+      <tr>
+        <th>Email Address</th>
         <td>
           <%= result.rows[i].email %>
         </td>
+      </tr>
+
+      <tr>
+        <th>Phone</th>
         <td>
           <%= result.rows[i].phone %>
         </td>
+      </tr>
+
+      <tr>
+        <th>Is Flagged?</th>
         <td>
           <%= result.rows[i].isflagged %>
         </td>
+      </tr>
+
+      <tr>
+        <th>Is Active?</th>
         <td>
           <%= result.rows[i].isactive %>
         </td>

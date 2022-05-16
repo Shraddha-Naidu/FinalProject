@@ -29,24 +29,26 @@ route.post('/', (req, res) => {
      let [yyyy, mm, dd] = date.split("-");
      let revdate = `${dd}-${mm}-${yyyy}`;
      const socialworker_id = 1
-
+     console.log("REQ DATE", req.body.date)
      const getClientsBySocialWorkerId = 'SELECT * FROM applicants WHERE socialworker_id = $1';
      const getToDosForDay = 'SELECT * FROM todos JOIN applicants ON applicants.id = todos.applicant_id WHERE date = $1 AND todos.socialworker_id = $2'
      db.query(getClientsBySocialWorkerId, [socialworker_id]) 
      .then((result) => {
           db.query(getToDosForDay, [revdate, socialworker_id])
           .then((result1) => {
+               if (result.rows.length === 0) {
+                    res.redirect("/")
+               } else {
+               console.log("RESULT1", result1)
                res.render("dashboard", { result: result, result1: result1})
+               }
           })
           .catch((e) => {
                console.error(e);
                res.send(e);
              })
-     })
-
+          })
 });
-
-
 
 return route;
 };
