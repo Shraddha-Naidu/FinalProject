@@ -1,6 +1,13 @@
 <table>
-  <caption>To Dos</caption>
+  <p>To Dos for: <%= result1.rows[0].date %>
+  </p>
   <thead>
+    <form action="/" method="POST" id="post-form">
+      <div>
+        <input name="date" id="date" type="date">
+        <input id="date" type="submit" value="Change day">
+      </div>
+    </form>
     <tr>
       <th>Related to applicant id:</th>
       <th>Applicant name:</th>
@@ -10,26 +17,29 @@
       <th>Is Completed?</th>
   </thead>
   </tr>
-  <% for (let i=0; i < result1.rows.length; i++){ %>
+  <% for (let i=0; i < result.rows.length; i++){ %>
     <tr>
       <td>
-        <%= result1.rows[i].applicant_id %>
+        <%= result.rows[i].applicant_id %>
       </td>
       <td>
-        <%= result1.rows[i].name %>
+        <%= result.rows[i].name %>
       </td>
       <td>
-        <%= result1.rows[i].item %>
+        <%= result.rows[i].item %>
       </td>
       <td>
-        <%= result1.rows[i].date %>
+        <%= result.rows[i].date %>
       </td>
       <td>
-        <%= result1.rows[i].time %>
+        <%= result.rows[i].time %>
       </td>
       <td>
-        <%= result1.rows[i].completed %>
+        <%= result.rows[i].completed %>
       </td>
     </tr>
     <% } %>
 </table>
+
+<script>
+</script>

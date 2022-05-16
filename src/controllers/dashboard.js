@@ -1,18 +1,53 @@
 const express = require('express');
 const route = express.Router();
-// this connects the database connection and queries to the routing folder
-const db = require('../models/db')
 
+
+module.exports = (db) => {
 // Dashboard
 route.get('/', (req, res) => {
-     db.getClientsBySocialWorkerId(function (err, result) {
-          console.log("CLIENT RESULT", result)
-          db.getToDosForDay(function(err, result1) {
-               console.log("TODOS RESULTS", result1)
-               res.render('dashboard', { result: result, result1: result1});
-           })
-        })
+     const date = '01-01-2022'
+     const socialworker_id = 1
+
+     const getClientsBySocialWorkerId = 'SELECT * FROM applicants WHERE socialworker_id = $1';
+     const getToDosForDay = 'SELECT * FROM todos JOIN applicants ON applicants.id = todos.applicant_id WHERE date = $1 AND todos.socialworker_id = $2'
+     db.query(getClientsBySocialWorkerId, [socialworker_id]) 
+     .then((result) => {
+          db.query(getToDosForDay, [date, socialworker_id])
+          .then((result1) => {
+               res.render("dashboard", { result: result, result1: result1})
+          })
+          .catch((e) => {
+               console.error(e);
+               res.send(e);
+             })
+     })
 });
 
-module.exports = route;
+// Change Day Handler
+route.post('/', (req, res) => {
+     const date = req.body.date
+     let [yyyy, mm, dd] = date.split("-");
+     let revdate = `${dd}-${mm}-${yyyy}`;
+     const socialworker_id = 1
+
+     const getClientsBySocialWorkerId = 'SELECT * FROM applicants WHERE socialworker_id = $1';
+     const getToDosForDay = 'SELECT * FROM todos JOIN applicants ON applicants.id = todos.applicant_id WHERE date = $1 AND todos.socialworker_id = $2'
+     db.query(getClientsBySocialWorkerId, [socialworker_id]) 
+     .then((result) => {
+          db.query(getToDosForDay, [revdate, socialworker_id])
+          .then((result1) => {
+               res.render("dashboard", { result: result, result1: result1})
+          })
+          .catch((e) => {
+               console.error(e);
+               res.send(e);
+             })
+     })
+
+});
+
+
+
+return route;
+};
 
