@@ -5,9 +5,11 @@ const route = express.Router();
 module.exports = (db) => {
 // Change Day Handler - need to refactor
 route.post('/', (req, res) => {
+    const id = req.body.date;
      const date = req.body.date
      let [yyyy, mm, dd] = date.split("-");
      let revdate = `${dd}-${mm}-${yyyy}`;
+     const searchParams = req.query.name;
      // 02-01-2022
      const socialworker_id = 1
      console.log("REQ DATE", req.body.date)
