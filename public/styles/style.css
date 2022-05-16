@@ -72,5 +72,11 @@ p {
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
 }
+.sidenav i {
+color: white;
+font-size: 45px;
+padding-top: 10px;
+padding-bottom: 10px;
+}
 
 /* CALENDAR STYLING*/
