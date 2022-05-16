@@ -23,7 +23,7 @@ route.get('/', (req, res) => {
      })
 });
 
-// Change Day Handler
+// Change Day Handler - need to refactor
 route.post('/', (req, res) => {
      const date = req.body.date
      let [yyyy, mm, dd] = date.split("-");
