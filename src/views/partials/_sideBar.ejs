@@ -1,9 +1,27 @@
 <!--  SIDE BAR NAVIGATION -->
 <div class="sidenav">
   <i class="fa-solid fa-hand-holding-heart"></i>
+  <h3>Welcome, Cindy!</h3>
+  <h4 class="date" id="current_date"></h4>
   <a href="#">DASHBOARD</a>
+  <a href="#">NEW CLIENT</a>
   <a href="#">CLIENTS</a>
   <a href="#">RESOURCES</a>
   <a href="#">CALENDAR</a>
   <a href="#">MAIL</a>
+  <!--BOTTOM MENU -->
+  <div class="icons">
+    <a href="#">LOGOUT</a>
+    <i class="fa-solid fa-gear"></i>
+  </div>
 </div>
+
+
+
+<script>
+  date = new Date();
+  year = date.getFullYear();
+  month = date.getMonth() + 1;
+  day = date.getDate();
+  document.getElementById("current_date").innerHTML = month + "/" + day + "/" + year;
+</script>
