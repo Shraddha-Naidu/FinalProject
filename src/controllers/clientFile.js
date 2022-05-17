@@ -1,6 +1,5 @@
 const express = require('express');
 const route = express.Router();
-// this connects the database connection and queries to the routing folder
 
 module.exports = (db) => {
 // ClientFile Page
