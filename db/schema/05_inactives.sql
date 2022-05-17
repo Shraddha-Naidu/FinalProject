@@ -1,9 +1,0 @@
-DROP TABLE IF EXISTS inactives CASCADE;
-
-CREATE TABLE inactives (
-  id SERIAL PRIMARY KEY NOT NULL,
-  socialworker_id INTEGER REFERENCES social_workers(id) ON DELETE CASCADE,
-  applicant_id INTEGER REFERENCES applicants(id) ON DELETE CASCADE,
-  reason TEXT NOT NULL,
-  date DATE NOT NULL DEFAULT CURRENT_DATE
-);

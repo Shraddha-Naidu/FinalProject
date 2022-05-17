@@ -1,8 +1,0 @@
-DROP TABLE IF EXISTS flags CASCADE;
-
-CREATE TABLE flags (
-  id SERIAL PRIMARY KEY NOT NULL,
-  socialworker_id INTEGER REFERENCES social_workers(id) ON DELETE CASCADE,
-  applicant_id INTEGER REFERENCES applicants(id) ON DELETE CASCADE,
-  note TEXT NOT NULL
-);
