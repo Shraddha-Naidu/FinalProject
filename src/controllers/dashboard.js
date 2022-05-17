@@ -10,7 +10,7 @@ route.get('/', (req, res) => {
 
      const getClientsBySocialWorkerId = 'SELECT * FROM applicants WHERE socialworker_id = $1';
      const getToDosForDay = 'SELECT * FROM todos JOIN applicants ON applicants.id = todos.applicant_id WHERE date = $1 AND todos.socialworker_id = $2'
-     db.query(getClientsBySocialWorkerId, [socialworker_id]) 
+     db.query(getClientsBySocialWorkerId, [socialworker_id])
      .then((result) => {
           db.query(getToDosForDay, [date, socialworker_id])
           .then((result1) => {
