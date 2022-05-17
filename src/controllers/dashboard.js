@@ -6,12 +6,10 @@ const db = require('../models/db')
 // Dashboard
 route.get('/', (req, res) => {
      db.getClientsBySocialWorkerId(function (err, result) {
-          console.log("CLIENT RESULT", result)
-          db.getToDosForDay(function(err, result1) {
-               console.log("TODOS RESULTS", result1)
-               res.render('dashboard', { result: result, result1: result1});
-           })
-        })
+          db.getToDosForDay(function (err, result1) {
+               res.render('dashboard', { result: result, result1: result1 });
+          })
+     })
 });
 
 module.exports = route;
