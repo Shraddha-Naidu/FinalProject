@@ -3,10 +3,10 @@ const route = express.Router();
 
 module.exports = (db) => {
 // ClientFile Page
-route.get('/:id', (req, res) => {
+route.get('/', (req, res) => {
   const applicant_id = 1
 
-  const getClientById = 'SELECT * FROM applicants WHERE id = $1';
+  const getClientById = 'SELECT * FROM clients WHERE id = $1';
   const getResources = 'SELECT * FROM resources';
   const getFlagsByClientId = 'SELECT * FROM flags WHERE applicant_id = $1'
   const getCommentsByClientId = 'SELECT * FROM comments WHERE applicant_id = $1'
