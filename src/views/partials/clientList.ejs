@@ -1,41 +1,30 @@
 <div class="content">
   <table>
-    <thead>
       <tr>
         <th>Name</th>
         <th>Email</th>
         <th>Phone</th>
         <th>Flag</th>
       </tr>
-    </thead>
+
     <% for (let i=0; i < result.rows.length; i++){ %>
       <tr>
-        <th>Name of Client:</th>
         <td>
           <%= result.rows[i].name %>
         </td>
-      </tr>
 
-      <tr>
-        <th>Email Address</th>
         <td>
           <%= result.rows[i].email %>
         </td>
-      </tr>
 
-      <tr>
-        <th>Phone</th>
         <td>
           <%= result.rows[i].phone %>
         </td>
-      </tr>
 
-      <tr>
-        <th>Is Flagged?</th>
         <td>
           <%= result.rows[i].isflagged %>
         </td>
-      </tr>
+    </tr>
       <% } %>
   </table>
 </div>

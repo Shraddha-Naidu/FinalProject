@@ -5,7 +5,7 @@ const route = express.Router();
 module.exports = (db) => {
    // Intake Form
    route.get('/', (req, res) => {
-      es.render("intakeForm")
+      res.render("intakeForm")
    });
    return route;
    };

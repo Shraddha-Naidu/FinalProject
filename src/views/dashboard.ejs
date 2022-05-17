@@ -27,27 +27,32 @@
       <div class="mb-3 col-xl-6" id="calendar-box">
         <div class="content-box bg-white shadow-sm">
           <h4>TODAY</h4>
+          <div>
+            <button>ADD</button>
+          </div>
         </div>
       </div>
       <div class="mb-3 col-xl-6" id="client-list-box">
         <div class="content-box bg-white shadow-sm">
           <h4>CLIENT LIST</h4>
           <%- include('partials/clientList.ejs') %>
+            <div>
+              <button href="#">ADD</button>
+            </div>
         </div>
       </div>
-      <div>
-        <button>ADD</button>
-      </div>
+
     </div>
 
     <!-- Full box for ToDo list -->
     <div class="content-box mb-3 bg-white shadow-sm" id="todo-box">
       <h4>TO-DO</h4>
       <%- include('partials/toDos.ejs') %>
+        <div>
+          <button>ADD</button>
+        </div>
     </div>
-    <div>
-      <button>ADD</button>
-    </div>
+
 
 
 
