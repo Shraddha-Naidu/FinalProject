@@ -1,16 +1,16 @@
 <table>
-    <tr>
-      <th>Related to applicant id:</th>
-      <th>Client</th>
-      <th>Todo</th>
-      <th>Date</th>
-      <th>Time</th>
-      <th>Completed?</th>
+  <tr>
+    <th>Related to applicant id:</th>
+    <th>Client</th>
+    <th>Todo</th>
+    <th>Date</th>
+    <th>Time</th>
+    <th>Completed?</th>
   </tr>
   <% for (let i=0; i < result1.rows.length; i++){ %>
     <tr>
       <td>
-        <%= result1.rows[i].applicant_id %>
+        <%= result1.rows[i].client_id %>
       </td>
       <td>
         <%= result1.rows[i].name %>

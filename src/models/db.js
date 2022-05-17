@@ -14,18 +14,18 @@ const pool = new Pool(dbParams)
 
 // test 
 module.exports.getUsers = function (callback) {
-	pool.query('SELECT * FROM social_workers ORDER BY id ASC', callback);
+	pool.query('SELECT * FROM users ORDER BY id ASC', callback);
 }
 
 module.exports.getClientsBySocialWorkerId = function (callback) {
-	const socialworker_id = 1;
-	pool.query('SELECT * FROM applicants WHERE socialworker_id = $1', [socialworker_id], callback);
+	const user_id = 1;
+	pool.query('SELECT * FROM clients WHERE socialworker_id = $1', [user_id], callback);
 }
 
 module.exports.getToDosForDay = function (callback) {
 	const date = '01-01-2022'
-	const socialworker_id = 1
-	pool.query('SELECT * FROM todos JOIN applicants ON applicants.id = todos.applicant_id WHERE date = $1 AND todos.socialworker_id = $2', [date, socialworker_id], callback);
+	const user_id = 1
+	pool.query('SELECT * FROM todos JOIN clients ON clients.id = todos.client_id WHERE date = $1 AND todos.user_id = $2', [date, user_id], callback);
 }
 
 

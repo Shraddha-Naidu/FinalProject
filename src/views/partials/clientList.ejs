@@ -1,11 +1,11 @@
 <div class="content">
   <table>
-      <tr>
-        <th>Name</th>
-        <th>Email</th>
-        <th>Phone</th>
-        <th>Flag</th>
-      </tr>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Flag</th>
+    </tr>
 
     <% for (let i=0; i < result.rows.length; i++){ %>
       <tr>
@@ -21,10 +21,10 @@
           <%= result.rows[i].phone %>
         </td>
 
-        <td>
+        <!-- <td>
           <%= result.rows[i].isflagged %>
-        </td>
-    </tr>
+        </td> -->
+      </tr>
       <% } %>
   </table>
 </div>

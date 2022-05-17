@@ -47,7 +47,7 @@ const resources = require('./src/controllers/resources');
 // app routes used
 app.use('/', dashboard(db));
 app.use('/day', day(db));
-app.use('/intakeForm', intakeForm(db));
+app.use('/intakeForm', intakeForm(db))
 app.use('/resources', resources(db));
 
 

@@ -1,6 +1,12 @@
-INSERT INTO todos (socialworker_id, applicant_id, item, date, time, completed)
+INSERT INTO todos (user_id, client_id, item, date, time, completed)
 VALUES
-(1, 1, 'test item', '01-01-2022', '04/23/17 04:34:22 +0000', true),
-(2, 3, 'test item1', '02-01-2022', '04/23/22 04:34:22 +0000', false),
-(4, 2, 'test item2', '03-01-2022', '02/14/22 08:44:24 +0000', true),
-(3, 2, 'test item3', '04-01-2022', '02/12/22 18:44:24 +0000', false)
+(1, 1, 'eu orci mauris lacinia sapien quis libero nullam sit amet turpis elementum ligula vehicula consequat morbi a ipsum integer a nibh in quis justo maecenas rhoncus aliquam lacus morbi quis tortor id nulla ultrices aliquet maecenas leo odio condimentum id luctus nec molestie', '16-Jul-2021', '5:00 PM', false),
+(2, 2, 'montes nascetur ridiculus mus vivamus vestibulum sagittis sapien cum sociis natoque penatibus et magnis dis', '20-Oct-2021', '3:30 PM', false),
+(3, 3, 'montes nascetur ridiculus mus vivamus vestibulum sagittis sapien cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus etiam vel augue vestibulum rutrum rutrum neque aenean auctor gravida sem praesent id massa id nisl venenatis lacinia aenean sit amet justo morbi ut', '11-Feb-2022', '10:50 AM', true),
+(4, 4, 'id justo sit amet sapien dignissim vestibulum vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae nulla dapibus dolor vel est donec odio justo sollicitudin ut suscipit a feugiat et eros vestibulum ac est lacinia nisi venenatis tristique fusce congue diam id ornare', '12-Oct-2021', '9:30 AM', true),
+(4, 5, 'vivamus in felis eu sapien cursus vestibulum proin eu mi nulla ac enim in tempor', '10-Nov-2021', '11:14 PM', true),
+(4, 6, 'id nisl venenatis lacinia aenean sit amet justo morbi ut odio cras mi pede malesuada in imperdiet et commodo vulputate justo in blandit ultrices enim lorem ipsum dolor sit amet consectetuer adipiscing elit proin interdum mauris', '02-Feb-2022', '6:00 PM', false),
+(5, 7, 'non velit donec diam neque vestibulum eget vulputate ut ultrices vel augue vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae donec pharetra magna vestibulum aliquet ultrices erat tortor sollicitudin mi sit amet lobortis sapien sapien', '23-Jul-2021', '9:30 AM', true),
+(5, 8, 'vel enim sit amet nunc viverra dapibus nulla suscipit ligula in lacus curabitur at ipsum ac tellus semper interdum mauris ullamcorper purus sit amet nulla quisque arcu libero', '09-Feb-2022', '5:08 AM', true),
+(1, 9, 'erat volutpat in congue etiam justo etiam pretium iaculis justo in hac habitasse platea dictumst etiam faucibus cursus urna ut tellus nulla ut erat id mauris vulputate elementum nullam varius nulla facilisi cras non velit nec nisi vulputate nonummy maecenas tincidunt lacus at velit vivamus vel nulla eget', '20-Feb-2022', '8:30 AM', false),
+(1, 10, 'luctus rutrum nulla tellus in sagittis dui vel nisl duis ac nibh fusce lacus purus aliquet at feugiat non pretium quis lectus suspendisse potenti in eleifend quam a odio in hac habitasse platea dictumst maecenas ut massa quis augue luctus tincidunt nulla', '11-Sep-2021', '10:00 AM', true);
