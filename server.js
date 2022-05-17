@@ -45,6 +45,7 @@ const day = require('./src/controllers/day');
 // app routes used
 app.use ('/', dashboard(db));
 app.use ('/day', day(db));
+app.use('/intakeForm', intakeForm(db))
 
 
 app.set('view engine', 'ejs');
