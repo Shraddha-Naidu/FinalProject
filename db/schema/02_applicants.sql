@@ -8,11 +8,12 @@ CREATE TABLE applicants (
   phone VARCHAR(255) NOT NULL,
   isHoused BOOLEAN NOT NULL DEFAULT FALSE,
   address VARCHAR(255) NOT NULL,
-  known_locations VARCHAR(255) NOT NULL,
-  dependants VARCHAR(255) NOT NULL,
-  resource_provided VARCHAR(255) NOT NULL,
+  known_locations TEXT,
+  dependants BOOLEAN DEFAULT FALSE,
+  dependants_list TEXT,
+  resource_requested TEXT REFERENCES resources(resource_type) ON DELETE CASCADE,
+  resource_provided INTEGER REFERENCES resources(id) ON DELETE CASCADE,
   isFlagged BOOLEAN NOT NULL DEFAULT FALSE,
   applied_at DATE NOT NULL DEFAULT CURRENT_DATE,
   isActive BOOLEAN NOT NULL DEFAULT TRUE
-
 );
