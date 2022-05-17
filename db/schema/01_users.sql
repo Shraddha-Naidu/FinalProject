@@ -8,3 +8,5 @@ CREATE TABLE users (
   password VARCHAR(255) NOT NULL,
   phone VARCHAR(255) NOT NULL
 );
+
+-- Type refers to access type based on role, ex. Admin, Social Worker, or Provider.
