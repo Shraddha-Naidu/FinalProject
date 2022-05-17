@@ -40,11 +40,15 @@ const dashboard = require('./src/controllers/dashboard');
 const clientFile = require('./src/controllers/clientFile');
 const intakeForm = require('./src/controllers/intakeForm');
 const day = require('./src/controllers/day');
+const resources = require('./src/controllers/resources');
+
 
 
 // app routes used
 app.use ('/', dashboard(db));
 app.use ('/day', day(db));
+app.use ('/resources', resources(db));
+
 
 
 app.set('view engine', 'ejs');
