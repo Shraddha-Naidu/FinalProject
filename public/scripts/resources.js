@@ -1,9 +1,7 @@
-// Client Side Javascript and jquery
-
 // Database Table Generator Script
 $(document).ready(function () {
 
-  $.fn.dataTable.ext.searchBuilder.conditions.office = {
+  $.fn.dataTable.ext.searchBuilder.conditions.resource = {
     "=": {
       // This function decides whether to include the criteria in the search
       isInputValid: function (el, that) {
@@ -45,7 +43,7 @@ $(document).ready(function () {
         let added = [];
 
         // Declare select2 element
-        let el = $('<select class="js-example-placeholder-single js-states form-control" style="width: 300px"/>');
+        let el = $('<select class="js-example-placeholder-single js-states form-control" style="width: 200px"/>');
         $(el).prepend('<option></option>');
 
         // Set necessary listener to trigger search
