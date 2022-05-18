@@ -14,6 +14,10 @@
 
   <!--STYLESHEETS-->
   <link rel="stylesheet" href="/styles/style.css">
+  <!--BOOTSTRAP-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
   <%- include('partials/_sideBar') %>
 </head>
@@ -35,10 +39,10 @@
       <div class="mb-3 col-xl-6" id="client-list-box">
         <div class="content-box bg-white shadow-sm">
           <h4>CLIENT LIST</h4>
+          <div>
+            <button href="#">ADD</button>
+          </div>
           <%- include('partials/clientList.ejs') %>
-            <div>
-              <button href="#">ADD</button>
-            </div>
         </div>
       </div>
 
