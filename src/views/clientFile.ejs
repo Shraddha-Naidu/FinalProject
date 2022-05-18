@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=full-width, initial-scale=1">
+  <title>Client List</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  <link rel="stylesheet" href="/styles/style.css">
+  <link rel='stylesheet' href='/styles/clientList.css'>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <%- include('partials/_sideBar') %>
+</head>
+
+<body>
+
+  <div class="container" id='clientlist'>
+    <div class="table-responsive">
+      <div class="table-wrapper">
+        <div class="table-title">
+          <div class="row">
+            <div class="col">
+              <h1><b>
+                  <%= result.rows[0].name %>'s
+                </b> File
+              </h1>
+            </div>
+          </div>
+        </div>
+
+        <hr>
+        <div class="internal-table">
+          <div class="row">
+            <div class="col-lg">
+              <h3><b>Latest Status of the Application</b>
+              </h3>
+            </div>
+          </div>
+        </div>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Current Status</th>
+              <th>Case Status</th>
+              <th>Application Date</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <%= result.rows[0].status %>
+              </td>
+              <td>
+                <% if (result.rows[0].isactive===true) { %>
+                  <button class="btn btn-success" data-toggle="modal">
+                    <span>
+                      In-Process
+                    </span></button>
+                  <% } else { %>
+                    <button class="btn btn-danger" data-toggle="modal">
+                      <span>
+                        Inactive
+                      </span></button>
+                    <% } %>
+              </td>
+              <td>
+                <%= result.rows[0].applied_at %>
+              </td>
+              <td>
+                <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons"
+                    data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <hr>
+        <div class="internal-table">
+          <div class="row">
+            <div class="col-lg">
+              <h3><b>Personal Information</b>
+              </h3>
+            </div>
+          </div>
+        </div>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Assigned Social Worker</th>
+              <th>Age</th>
+              <th>Citizenship</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <%= result.rows[0].user_name %>
+              </td>
+              <td>
+                <%= result.rows[0].age %>
+              </td>
+              <td>
+                <%= result.rows[0].citizenship %>
+              </td>
+              <td>
+                <%= result.rows[0].status %>
+              </td>
+              <td>
+                <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons"
+                    data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <hr>
+        <div class="internal-table">
+          <div class="row">
+            <div class="col-lg">
+              <h3><b>Contact Information</b>
+              </h3>
+            </div>
+          </div>
+        </div>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Email Address</th>
+              <th>Phone Number</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            <tr>
+              <td>
+                <%= result.rows[0].email %>
+              </td>
+              <td>
+                <%= result.rows[0].phone %>
+              </td>
+              <td>
+                <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons"
+                    data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <hr>
+        <div class="internal-table">
+          <div class="row">
+            <div class="col-lg">
+              <h2><b>Housing Information</b>
+              </h2>
+            </div>
+          </div>
+        </div>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Is housed?</th>
+              <th>Address</th>
+              <th>Known Locations</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            <tr>
+              <td>
+                <%= result.rows[0].ishoused %>
+              </td>
+              <td>
+                <%= result.rows[0].address %>
+              </td>
+              <td>
+                <%= result.rows[0].known_locations %>
+              </td>
+              <td>
+                <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons"
+                    data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <hr>
+        <div class="internal-table">
+          <div class="row">
+            <div class="col-lg">
+              <h3><b>Dependants Information</b>
+              </h3>
+            </div>
+          </div>
+        </div>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>List of Dependants</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% if (result.rows[0].dependants==='true' ) {%>
+              <tr>
+                <td>
+                  <%= result.rows[0].dependents_list %>
+                </td>
+                <td>
+                  <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons"
+                      data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                </td>
+              </tr>
+              <% } else { %>
+                <td>
+                  There are no dependants
+                </td>
+                <td>
+                  <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons"
+                      data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                </td>
+                <%}%>
+          </tbody>
+        </table>
+
+        <hr>
+        <div class="internal-table">
+          <div class="row">
+            <div class="col-lg">
+              <h2><b>Provided Resources</b>
+              </h2>
+            </div>
+          </div>
+        </div>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Provider</th>
+              <th>Resource Type</th>
+              <th>Provider's Phone Number</th>
+              <th>Provider's Email Address</th>
+              <th>Provider's Address</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            <tr>
+              <td>
+                <%= result.rows[0].provider %>
+              </td>
+              <td>
+                <%= result.rows[0].resource_type %>
+              </td>
+              <td>
+                <%= result.rows[0].provider_phone %>
+              </td>
+              <td>
+                <%= result.rows[0].email %>
+              </td>
+              <td>
+                <%= result.rows[0].address %>
+              </td>
+              <td>
+                <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons"
+                    data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <hr>
+        <div class="internal-table">
+          <div class="row">
+            <div class="col-lg">
+              <h2><b>Flags</b>
+              </h2>
+            </div>
+          </div>
+        </div>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Added at</th>
+              <th>Ended at</th>
+              <th>Notes</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            <tr>
+              <td>
+                <%= result.rows[0].start_date %>
+              </td>
+              <td>
+                <%= result.rows[0].end_date %>
+              </td>
+              <td>
+                <%= result.rows[0].note %>
+              </td>
+
+              <td>
+                <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons"
+                    data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <hr>
+        <div class="internal-table">
+          <div class="row">
+            <div class="col-lg">
+              <h2><b>Recent Updates</b>
+              </h2>
+            </div>
+          </div>
+        </div>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Updated at</th>
+              <th>Description</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% for (let i=0; i < result.rows.length; i++){ %>
+              <tr>
+                <td>
+                  <%= result.rows[i].date %>
+                </td>
+                <td>
+                  <%= result.rows[i].description %>
+                </td>
+                <td>
+                  <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons"
+                      data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                </td>
+              </tr>
+              <% } %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+</body>
+
+</html>

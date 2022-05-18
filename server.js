@@ -37,6 +37,7 @@ db.connect();
 
 // app routes defined
 const dashboard = require('./src/controllers/dashboard');
+const clientList = require('./src/controllers/clientList');
 const clientFile = require('./src/controllers/clientFile');
 const intakeForm = require('./src/controllers/intakeForm');
 const day = require('./src/controllers/day');
@@ -48,7 +49,9 @@ const resources = require('./src/controllers/resources');
 app.use('/', dashboard(db));
 app.use('/day', day(db));
 app.use('/intakeForm', intakeForm(db))
-app.use('/resources', resources(db));
+app.use('/resources', resources(db))
+app.use('/clients', clientList(db))
+app.use('/clients', clientFile(db));
 
 
 
