@@ -45,10 +45,10 @@ const resources = require('./src/controllers/resources');
 
 
 // app routes used
-app.use ('/', dashboard(db));
-app.use ('/day', day(db));
+app.use('/', dashboard(db));
+app.use('/day', day(db));
 app.use('/intakeForm', intakeForm(db))
-app.use ('/resources', resources(db));
+app.use('/resources', resources(db));
 
 
 
@@ -56,8 +56,8 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'src', 'views'));
 
 app.listen(8000, () => {
-  console.log('Access through http://localhost:8000');
-  console.log('Server running...');
+	console.log('Access through http://localhost:8000');
+	console.log('Server running...');
 });
 
 

@@ -1,33 +1,37 @@
-<table>
-    <tr>
-      <th>Related to applicant id:</th>
-      <th>Client</th>
-      <th>Todo</th>
-      <th>Date</th>
-      <th>Time</th>
-      <th>Completed?</th>
-  </tr>
-  <% for (let i=0; i < result1.rows.length; i++){ %>
-    <tr>
-      <td>
-        <%= result1.rows[i].applicant_id %>
-      </td>
-      <td>
-        <%= result1.rows[i].name %>
-      </td>
-      <td>
-        <%= result1.rows[i].item %>
-      </td>
-      <td>
-        <%= result1.rows[i].date %>
-      </td>
-      <td>
-        <%= result1.rows[i].time %>
-      </td>
-      <td>
-        <%= result1.rows[i].completed %>
-      </td>
+<div class="col-sm-8 text-left">
+
+  <table class="table" id="table_id" class="display">
+    <thead>
+      <tr>
+        <th>Related to applicant id:</th>
+        <th>Client</th>
+        <th>Todo</th>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Completed?</th>
+    </thead>
     </tr>
-    <% } %>
-      <script>
-      </script>
+    <% for (let i=0; i < result1.rows.length; i++){ %>
+      <tr>
+        <td>
+          <%= result1.rows[i].client_id %>
+        </td>
+        <td>
+          <%= result1.rows[i].name %>
+        </td>
+        <td>
+          <%= result1.rows[i].item %>
+        </td>
+        <td>
+          <%= result1.rows[i].date %>
+        </td>
+        <td>
+          <%= result1.rows[i].time %>
+        </td>
+        <td>
+          <%= result1.rows[i].completed %>
+        </td>
+      </tr>
+      <% } %>
+        <script>
+        </script>

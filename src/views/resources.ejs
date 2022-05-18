@@ -69,9 +69,10 @@
             <thead>
               <tr>
                 <th scope="col">Provider:</th>
-                <th scope="col">Provider Information:</th>
                 <th scope="col">Resource Type:</th>
-                <th scope="col">Phone:</th>
+                <th scope="col">Provider Email:</th>
+                <th scope="col">Provider Phone:</th>
+                <th scope="col">Provider Address:</th>
             </thead>
             </tr>
             <% for (let i=0; i < result.rows.length; i++){ %>
@@ -80,13 +81,17 @@
                   <%= result.rows[i].provider %>
                 </td>
                 <td>
-                  <%= result.rows[i].provider_info %>
-                </td>
-                <td>
                   <%= result.rows[i].resource_type %>
                 </td>
                 <td>
-                  <%= result.rows[i].phone %>
+                  <%= result.rows[i].provider_email %>
+                </td>
+
+                <td>
+                  <%= result.rows[i].provider_phone %>
+                </td>
+                <td>
+                  <%= result.rows[i].provider_address %>
                 </td>
               </tr>
               <% } %>
