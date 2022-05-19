@@ -10,6 +10,11 @@
   <link rel="stylesheet" href="/styles/style.css">
   <link rel="stylesheet" href="/styles/intakeForm.css">
 
+  <!--BOOTSTRAP-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
   <!--FONT AWESOME-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
@@ -20,13 +25,16 @@
 <body>
   <div class="form-box">
     <h1>INTAKE FORM</h1>
-        <label for="name">Full Name:</label>
+        <label for="name">Full Name</label>
         <input id="name" type="text" name="Name">
+
+        <label for="name">Age</label>
+        <input id="name" type="text" name="Age">
       
-        <label for="phone">Phone:</label>
+        <label for="phone">Phone</label>
         <input id="phone" type="text" name="Phone">
 
-        <label for="email">Email:</label>
+        <label for="email">Email</label>
         <input id="email" type="email" name="Email">
        
         <div class="housed">
@@ -46,6 +54,9 @@
       <label for="locations">Known Locations</label>
       <input id="locations" type="text" name="Locations">
 
+      <label for="citizenship">Citizenship</label>
+      <input id="citizenship" type="text" name="Citizenship">
+
       <div class="dependents">
         <label for="dependents">Dependents?</label>
         <div class="dropdown">
@@ -61,27 +72,31 @@
       <input id="dependents-list" type="text" name="List-of-Dependents">
 
       <div class="resources">
-        <h3>Resources</h3>
+        <h4>Resources</h4>
+        <div class="form-check" id="checkbox-container">
         <input type="checkbox" id="counselling" value="Counselling">
-        <label for="counselling">Counselling</label><br>
+        <label for="counselling">Counselling</label>
         <input type="checkbox" id="housing" value="Housing">
-        <label for="housing">Housing</label><br>
+        <label for="housing">Housing</label>
         <input type="checkbox" id="legal" value="Legal">
-        <label for="legal">Legal</label><br><br>
+        <label for="legal">Legal</label>
         <input type="checkbox" id="addictions" value="Addictions">
-        <label for="addictions">Addictions</label><br>
+        <label for="addictions">Addictions</label>
         <input type="checkbox" id="child-care" value="Child-Care">
-        <label for="child-care">Child Care</label><br>
+        <label for="child-care">Child Care</label>
         <input type="checkbox" id="shelter" value="Shelter">
-        <label for="shelter">Shelter</label><br><br>
+        <label for="shelter">Shelter</label>
         <input type="checkbox" id="career" value="Career">
-        <label for="career">Career</label><br><br>
+        <label for="career">Career</label><br>
+      </div>
       </div>
 
       <label for="applied_date">Application Date</label>
       <input type="date" id="applied-date" name="Applied-Date">
-      
-      <input class="button-primary" type="submit" value="Create File" />
+
+      <div class="submit">
+        <input class="button-primary" type="submit" value="Create File" />
+      </div>
     </form>
   </div>
 </body>
