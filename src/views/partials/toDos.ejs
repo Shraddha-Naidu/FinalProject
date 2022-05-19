@@ -25,19 +25,22 @@
           <%= result1.rows[i].time %>
         </td>
         <td>
-          <% if(result1.rows[i].completed=false ){ %>
+          <% if(!result1.rows[i].completed){ %>
             <form method="POST" action="/toDos/<%= result1.rows[i].completed %>">
               <button id="complete-to-do-button" name="<%= result1.rows[i].id %>" type="submit"
                 class="btn btn-outline-primary">Complete</button>
             </form>
             <% }else{ %>
               <p>Task completed</p>
+              <form method="POST" action="/toDos/<%= result1.rows[i].completed %>">
+                <button id="complete-to-do-button" name="<%= result1.rows[i].id %>" type="submit"
+                  class="btn btn-outline-primary">Undo</button>
+              </form>
               <% } %>
         </td>
         <td>
-          <form method="POST" action="/delete/<%= result1.rows[i].id %>">
-            <button id="complete-to-do-button" name="<%= result1.rows[i].id %>" type="submit"
-              class="btn btn-outline-primary">Delete</button>
+          <form method="POST" action="/toDos/delete/<%= result1.rows[i].id %>">
+            <button id="delete-to-do-button" type="submit" class="btn btn-outline-primary">Delete</button>
           </form>
         </td>
       </tr>
