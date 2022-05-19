@@ -46,6 +46,7 @@ const resources = require('./src/controllers/resources');
 
 
 // app routes used
+app.use('/clientFile', clientFile(db));
 app.use('/toDos', toDos(db));
 app.use('/', dashboard(db));
 app.use('/day', day(db));
