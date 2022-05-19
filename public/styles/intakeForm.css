@@ -1,17 +1,21 @@
-body {
-  background: #f7f7f7;
-}
-
 .form-box {
-  max-width: 500px;
-  margin: auto;
-  padding: 50px;
+  max-width: auto;
+  margin-left: 200px;
+  margin-right: 25px;
   background: #ffffff;
-  border: 10px solid #f2f2f2;
 }
 
 h1 {
   text-align: center;
+}
+
+label {
+  margin-top: 5px;
+  font-size: 18px;
+}
+
+input {
+  margin-bottom: 5px;
 }
 
 input, textarea {
@@ -71,3 +75,24 @@ div .dependents {
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown:hover .dropbtn {background-color: darkblue;}
+
+/* CHECKBIX FORMAT */
+div #checkbox-container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  font-size: 12px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+
+
+/* SUBMIT BUTTON */
+div .submit {
+  padding-top: 10px;
+}
