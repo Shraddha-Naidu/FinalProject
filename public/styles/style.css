@@ -87,19 +87,18 @@ body {
   margin-left: 160px;
   padding: 0px 10px;
   display: grid;
-  justify-content: space-between;
 }
 
 /* Row Styling for Calendar and Client List*/
-div .row {
-  align-items: flex-start;
-  justify-content: space-around;
+div .calendar-client-box {
+  justify-content: space-evenly;
   display: flex;
+  margin-left:20px
 }
 
 /* Calendar Styling*/
 div #calendar-box {
-  width: 300px;
+  width: 100%;
   border: 10px black;
   font-size: 15px;
 }
@@ -107,7 +106,7 @@ div #calendar-box {
 
 /* Contact List Styling*/
 div #client-list-box {
-  width: 300px;
+  width: 100%;
   border: 5px black;
   font-size: 15px;
 }
@@ -117,6 +116,8 @@ div #todo-box {
   border: 5px black;
   font-size: 15px;
   padding-top: 50px;
+  width: 100%;
+  margin-left: 20px
 }
 
 /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
