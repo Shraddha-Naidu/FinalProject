@@ -1,9 +1,9 @@
+
 <div class="col-sm-8 text-left">
 
   <table class="table" id="table_id" class="display">
     <thead>
       <tr>
-        <th>Related to applicant id:</th>
         <th>Client</th>
         <th>Todo</th>
         <th>Date</th>
@@ -13,9 +13,6 @@
     </tr>
     <% for (let i=0; i < result1.rows.length; i++){ %>
       <tr>
-        <td>
-          <%= result1.rows[i].client_id %>
-        </td>
         <td>
           <%= result1.rows[i].name %>
         </td>
@@ -29,7 +26,14 @@
           <%= result1.rows[i].time %>
         </td>
         <td>
-          <%= result1.rows[i].completed %>
+          <% if(result1.rows[i].completed= false ){ %>
+            <form method="POST" action="/toDos/<%= result1.rows[i].completed %>">
+              <button id="complete-to-do-button" name="<%= result1.rows[i].id %>" type="submit"
+                class="btn btn-outline-primary">Complete</button>
+            </form>
+            <% }else{ %>
+              <p>Task completed</p>
+              <% } %>
         </td>
       </tr>
       <% } %>
