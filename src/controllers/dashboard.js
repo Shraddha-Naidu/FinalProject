@@ -9,11 +9,12 @@ module.exports = (db) => {
           const user_id = 1
 
           const getClientsByUserId = 'SELECT * FROM clients WHERE user_id = $1';
-          const getToDosForDay = 'SELECT * FROM todos JOIN clients ON clients.id = todos.client_id WHERE date = $1 AND todos.user_id = $2'
+          const getToDos = 'SELECT * FROM todos JOIN clients ON clients.id = todos.client_id WHERE todos.user_id = $1'
           db.query(getClientsByUserId, [user_id])
                .then((result) => {
-                    db.query(getToDosForDay, [date, user_id])
+                    db.query(getToDos, [user_id])
                          .then((result1) => {
+
                               res.render("dashboard", { result: result, result1: result1 })
                          })
                          .catch((e) => {
@@ -34,11 +35,11 @@ module.exports = (db) => {
           console.log("REQ DATE", req.body.date)
           console.log("REVDATE", revdate)
           const getClientsBySocialWorkerId = 'SELECT * FROM clients WHERE user_id = $1';
-          const getToDosForDay = 'SELECT * FROM todos JOIN clients ON clients.id = todos.client_id WHERE date = $1 AND todos.user_id = $2'
+          const getToDos = 'SELECT * FROM todos JOIN clients ON clients.id = todos.client_id WHERE date = $1 AND todos.user_id = $2'
           db.query(getClientsBySocialWorkerId, [user_id])
                .then((result) => {
                     console.log("RESULT", result.rows)
-                    db.query(getToDosForDay, [revdate, user_id])
+                    db.query(getToDos, [user_id])
                          .then((result1) => {
                               if (result1.rows.length === 0) {
                                    console.log("NO TODOS IN DATABASE")
