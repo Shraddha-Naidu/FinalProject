@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=full-width, initial-scale=1">
-  <title>Client List</title>
+  <title>Client File</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
@@ -13,6 +13,7 @@
   <link rel='stylesheet' href='/styles/clientList.css'>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src='/scripts/buttons.js'></script>
   <%- include('partials/_sideBar') %>
 </head>
 
@@ -72,8 +73,9 @@
                 <%= result.rows[0].applied_at %>
               </td>
               <td>
-                <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons"
-                    data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
+                <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
+                <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
               </td>
             </tr>
           </tbody>
@@ -113,8 +115,8 @@
                 <%= result.rows[0].status %>
               </td>
               <td>
-                <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons"
-                    data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
+                <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
               </td>
             </tr>
           </tbody>
@@ -147,8 +149,9 @@
                 <%= result.rows[0].phone %>
               </td>
               <td>
-                <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons"
-                    data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
+                <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+
               </td>
             </tr>
           </tbody>
@@ -184,8 +187,9 @@
                 <%= result.rows[0].known_locations %>
               </td>
               <td>
-                <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons"
-                    data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
+                <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+
               </td>
             </tr>
           </tbody>
@@ -213,8 +217,9 @@
                   <%= result.rows[0].dependents_list %>
                 </td>
                 <td>
-                  <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons"
-                      data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                  <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
+                  <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+
                 </td>
               </tr>
               <% } else { %>
@@ -222,8 +227,9 @@
                   There are no dependants
                 </td>
                 <td>
-                  <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons"
-                      data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                  <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
+                  <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+
                 </td>
                 <%}%>
           </tbody>
@@ -268,8 +274,9 @@
                 <%= result.rows[0].address %>
               </td>
               <td>
-                <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons"
-                    data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
+                <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+
               </td>
             </tr>
           </tbody>
@@ -307,8 +314,9 @@
               </td>
 
               <td>
-                <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons"
-                    data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
+                <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+
               </td>
             </tr>
           </tbody>
@@ -340,8 +348,8 @@
                   <%= result.rows[i].description %>
                 </td>
                 <td>
-                  <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons"
-                      data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                  <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
+                  <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
                 </td>
               </tr>
               <% } %>
