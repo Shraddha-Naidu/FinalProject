@@ -36,6 +36,7 @@ db.connect();
 
 
 // app routes defined
+const toDos = require('./src/controllers/toDos');
 const dashboard = require('./src/controllers/dashboard');
 const clientFile = require('./src/controllers/clientFile');
 const intakeForm = require('./src/controllers/intakeForm');
@@ -45,6 +46,7 @@ const resources = require('./src/controllers/resources');
 
 
 // app routes used
+app.use('/toDos', toDos(db));
 app.use('/', dashboard(db));
 app.use('/day', day(db));
 app.use('/intakeForm', intakeForm(db))
