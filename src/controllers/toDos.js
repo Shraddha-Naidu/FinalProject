@@ -3,7 +3,6 @@ const route = express.Router();
 
 
 module.exports = (db) => {
-  // Intake Form
   route.post('/', (req, res) => {
     console.log('REQUEST BODY', req.body)
     const { toDo, client, date, time } = req.body
@@ -29,21 +28,30 @@ module.exports = (db) => {
   route.post('/:completed', (req, res) => {
     console.log('REQUEST PARAMS', req.params.completed)
     console.log('REQ BODY', req.body)
-    console.log("OBJECT KEYS", Object.keys(req.body)[0])
-    if (req.params.completed = false) {
-      const completed = true
-      const toDoId = Object.keys(req.body)[0]
-      const updateToDoStatus = 'UPDATE todos SET completed = $1 WHERE id = $2'
-      db.query(updateToDoStatus, [completed, toDoId])
+    const toDoId = Object.keys(req.body)[0]
+    if (req.params.completed = 'false') {
+      const updateToDoStatus = 'UPDATE todos SET completed = true WHERE id = $1 RETURNING *'
+      db.query(updateToDoStatus, [toDoId])
       .then((result) => {
-        res.redirect("/")
+        console.log("UPDATERESULTSFALSE", result.rows)
       })
-      .catch((e) => {
-        console.error(e);
-        res.send(e);
-   })
-  }
-
+      res.redirect("/")
+    }
   });
+
+
+  route.post('/delete/:id', (req, res) => {
+    console.log('REQUEST PARAMS ID', req.params.id)
+    const id = req.params.id
+    const deleteToDo = 'DELETE FROM todos WHERE id = $1 RETURNING *'
+      db.query(deleteToDo, [id])
+      .then((result) => {
+        console.log("DELETERESULTS", result.rows)
+      })
+      res.redirect("/")
+  });
+
+
+
   return route;
   };
