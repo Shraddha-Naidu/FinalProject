@@ -55,20 +55,21 @@
         <div class="content-box bg-white shadow-sm">
           <h4>CLIENT LIST</h4>
           <div>
-            <button onclick="confirmation()">ADD</button>
+            <button href="/intakeForm">ADD</button>
+            <script type="javascript">
+              function confirmation() {
+                var ask = window.cofirm("Is this a new client?")
+                if(ask) {
+                  window.location.href = "/intakeForm"
+                } else {
+                  window.alert("Please reactivate client file from the client directory.")
+                }
+              }
+            </script>
           </div>
           <%- include('partials/clientList.ejs') %>
         </div>
-        <script type="javascript">
-          function confirmation() {
-            var ask = window.cofirm("Is this a new client?")
-            if(ask) {
-              window.location.href = "/intakeForm"
-            } else {
-              window.alert("Please reactivate client file from the client directory.")
-            }
-          }
-        </script>
+        
       </div>
 
     </div>
