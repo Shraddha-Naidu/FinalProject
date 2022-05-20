@@ -20,6 +20,17 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
+  <script type="javascript">
+    function confirmation() {
+      var answer = confirm("Is this a new client?")
+      if(answer) {
+        window.location = "localhost:8000/intakeForm"
+      } else {
+        window.location = "localhost:8000/clientList"
+      }
+    }
+  </script>
+
   <%- include('partials/_sideBar') %>
 </head>
 
@@ -33,7 +44,7 @@
         <div class="content-box bg-white shadow-sm">
           <h4>TODAY</h4>
           <div>
-            <button href="intakeForm">ADD</button>
+            <button href="#">ADD</button>
           </div>
           <div>
             <%- include('partials/_calendar.ejs') %>
@@ -44,10 +55,20 @@
         <div class="content-box bg-white shadow-sm">
           <h4>CLIENT LIST</h4>
           <div>
-            <button href="#">ADD</button>
+            <button onclick="confirmation()">ADD</button>
           </div>
           <%- include('partials/clientList.ejs') %>
         </div>
+        <script type="javascript">
+          function confirmation() {
+            var ask = window.cofirm("Is this a new client?")
+            if(ask) {
+              window.location.href = "/intakeForm"
+            } else {
+              window.alert("Please reactivate client file from the client directory.")
+            }
+          }
+        </script>
       </div>
 
     </div>
@@ -57,9 +78,46 @@
       <h4>TO-DO</h4>
       <%- include('partials/toDos.ejs') %>
         <div>
-          <button>ADD</button>
-        </div>
+          <button type="button" class="button" id="add-todo" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">
+            ADD
+          </button>
+
+          <!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">NEW TODO</h5>
+      </div>
+      <div class="modal-body">
+        <section class="new-todo">
+          <p class="error-message"></p>
+          <form class="new-todo-form">
+
+            <label for="clients">Client</label>
+            <input id="client" type="text" name="Client">
+
+            <label for="todo-item">Item</label>
+            <input id="todo-item" type="text" name="Todo-Item">
+
+            <label for="todo_date">Date</label>
+            <input type="date" id="todo-date" name="Todo-Date">
+
+            <label for="appt">Time</label>
+            <input type="time" id="appt" name="appt" min="07:00" max="18:00" required>
+
+          </form>
+        </section>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="border: none; color: black; background-color: transparent;text-decoration: underline;">Close</button>
+        <button type="submit" class="btn btn-primary" form="create_form" data-bs-dismiss="modal" style="background-color: black;">Create</button>
+      </div>
     </div>
+  </div>
+</div>
+</div>
+</div>
 
 
 
