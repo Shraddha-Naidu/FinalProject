@@ -3,6 +3,7 @@ const route = express.Router();
 
 
 module.exports = (db) => {
+
   route.post('/', (req, res) => {
     console.log('REQUEST BODY', req.body)
     const { toDo, client, date, time } = req.body
@@ -19,11 +20,15 @@ module.exports = (db) => {
       const addToDo = 'INSERT INTO todos (user_id, client_id, item, date, time, completed) VALUES ($1,$2,$3,$4,$5,$6) RETURNING *'
       db.query(addToDo, [user_id, client_id, toDo, date, time, completed])
       .then((result1) => {
-        console.log("ADDTODORESULTS", result1.rows)
+        console.log("ADDTODORESULTS", result1.rows, "NAME", client)
+        res.send({result1: result1.rows, name: client});
       })
+      .catch((e) => {
+        console.error(e);
+        res.send(e);
+      });
     })
-     res.redirect("/")
-  });
+  })
 
   route.post('/:completed', (req, res) => {
     console.log('REQUEST PARAMS', req.params.completed)

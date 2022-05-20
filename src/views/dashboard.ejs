@@ -7,6 +7,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CLIENT CONNECT</title>
 
+  <!--jQuery-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
   <!--Client Side Javascript for ToDo Pop-Up-->
   <script src="/scripts/addToDo.js"></script>
 
@@ -60,9 +63,9 @@
         <div>
           <button id="openToDoButton" class="open-button" onclick="openAddToDoForm()">ADD</button>
         </div>
-        <div class="form-popup" id="addToDoForm">
-          <form class="form-container" action="/toDos" method="POST" id="addToDoForm">
-            <div class=" form-group">
+        <div class="form-popup" id="addToDo">
+          <form action="/toDos" method="POST" id="addToDoForm">
+            <div class="form-group">
               <label for="toDoText"><b>Activity</b></label>
               <input class="form-control" type="text" placeholder="" name="toDo">
 
@@ -81,13 +84,13 @@
               <label for="time"><b>Time</b></label>
               <input class="form-control" type="time" placeholder="time" name="time">
               <div>
-                <button type="submit" class="btn">Add</button>
+                <button class="submit-btn">Add</button>
                 <button type="button" class="btn cancel" onclick="closeAddToDoForm()">Close</button>
               </div>
             </div>
-
           </form>
         </div>
+
     </div>
 
 
