@@ -9,41 +9,42 @@
         <th>Time</th>
         <th>Completed?</th>
     </thead>
+
     </tr>
     <% for (let i=0; i < result1.rows.length; i++){ %>
-      <tr>
-        <td>
-          <%= result1.rows[i].name %>
-        </td>
-        <td>
-          <%= result1.rows[i].item %>
-        </td>
-        <td>
-          <%= result1.rows[i].date %>
-        </td>
-        <td>
-          <%= result1.rows[i].time %>
-        </td>
-        <td>
-          <% if(!result1.rows[i].completed){ %>
-            <form method="POST" action="/toDos/<%= result1.rows[i].completed %>">
-              <button id="complete-to-do-button" name="<%= result1.rows[i].id %>" type="submit"
-                class="btn btn-outline-primary">Complete</button>
-            </form>
-            <% }else{ %>
-              <p>Task completed</p>
+      <div class="to-do-container">
+        <tr>
+          <td>
+            <%= result1.rows[i].name %>
+          </td>
+          <td>
+            <%= result1.rows[i].item %>
+          </td>
+          <td>
+            <%= result1.rows[i].date %>
+          </td>
+          <td>
+            <%= result1.rows[i].time %>
+          </td>
+          <td>
+            <% if(!result1.rows[i].completed){ %>
               <form method="POST" action="/toDos/<%= result1.rows[i].completed %>">
                 <button id="complete-to-do-button" name="<%= result1.rows[i].id %>" type="submit"
-                  class="btn btn-outline-primary">Undo</button>
+                  class="btn btn-outline-primary">Complete</button>
               </form>
-              <% } %>
-        </td>
-        <td>
-          <form method="POST" action="/toDos/delete/<%= result1.rows[i].id %>">
-            <button id="delete-to-do-button" type="submit" class="btn btn-outline-primary">Delete</button>
-          </form>
-        </td>
-      </tr>
-      <% } %>
-        <script>
-        </script>
+              <% }else{ %>
+                <p>Task completed</p>
+                <form method="POST" action="/toDos/<%= result1.rows[i].completed %>">
+                  <button id="complete-to-do-button" name="<%= result1.rows[i].id %>" type="submit"
+                    class="btn btn-outline-primary">Undo</button>
+                </form>
+                <% } %>
+          </td>
+          <td>
+            <form method="POST" action="/toDos/delete/<%= result1.rows[i].id %>">
+              <button id="delete-to-do-button" type="submit" class="btn btn-outline-primary">Delete</button>
+            </form>
+          </td>
+        </tr>
+        <% } %>
+      </div>
