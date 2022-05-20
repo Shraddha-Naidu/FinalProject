@@ -1,17 +1,9 @@
 $(document).ready(function () {
-  var t = $('#tableID').DataTable({
-    "columnDefs": [{
-      "searchable": false,
-      "orderable": false,
-      "targets": 0
-    }],
-    "order": [[1, 'asc']]
+  let t = $('#ExportDataTable').DataTable({
+    "order": [[1, 'asc']],
+    lengthChange: true,
+    buttons: ['copy', 'excel', 'pdf', 'print', 'colvis']
   });
-
-  t.on('draw.dt', function () {
-    var PageInfo = $('#tableID').DataTable().page.info();
-    t.column(0, { page: 'current' }).nodes().each(function (cell, i) {
-      cell.innerHTML = i + 1 + PageInfo.start;
-    });
-  });
+  t.buttons().container()
+    .appendTo('#ExportDataTable_wrapper .row:eq(0)');
 });

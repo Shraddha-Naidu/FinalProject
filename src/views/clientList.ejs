@@ -23,7 +23,6 @@
   <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src='/scripts/buttons.js'></script>
 
   <!-- DataTables JS -->
   <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
@@ -43,11 +42,8 @@
   <script src="https://cdn.datatables.net/buttons/1.5.0/js/buttons.print.min.js"></script>
   <script src="https://cdn.datatables.net/buttons/1.5.0/js/buttons.colVis.min.js"></script>
 
-
   <%- include('partials/_sideBar') %>
     <script src='/scripts/tableControl.js'></script>
-
-
 
 </head>
 
@@ -59,47 +55,31 @@
         <div class="table-title">
           <div class="row">
             <div class="col-xs-6">
-              <h1>List of All <b>Applicants</b></h1>
-            </div>
-            <div class="col-xs-6">
-              <button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i> Add New</button>
+              <h1><b>Client Directory</b></h1>
             </div>
           </div>
         </div>
-        <table class="table table-striped table-hover" id='tableID'>
+        <table class="table table-striped table-hover" id='ExportDataTable'>
           <thead>
             <tr>
-              <th></th>
               <th>Name</th>
-              <th>Age</th>
               <th>Application date</th>
               <th>Status</th>
-              <th>Actions</th>
             </tr>
           </thead>
           <tbody>
             <% for (let i=0; i < result.rows.length; i++){ %>
 
               <tr>
-                <td></td>
                 <td><a href='clients/<%= result.rows[i].id %>'>
                     <%= result.rows[i].name %>
                   </a>
-                </td>
-                <td>
-                  <%= result.rows[i].age %>
                 </td>
                 <td>
                   <%= result.rows[i].applied_at %>
                 </td>
                 <td>
                   <%= result.rows[i].status %>
-                </td>
-
-                <td>
-                  <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
-                  <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                  <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
                 </td>
               </tr>
               <% } %>

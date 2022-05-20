@@ -15,9 +15,9 @@ module.exports = (db) => {
     GROUP BY users.name, clients.id, users.id, resources.id, flags.id, updates.id
     ORDER BY updates.id DESC;`;
 
-    const getResources = 'SELECT * FROM resources WHERE resources.client_id = $1';
-    const getFlagsByClientId = 'SELECT * FROM flags WHERE client_id = $1'
-    const getCommentsByClientId = 'SELECT * FROM updates WHERE client_id = $1'
+    // const getResources = 'SELECT * FROM resources WHERE resources.client_id = $1';
+    // const getFlagsByClientId = 'SELECT * FROM flags WHERE client_id = $1'
+    // const getCommentsByClientId = 'SELECT * FROM updates WHERE client_id = $1'
 
     db.query(getClientData, [client_id])
       .then((result) => {
@@ -30,6 +30,13 @@ module.exports = (db) => {
 
   });
 
+  route.post('/status', (req, res) => {
+    const changeStatus = `UPDATE clients SET isactive = NOT isactive WHERE id = $1 RETURNING *;`;
+    db.query(changeStatus, [req.body.id])
+      .then((status) => {
+        return res.json({ status: 'ok' })
+      })
+  })
   return route;
 };
 

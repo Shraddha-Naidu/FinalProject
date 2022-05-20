@@ -19,6 +19,8 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src='/scripts/buttons.js'></script>
+  <script src='/scripts/toggledButton.js'></script>
+
   <%- include('partials/_sideBar') %>
 </head>
 
@@ -53,7 +55,6 @@
               <th>Current Status</th>
               <th>Case Status</th>
               <th>Application Date</th>
-              <th>Edit</th>
             </tr>
           </thead>
           <tbody>
@@ -63,12 +64,12 @@
               </td>
               <td>
                 <% if (result.rows[0].isactive===true) { %>
-                  <button class="btn btn-success" data-toggle="modal">
+                  <button class="btn btn-success toggle-button" data-toggle="modal" id='critical_btn'>
                     <span>
                       In-Process
                     </span></button>
                   <% } else { %>
-                    <button class="btn btn-danger" data-toggle="modal">
+                    <button class="btn btn-danger toggle-button" data-toggle="modal">
                       <span>
                         Inactive
                       </span></button>
@@ -77,11 +78,7 @@
               <td>
                 <%= result.rows[0].applied_at %>
               </td>
-              <td>
-                <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
-                <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
-                <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-              </td>
+
             </tr>
           </tbody>
         </table>
@@ -102,7 +99,6 @@
               <th>Age</th>
               <th>Citizenship</th>
               <th>Status</th>
-              <th>Edit</th>
             </tr>
           </thead>
           <tbody>
@@ -119,10 +115,7 @@
               <td>
                 <%= result.rows[0].status %>
               </td>
-              <td>
-                <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
-                <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-              </td>
+
             </tr>
           </tbody>
         </table>
@@ -257,7 +250,6 @@
               <th>Provider's Phone Number</th>
               <th>Provider's Email Address</th>
               <th>Provider's Address</th>
-              <th>Edit</th>
             </tr>
           </thead>
           <tbody>
@@ -278,11 +270,7 @@
               <td>
                 <%= result.rows[0].address %>
               </td>
-              <td>
-                <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
-                <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
 
-              </td>
             </tr>
           </tbody>
         </table>

@@ -9,7 +9,7 @@ $(document).ready(function () {
       '<td></td>' +
       '<td><input type="text" class="form-control" name="name" id="name"></td>' +
       '<td><input type="text" class="form-control" name="age" id="age"></td>' +
-      '<td><input type="text" class="form-control" name="application" id="application"></td>' +
+      '<td><input type="date" class="date" name="application" id="application"></td>' +
       '<td><input type="text" class="form-control" name="status" id="status"></td>' +
       '<td>' + actions + '</td>' +
       '</tr>';
