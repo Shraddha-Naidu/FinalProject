@@ -11,17 +11,12 @@ module.exports = (db) => {
           const getToDos = 'SELECT todos.id, todos.user_id, todos.client_id, todos.item, todos.date, todos.time, todos.completed  FROM todos JOIN clients ON clients.id = todos.client_id WHERE todos.user_id = $1'
           db.query(getClientsByUserId, [user_id])
                .then((result) => {
-                    db.query(getToDos, [user_id])
-                         .then((result1) => {
-                              console.log("RESULT1 ROWS RESULTS", result1.rows)
-
-                              res.render("dashboard", { result: result, result1: result1 })
+                              res.render("dashboard", { result: result })
                          })
                          .catch((e) => {
                               console.error(e);
                               res.send(e);
                          })
-               })
      });
 
      route.post('/', (req, res) => {

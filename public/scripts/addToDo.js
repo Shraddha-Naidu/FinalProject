@@ -15,33 +15,54 @@ function closeAddToDoForm() {
 
 const createToDo = function(toDo) {
   let $toDo = `
-  <div class="to-do-container">
     <tr>
       <td>
-        ${toDo.name}
       </td>
       <td>
-      ${toDo.result1[0].item}
+      ${toDo.item}
       </td>
       <td>
-      ${toDo.result1[0].date}
+      ${toDo.date}
       
       </td>
       <td>
-      ${toDo.result1[0].time}
+      ${toDo.time}
       
       </td>
       <td>
-      ${toDo.result1[0].completed}
+      ${toDo.completed}
       </td>
     </tr>
-    </div>
 
 `
 return $toDo;
 }
 
+const renderToDos = function (toDos) {
+  // toDos.forEach((element) => {
+  //   $(".to-do-container").prepend(createToDo(element));
+  // });
+  $.each(toDos, function(key, value) {
+    console.log(value)
+    $(".to-do-container").prepend(createToDo(value))
+  })
+};
+
 $(document).ready(function() {
+    // Loader
+    const loadToDos = function() {
+      $.ajax({
+        type: "GET",
+        url: "/toDos",
+      })
+        .then((data) => {;
+        console.log("DATA", data)
+        renderToDos(data);
+        });
+    };
+      loadToDos();
+  });
+    
 
   // Submit Handler
   $("#addToDoForm").on('submit', function(event) {
@@ -55,13 +76,12 @@ $(document).ready(function() {
     })
     .then((data) => {
       console.log("DATA", data)
-      $(".to-do-container").prepend(createToDo(data));
+      loadToDos()
     })
     .catch((e) => {
       console.log(e);
     });
 
   });
-})
   
 

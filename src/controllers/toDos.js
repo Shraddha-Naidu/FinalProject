@@ -4,6 +4,21 @@ const route = express.Router();
 
 module.exports = (db) => {
 
+  route.get("/", function(req, res) {
+    user_id = 1;
+    const getToDos = 'SELECT todos.id, todos.user_id, todos.client_id, todos.item, todos.date, todos.time, todos.completed  FROM todos JOIN clients ON clients.id = todos.client_id WHERE todos.user_id = $1'
+    db.query(getToDos, [user_id])
+      .then((result) => {
+        console.log("RESULT1 ROWS RESULTS", result.rows)
+        res.send(result.rows);
+        })
+        .catch((e) => {
+        console.error(e);
+        res.send(e);
+      })
+
+  });
+
   route.post('/', (req, res) => {
     console.log('REQUEST BODY', req.body)
     const { toDo, client, date, time } = req.body
