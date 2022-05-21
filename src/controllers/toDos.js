@@ -6,10 +6,10 @@ module.exports = (db) => {
 
   route.get("/", function(req, res) {
     user_id = 1;
-    const getToDos = 'SELECT todos.id, todos.user_id, todos.client_id, todos.item, todos.date, todos.time, todos.completed  FROM todos JOIN clients ON clients.id = todos.client_id WHERE todos.user_id = $1'
+    const getToDos = 'SELECT * FROM todos JOIN clients ON todos.client_id = clients.id WHERE todos.user_id = $1'
     db.query(getToDos, [user_id])
       .then((result) => {
-        console.log("RESULT1 ROWS RESULTS", result.rows)
+        console.log("GET TODOS REQUEST RESULT", result.rows)
         res.send(result.rows);
         })
         .catch((e) => {
@@ -34,9 +34,8 @@ module.exports = (db) => {
       const client_id = result.rows[0].id
       const addToDo = 'INSERT INTO todos (user_id, client_id, item, date, time, completed) VALUES ($1,$2,$3,$4,$5,$6) RETURNING *'
       db.query(addToDo, [user_id, client_id, toDo, date, time, completed])
-      .then((result1) => {
-        console.log("ADDTODORESULTS", result1.rows, "NAME", client)
-        res.send({result1: result1.rows, name: client});
+      .then(() => {
+        res.redirect('/')
       })
       .catch((e) => {
         console.error(e);

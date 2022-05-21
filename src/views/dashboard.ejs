@@ -59,15 +59,15 @@
     <!-- Full box for ToDo list -->
     <div class="content-box mb-3 bg-white shadow-sm">
       <h4>TO-DO</h4>
-      <%- include('partials/toDos.ejs') %>
-        <div>
-          <button id="openToDoButton" class="open-button" onclick="openAddToDoForm()">ADD</button>
-        </div>
-        <div class="form-popup" id="addToDo">
-          <form action="/toDos" method="POST" id="addToDoForm">
-            <div class="form-group">
-              <label for="toDoText"><b>Activity</b></label>
-              <input class="form-control" type="text" placeholder="" name="toDo">
+      <div>
+        <button id="openToDoButton" class="open-button" onclick="openAddToDoForm()">ADD</button>
+      </div>
+      <div class="form-popup" id="addToDo">
+        <form action="/toDos" method="POST" id="addToDoForm">
+          <div class="form-group">
+            <label for="toDoText"><b>Activity</b></label>
+            <input class="form-control" type="text" placeholder="" name="toDo">
+            <div>
 
               <label for="client"><b>Related to Client</b></label>
               <select class="form-control" name="client" id="client">
@@ -88,10 +88,11 @@
                 <button type="button" class="btn cancel" onclick="closeAddToDoForm()">Close</button>
               </div>
             </div>
-          </form>
-        </div>
+        </form>
+      </div>
 
     </div>
+    <%- include('partials/toDos.ejs') %>
 
 
   </div>

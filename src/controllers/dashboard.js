@@ -6,17 +6,16 @@ module.exports = (db) => {
      // Dashboard
      route.get('/', (req, res) => {
           const user_id = 1
-
           const getClientsByUserId = 'SELECT * FROM clients WHERE user_id = $1';
-          const getToDos = 'SELECT todos.id, todos.user_id, todos.client_id, todos.item, todos.date, todos.time, todos.completed  FROM todos JOIN clients ON clients.id = todos.client_id WHERE todos.user_id = $1'
           db.query(getClientsByUserId, [user_id])
                .then((result) => {
-                              res.render("dashboard", { result: result })
+                              res.render("dashboard", { result: result})
                          })
                          .catch((e) => {
                               console.error(e);
                               res.send(e);
                          })
+          
      });
 
      route.post('/', (req, res) => {
