@@ -20,17 +20,6 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-  <script type="javascript">
-    function confirmation() {
-      var answer = confirm("Is this a new client?")
-      if(answer) {
-        window.location = "localhost:8000/intakeForm"
-      } else {
-        window.location = "localhost:8000/clientList"
-      }
-    }
-  </script>
-
   <%- include('partials/_sideBar') %>
 </head>
 
@@ -54,10 +43,10 @@
         <div class="content-box bg-white shadow-sm">
           <h4>CLIENT LIST</h4>
           <div>
-            <button href="/intakeForm">ADD</button>
-            <script type="javascript">
+            <button onclick="confirmation()">ADD NEW CLIENT</button>
+            <script>
               function confirmation() {
-                var ask = window.cofirm("Is this a new client?")
+                var ask = window.confirm("Is this a new client?")
                 if(ask) {
                   window.location.href = "/intakeForm"
                 } else {
