@@ -67,50 +67,10 @@
       <h4>TO-DO</h4>
       <%- include('partials/toDos.ejs') %>
         <div>
-          <button type="button" class="button" id="add-todo" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">
+          <button type="button" class="button" id="add-todo">
             ADD
           </button>
-
-          <!-- Modal -->
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">NEW TODO</h5>
-      </div>
-      <div class="modal-body">
-        <section class="new-todo">
-          <p class="error-message"></p>
-          <form class="new-todo-form">
-
-            <label for="clients">Client</label>
-            <input id="client" type="text" name="Client">
-
-            <label for="todo-item">Item</label>
-            <input id="todo-item" type="text" name="Todo-Item">
-
-            <label for="todo_date">Date</label>
-            <input type="date" id="todo-date" name="Todo-Date">
-
-            <label for="appt">Time</label>
-            <input type="time" id="appt" name="appt" min="07:00" max="18:00" required>
-
-          </form>
-        </section>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="border: none; color: black; background-color: transparent;text-decoration: underline;">Close</button>
-        <button type="submit" class="btn btn-primary" form="create_form" data-bs-dismiss="modal" style="background-color: black;">Create</button>
-      </div>
-    </div>
-  </div>
-</div>
-</div>
-</div>
-
-
-
-
+          </div>
   </div>
 </body>
 
