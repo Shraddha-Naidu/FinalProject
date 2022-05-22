@@ -5,22 +5,23 @@ const route = express.Router();
 module.exports = (db) => {
      // Dashboard
      route.get('/', (req, res) => {
-          const date = '01-01-2022'
           const user_id = 1
-
           const getClientsByUserId = 'SELECT * FROM clients WHERE user_id = $1';
-          const getToDosForDay = 'SELECT * FROM todos JOIN clients ON clients.id = todos.client_id WHERE date = $1 AND todos.user_id = $2'
           db.query(getClientsByUserId, [user_id])
                .then((result) => {
-                    db.query(getToDosForDay, [date, user_id])
-                         .then((result1) => {
-                              res.render("dashboard", { result: result, result1: result1 })
-                         })
-                         .catch((e) => {
-                              console.error(e);
-                              res.send(e);
-                         })
+                    const getToDos = 'SELECT todos.id AS todoId, todos.user_id, todos.client_id, todos.item, todos.date, todos.time, todos.completed, clients.name  FROM todos JOIN clients ON todos.client_id = clients.id WHERE todos.user_id = $1 ORDER BY date ASC;'
+                    db.query(getToDos, [user_id])
+                    .then((result1) => {
+                         console.log("EJS TODO RESULTS", result1.rows)
+                         res.render("dashboard", { result: result, result1: result1 })
+                    })
+                    .catch((e) => {
+                         console.error(e);
+                         res.send(e);
+                    })
+
                })
+          
      });
 
      route.post('/', (req, res) => {
@@ -34,11 +35,11 @@ module.exports = (db) => {
           console.log("REQ DATE", req.body.date)
           console.log("REVDATE", revdate)
           const getClientsBySocialWorkerId = 'SELECT * FROM clients WHERE user_id = $1';
-          const getToDosForDay = 'SELECT * FROM todos JOIN clients ON clients.id = todos.client_id WHERE date = $1 AND todos.user_id = $2'
+          const getToDos = 'SELECT * FROM todos JOIN clients ON clients.id = todos.client_id WHERE date = $1 AND todos.user_id = $2'
           db.query(getClientsBySocialWorkerId, [user_id])
                .then((result) => {
                     console.log("RESULT", result.rows)
-                    db.query(getToDosForDay, [revdate, user_id])
+                    db.query(getToDos, [user_id])
                          .then((result1) => {
                               if (result1.rows.length === 0) {
                                    console.log("NO TODOS IN DATABASE")

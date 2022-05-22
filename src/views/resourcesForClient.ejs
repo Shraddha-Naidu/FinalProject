@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RESOURCES</title>
+
+  <!--STYLESHEETS-->
+  <link rel="stylesheet" href="/styles/style.css">
+  <link rel="stylesheet" href="/styles/resources.css">
+
+
+  <!--BOOTSTRAP-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+  <!--DATA TABLES-->
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.0/css/jquery.dataTables.css">
+  <script type="text/javascript" charset="utf8"
+    src="https://cdn.datatables.net/1.12.0/js/jquery.dataTables.js"></script>
+
+  <script>
+
+    $(document).ready(function () {
+      $('#table_id').DataTable();
+    });
+  </script>
+
+  <!--FONT AWESOME-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+  <!--SIDE BAR-->
+  <%- include('partials/_sideBar') %>
+</head>
+
+<body>
+  <div class="container">
+    <div class="container-fluid">
+      <%- include('partials/_sideBar') %>
+    </div>
+    <div class="container-fluid text-center">
+      <div class="row content">
+        <div class="col-sm-8 text-left">
+          
+          <hr>
+          <div class="container-fluid">
+            <%- include('partials/resourcesforclientmap') %>
+          </div>
+
+          <h3>Resources provided to:
+              <h3>
+                <p>Listed Alphabetically By Provider</p>
+                <table class="table" id="table_id" class="display">
+                  <thead>
+                    <tr>
+                      <th scope="col">Provider:</th>
+                      <th scope="col">Resource Type:</th>
+                      <th scope="col">Provider Email:</th>
+                      <th scope="col">Provider Phone:</th>
+                      <th scope="col">Provider Address:</th>
+                  </thead>
+                  </tr>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</div>
+
+</html>

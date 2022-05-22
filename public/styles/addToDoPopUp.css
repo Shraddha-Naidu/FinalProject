@@ -1,0 +1,12 @@
+.form-popup {
+  display: none;
+  animation: animatetop;
+  animation-name: animatetop;
+  animation-duration: 0.8s
+}
+
+/* Add Animation */
+@keyframes animatetop {
+  from {top: -300px; opacity: 0}
+  to {top: 0; opacity: 1}
+}

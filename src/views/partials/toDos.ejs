@@ -1,36 +1,71 @@
 <div class="col-sm-8 text-left">
 
   <table class="table" id="table_id" class="display">
+
     <thead>
       <tr>
-        <th>Client</th>
+        <th>Client Id</th>
+        <th>Client Name</th>
         <th>Todo</th>
         <th>Date</th>
-        <th>Time</th>
-        <th>Completed</th>
+        <th>Time (24 HR)</th>
     </thead>
-    </tr>
-    <% for (let i=0; i < result1.rows.length; i++){ %>
-      <tr>
-        <td>
-          <%= result1.rows[i].client_id %>
-        </td>
-        <td>
-          <%= result1.rows[i].name %>
-        </td>
-        <td>
-          <%= result1.rows[i].item %>
-        </td>
-        <td>
-          <%= result1.rows[i].date %>
-        </td>
-        <td>
-          <%= result1.rows[i].time %>
-        </td>
-        <td>
-          <%= result1.rows[i].completed %>
-        </td>
-      </tr>
-      <% } %>
-        <script>
-        </script>
+    <tbody id="to-do-container">
+      <% for (let i=0; i < result1.rows.length; i++){ %>
+        <% if(result1.rows[i].completed==false){ %>
+          <tr id="toDo-<%= result1.rows[i].todoid %>">
+            <td>
+              <%= result1.rows[i].client_id %>
+            </td>
+            <td>
+              <%= result1.rows[i].name %>
+            </td>
+            <td>
+              <%= result1.rows[i].item %>
+            </td>
+            <td>
+              <%= result1.rows[i].date.toString().substring(0,16) %>
+            </td>
+            <td>
+              <%= result1.rows[i].time %>
+            </td>
+            <td>
+              <button class="btn btn-danger" id='<%= result1.rows[i].todoid %>' onClick="delete_click(this.id)"
+                type="submit">Delete</button>
+            </td>
+            <td>
+              <button class="btn btn-outline-primary" id='<%= result1.rows[i].todoid %>'
+                onClick="complete_click(this.id)" type="submit">Complete</button>
+            </td>
+          </tr>
+          <% } else{ %>
+            <tr id="toDo-<%= result1.rows[i].todoid %>" class="btn-success">
+              <td>
+                <%= result1.rows[i].client_id %>
+              </td>
+              <td>
+                <%= result1.rows[i].name %>
+              </td>
+              <td>
+                <%= result1.rows[i].item %>
+              </td>
+              <td>
+                <%= result1.rows[i].date.toString().substring(0,16) %>
+              </td>
+              <td>
+                <%= result1.rows[i].time %>
+              </td>
+              <td>
+                <button class="btn btn-danger" id='<%= result1.rows[i].todoid %>' onClick="delete_click(this.id)"
+                  type="submit">Delete</button>
+              </td>
+            </tr>
+            <% } %>
+              <% } %>
+    </tbody>
+
+  </table>
+
+</div>
+<script>
+</script>
