@@ -99,6 +99,7 @@ $(document).ready(function() {
 
   // Submit Handler
   $("#addToDoForm").on('submit', function(event) {
+    console.log($(this).serialize())
     event.preventDefault();
     $.ajax( { 
       method: 'POST',
@@ -121,6 +122,7 @@ $(document).ready(function() {
         })
           .then((data) => {;
           console.log("LOADERDATA", data)
+          $("#to-do-container").empty()
           renderToDos(data);
           })
           .catch((e) => {
