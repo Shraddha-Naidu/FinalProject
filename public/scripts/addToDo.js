@@ -14,6 +14,9 @@ const createToDoTrue = function(toDo) {
 
   let $toDo = `
     <tr id="toDo-${toDo.todoid}" class="btn-success">
+    <td>
+    ${toDo.client_id}
+    </td>
       <td>
       ${toDo.name}
       </td>
@@ -21,15 +24,12 @@ const createToDoTrue = function(toDo) {
       ${toDo.item}
       </td>
       <td>
-      ${toDo.date}
+      ${ toDo.date}
       
       </td>
       <td>
-      ${toDo.time}
+      ${ toDo.time}
       
-      </td>
-      <td>
-      ${toDo.completed}
       </td>
       <td>
     
@@ -45,6 +45,9 @@ const createToDo = function(toDo) {
 
   let $toDo = `
     <tr id="toDo-${toDo.todoid}">
+    <td>
+    ${toDo.client_id}
+    </td>
       <td>
       ${toDo.name}
       </td>
@@ -52,15 +55,12 @@ const createToDo = function(toDo) {
       ${toDo.item}
       </td>
       <td>
-      ${toDo.date}
+      ${ toDo.date}
       
       </td>
       <td>
       ${toDo.time}
       
-      </td>
-      <td>
-      ${toDo.completed}
       </td>
       <td>
     

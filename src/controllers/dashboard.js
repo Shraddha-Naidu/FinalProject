@@ -12,6 +12,7 @@ module.exports = (db) => {
                     const getToDos = 'SELECT todos.id AS todoId, todos.user_id, todos.client_id, todos.item, todos.date, todos.time, todos.completed, clients.name  FROM todos JOIN clients ON todos.client_id = clients.id WHERE todos.user_id = $1 ORDER BY date ASC;'
                     db.query(getToDos, [user_id])
                     .then((result1) => {
+                         console.log("EJS TODO RESULTS", result1.rows)
                          res.render("dashboard", { result: result, result1: result1 })
                     })
                     .catch((e) => {

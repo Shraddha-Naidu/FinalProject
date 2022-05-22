@@ -4,15 +4,15 @@
 
     <thead>
       <tr>
-        <th>Client</th>
+        <th>Client Id</th>
+        <th>Client Name</th>
         <th>Todo</th>
         <th>Date</th>
-        <th>Time</th>
-        <th>Completed?</th>
+        <th>Time (24 HR)</th>
     </thead>
     <tbody id="to-do-container">
       <% for (let i=0; i < result1.rows.length; i++){ %>
-        <% if(result1.rows[i].completed== false){ %>
+        <% if(result1.rows[i].completed==false){ %>
           <tr id="toDo-<%= result1.rows[i].todoid %>">
             <td>
               <%= result1.rows[i].client_id %>
@@ -24,13 +24,10 @@
               <%= result1.rows[i].item %>
             </td>
             <td>
-              <%= result1.rows[i].date %>
+              <%= result1.rows[i].date.toString().substring(0,16) %>
             </td>
             <td>
               <%= result1.rows[i].time %>
-            </td>
-            <td>
-              <%= result1.rows[i].completed %>
             </td>
             <td>
               <button class="btn btn-danger" id='<%= result1.rows[i].todoid %>' onClick="delete_click(this.id)"
@@ -53,13 +50,10 @@
                 <%= result1.rows[i].item %>
               </td>
               <td>
-                <%= result1.rows[i].date %>
+                <%= result1.rows[i].date.toString().substring(0,16) %>
               </td>
               <td>
                 <%= result1.rows[i].time %>
-              </td>
-              <td>
-                <%= result1.rows[i].completed %>
               </td>
               <td>
                 <button class="btn btn-danger" id='<%= result1.rows[i].todoid %>' onClick="delete_click(this.id)"
