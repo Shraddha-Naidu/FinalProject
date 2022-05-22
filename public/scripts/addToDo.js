@@ -82,11 +82,9 @@ return $toDo;
 const renderToDos = function (toDos) {
   for (let i= 0; i < toDos.length; i++ ) {
   if(!toDos[i].completed) {
-    console.log("RENDER TODOS EACH", toDos[i])
-    $("#to-do-container").prepend(createToDo(toDos[i]))
+    $("#to-do-container").append(createToDo(toDos[i]))
   } else {
-    console.log("RENDER TODOS EACH TRUE", toDos[i])
-    $("#to-do-container").prepend(createToDoTrue(toDos[i]))
+    $("#to-do-container").append(createToDoTrue(toDos[i]))
   }
 }
 };
@@ -157,7 +155,6 @@ $(document).ready(function() {
           url: "/toDos",
         })
           .then((data) => {;
-          console.log("LOADERDATA", data)
           $("#to-do-container").empty()
           renderToDos(data);
           })

@@ -6,10 +6,9 @@ module.exports = (db) => {
 
   route.get("/", function(req, res) {
     user_id = 1;
-    const getToDos = 'SELECT todos.id AS todoId, todos.user_id, todos.client_id, todos.item, todos.date, todos.time, todos.completed, clients.name  FROM todos JOIN clients ON todos.client_id = clients.id WHERE todos.user_id = $1;'
+    const getToDos = 'SELECT todos.id AS todoId, todos.user_id, todos.client_id, todos.item, todos.date, todos.time, todos.completed, clients.name  FROM todos JOIN clients ON todos.client_id = clients.id WHERE todos.user_id = $1 ORDER BY date ASC;'
     db.query(getToDos, [user_id])
       .then((result) => {
-        console.log("GET TODOS REQUEST RESULT", result.rows)
         res.send(result.rows);
         })
         .catch((e) => {
@@ -20,7 +19,6 @@ module.exports = (db) => {
   });
 
   route.post('/', (req, res) => {
-    console.log('REQUEST BODY', req.body)
     const { toDo, client, date, time } = req.body
     
     const user_id = 1
@@ -30,7 +28,6 @@ module.exports = (db) => {
     
     db.query(findClientIdByName, [client])
     .then((result) => {
-      console.log("FINDCLIENTIDBYNAME RESULTS", result.rows[0].id)
       const client_id = result.rows[0].id
       const addToDo = 'INSERT INTO todos (user_id, client_id, item, date, time, completed) VALUES ($1,$2,$3,$4,$5,$6) RETURNING *;'
       db.query(addToDo, [user_id, client_id, toDo, date, time, completed])
@@ -47,7 +44,6 @@ module.exports = (db) => {
   route.post('/completedstatus', (req, res) => {
     const status = req.body.status
     const id = req.body.id
-    console.log("COMPLETED REQ BODY", req.body.status)
     const updateToDoStatus = 'UPDATE todos SET completed = $1 WHERE id = $2 RETURNING *;'
       db.query(updateToDoStatus, [status, id])
       .then((result) => {
