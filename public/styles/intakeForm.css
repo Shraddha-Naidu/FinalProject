@@ -74,3 +74,18 @@ body {
 	background: #16195d;
 	color: #fff;
 }
+
+/* CHECK BOX STYLING*/
+
+/* Customize the label (the container) */
+.container {
+  display: block;
+  position: relative;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 15px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
