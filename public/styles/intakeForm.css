@@ -57,7 +57,7 @@ body {
 	width: 55%;
 }
 .new-client-form input[type=submit],
-.new-client-form2 input[type=button]{
+.new-client-form input[type=button]{
 	border: none;
 	padding: 8px 15px 8px 15px;
 	background: #102ec3;
