@@ -42,6 +42,7 @@ const clientFile = require('./src/controllers/clientFile');
 const intakeForm = require('./src/controllers/intakeForm');
 const day = require('./src/controllers/day');
 const resources = require('./src/controllers/resources');
+const resourcesforclient = require('./src/controllers/resourcesforclient')
 
 
 
@@ -52,6 +53,7 @@ app.use('/', dashboard(db));
 app.use('/day', day(db));
 app.use('/intakeForm', intakeForm(db))
 app.use('/resources', resources(db));
+app.use('/resourcesforclient', resourcesforclient(db));
 
 
 

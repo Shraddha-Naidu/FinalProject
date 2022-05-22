@@ -50,10 +50,10 @@
           
           <hr>
           <div class="container-fluid">
-            <%- include('partials/map') %>
+            <%- include('partials/resourcesforclientmap') %>
           </div>
 
-          <h3>Resources provided to: <%= result.rows[0].name %>
+          <h3>Resources provided to:
               <h3>
                 <p>Listed Alphabetically By Provider</p>
                 <table class="table" id="table_id" class="display">
@@ -66,26 +66,6 @@
                       <th scope="col">Provider Address:</th>
                   </thead>
                   </tr>
-                  <% for (let i=0; i < result.rows.length; i++){ %>
-                    <tr>
-                      <td>
-                        <%= result.rows[i].provider %>
-                      </td>
-                      <td>
-                        <%= result.rows[i].resource_type %>
-                      </td>
-                      <td>
-                        <%= result.rows[i].provider_email %>
-                      </td>
-
-                      <td>
-                        <%= result.rows[i].provider_phone %>
-                      </td>
-                      <td>
-                        <%= result.rows[i].provider_address %>
-                      </td>
-                    </tr>
-                    <% } %>
         </div>
       </div>
     </div>
