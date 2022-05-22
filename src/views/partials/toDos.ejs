@@ -11,11 +11,67 @@
         <th>Completed?</th>
     </thead>
     <tbody id="to-do-container">
+      <% for (let i=0; i < result1.rows.length; i++){ %>
+        <% if(result1.rows[i].completed== false){ %>
+          <tr id="toDo-<%= result1.rows[i].todoid %>">
+            <td>
+              <%= result1.rows[i].client_id %>
+            </td>
+            <td>
+              <%= result1.rows[i].name %>
+            </td>
+            <td>
+              <%= result1.rows[i].item %>
+            </td>
+            <td>
+              <%= result1.rows[i].date %>
+            </td>
+            <td>
+              <%= result1.rows[i].time %>
+            </td>
+            <td>
+              <%= result1.rows[i].completed %>
+            </td>
+            <td>
+              <button class="btn btn-danger" id='<%= result1.rows[i].todoid %>' onClick="delete_click(this.id)"
+                type="submit">Delete</button>
+            </td>
+            <td>
+              <button class="btn btn-outline-primary" id='<%= result1.rows[i].todoid %>'
+                onClick="complete_click(this.id)" type="submit">Complete</button>
+            </td>
+          </tr>
+          <% } else{ %>
+            <tr id="toDo-<%= result1.rows[i].todoid %>" class="btn-success">
+              <td>
+                <%= result1.rows[i].client_id %>
+              </td>
+              <td>
+                <%= result1.rows[i].name %>
+              </td>
+              <td>
+                <%= result1.rows[i].item %>
+              </td>
+              <td>
+                <%= result1.rows[i].date %>
+              </td>
+              <td>
+                <%= result1.rows[i].time %>
+              </td>
+              <td>
+                <%= result1.rows[i].completed %>
+              </td>
+              <td>
+                <button class="btn btn-danger" id='<%= result1.rows[i].todoid %>' onClick="delete_click(this.id)"
+                  type="submit">Delete</button>
+              </td>
+            </tr>
+            <% } %>
+              <% } %>
     </tbody>
 
   </table>
 
 </div>
 <script>
-
 </script>

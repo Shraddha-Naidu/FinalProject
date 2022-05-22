@@ -44,10 +44,12 @@ module.exports = (db) => {
     })
   })
 
-  route.post('/completed', (req, res) => {
+  route.post('/completedstatus', (req, res) => {
+    const status = req.body.status
     const id = req.body.id
-    const updateToDoStatus = 'UPDATE todos SET completed = true WHERE id = $1 RETURNING *;'
-      db.query(updateToDoStatus, [id])
+    console.log("COMPLETED REQ BODY", req.body.status)
+    const updateToDoStatus = 'UPDATE todos SET completed = $1 WHERE id = $2 RETURNING *;'
+      db.query(updateToDoStatus, [status, id])
       .then((result) => {
         res.status(201).send();
       })

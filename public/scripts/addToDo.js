@@ -10,6 +10,36 @@ function closeAddToDoForm() {
 }
 // Refactoring ToDo Add/Complete/Delete/Undo-Delete 
 // with jQuery to avoid page reload
+const createToDoTrue = function(toDo) {
+
+  let $toDo = `
+    <tr id="toDo-${toDo.todoid}" class="btn-success">
+      <td>
+      ${toDo.name}
+      </td>
+      <td>
+      ${toDo.item}
+      </td>
+      <td>
+      ${toDo.date}
+      
+      </td>
+      <td>
+      ${toDo.time}
+      
+      </td>
+      <td>
+      ${toDo.completed}
+      </td>
+      <td>
+    
+          <button class="btn btn-danger" id="${toDo.todoid}" onClick="delete_click(this.id)" type="submit">Delete</button>
+         
+      </td>
+    </tr>
+`
+return $toDo;
+}
 
 const createToDo = function(toDo) {
 
@@ -34,12 +64,12 @@ const createToDo = function(toDo) {
       </td>
       <td>
     
-          <button class="btn btn-outline-primary" id="${toDo.todoid}" onClick="delete_click(this.id)" type="submit">Delete</button>
+          <button class="btn btn-danger" id="${toDo.todoid}" onClick="delete_click(this.id)" type="submit">Delete</button>
          
       </td>
-      <td>
+      <td id="complete-id">
 
-        <button  class="btn btn-outline-primary" id="${toDo.todoid}" onClick="complete_click(this.id)"
+        <button class="btn btn-outline-primary" id="${toDo.todoid}" name="true" onClick="complete_click(this.id)"
          type="submit">Complete</button>
     
     </td>
@@ -50,9 +80,15 @@ return $toDo;
 
 // Renderer
 const renderToDos = function (toDos) {
-  $.each(toDos, function(key, value) {
-    $("#to-do-container").prepend(createToDo(value))
-  })
+  for (let i= 0; i < toDos.length; i++ ) {
+  if(!toDos[i].completed) {
+    console.log("RENDER TODOS EACH", toDos[i])
+    $("#to-do-container").prepend(createToDo(toDos[i]))
+  } else {
+    console.log("RENDER TODOS EACH TRUE", toDos[i])
+    $("#to-do-container").prepend(createToDoTrue(toDos[i]))
+  }
+}
 };
 
 const delete_click = function(clicked_id)
@@ -80,18 +116,18 @@ const complete_click = function(clicked_id)
     console.log(id)
     $.ajax( { 
       method: 'POST',
-      url: "/toDos/completed",
-      data: {id}
+      url: "/toDos/completedstatus",
+      data: {status: true, id}
     })
     .then(() => {
-      const val = $(`#toDo-${id}`)
-      .text("Task completed")
+      const val = $(`#toDo-${id} .btn.btn-outline-primary`)
+      .remove()
+      const val1 = $(`#toDo-${id}`)
+      .addClass('btn-success').removeClass('btn-outline-primary')
     })
     .catch((e) => {
       console.log(e);
     });
-
-
 }
 
 $(document).ready(function() {
