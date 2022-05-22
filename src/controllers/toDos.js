@@ -6,7 +6,7 @@ module.exports = (db) => {
 
   route.get("/", function(req, res) {
     user_id = 1;
-    const getToDos = 'SELECT * FROM todos JOIN clients ON todos.client_id = clients.id WHERE todos.user_id = $1'
+    const getToDos = 'SELECT todos.id AS todoId, todos.user_id, todos.client_id, todos.item, todos.date, todos.time, todos.completed, clients.name  FROM todos JOIN clients ON todos.client_id = clients.id WHERE todos.user_id = $1;'
     db.query(getToDos, [user_id])
       .then((result) => {
         console.log("GET TODOS REQUEST RESULT", result.rows)
@@ -32,7 +32,7 @@ module.exports = (db) => {
     .then((result) => {
       console.log("FINDCLIENTIDBYNAME RESULTS", result.rows[0].id)
       const client_id = result.rows[0].id
-      const addToDo = 'INSERT INTO todos (user_id, client_id, item, date, time, completed) VALUES ($1,$2,$3,$4,$5,$6) RETURNING *'
+      const addToDo = 'INSERT INTO todos (user_id, client_id, item, date, time, completed) VALUES ($1,$2,$3,$4,$5,$6) RETURNING *;'
       db.query(addToDo, [user_id, client_id, toDo, date, time, completed])
       .then(() => {
         res.redirect('/')
@@ -44,30 +44,30 @@ module.exports = (db) => {
     })
   })
 
-  route.post('/:completed', (req, res) => {
-    console.log('REQUEST PARAMS', req.params.completed)
-    console.log('REQ BODY', req.body)
-    const toDoId = Object.keys(req.body)[0]
-    if (req.params.completed = 'false') {
-      const updateToDoStatus = 'UPDATE todos SET completed = true WHERE id = $1 RETURNING *'
-      db.query(updateToDoStatus, [toDoId])
+  route.post('/completed', (req, res) => {
+    const id = req.body.id
+    const updateToDoStatus = 'UPDATE todos SET completed = true WHERE id = $1 RETURNING *;'
+      db.query(updateToDoStatus, [id])
       .then((result) => {
-        console.log("UPDATERESULTSFALSE", result.rows)
+        return res.json({ result: 'ok' })
       })
-      res.redirect("/")
-    }
   });
 
 
-  route.post('/delete/:id', (req, res) => {
-    console.log('REQUEST PARAMS ID', req.params.id)
-    const id = req.params.id
-    const deleteToDo = 'DELETE FROM todos WHERE id = $1 RETURNING *'
-      db.query(deleteToDo, [id])
-      .then((result) => {
-        console.log("DELETERESULTS", result.rows)
-      })
-      res.redirect("/")
+  route.post('/delete', (req, res) => {
+    console.log('REQUEST BODY', req.body.id)
+    const id = req.body.id
+    const deleteToDo = 'DELETE FROM todos WHERE id = $1 RETURNING *;'
+    db.query(deleteToDo, [id])
+    .then((result) => {
+    console.log("DELETE RESULTS", result)
+    return res.json({ result: 'ok' })
+    })
+    .catch((e) => {
+      console.error(e);
+      res.send(e);
+    });
+
   });
 
 
