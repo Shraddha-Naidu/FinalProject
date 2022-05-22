@@ -1,98 +1,76 @@
-div .new-client-form {
-  max-width: auto;
-  margin-left: 200px;
-  margin-right: 25px;
-  background: #ffffff;
+body {
+  margin-left: 180px;
 }
 
-h1 {
-  text-align: center;
+.new-client-form{
+	max-width: 750px;
+	padding: 20px 12px 10px 20px;
+	font: 13px Arial, Helvetica, sans-serif;
 }
 
-label {
-  margin-top: 5px;
-  font-size: 18px;
+.new-client-form label{
+	display: block;
+	margin: 0px 0px 15px 0px;
 }
-
-input {
-  margin-bottom: 5px;
+.new-client-form label > span{
+	width: 100px;
+	font-weight: bold;
+	float: left;
+	padding-top: 8px;
+	padding-right: 5px;
 }
-
-input, textarea {
-  width: 100%;
+.new-client-form span.required{
+	color:red;
 }
-
-/* DIV styling for dropdowns */
-div .housed {
-  padding-top: 10px;
-  padding-bottom: 10px;
+.new-client-form .tel-number-field{
+	width: 40px;
+	text-align: center;
 }
-
-div .dependents {
-  padding-top: 10px;
-  padding-bottom: 10px;
+.new-client-form input.input-field, .new-client-form .select-field{
+	width: 48%;	
 }
-
-/* Dropdown Button Blanket Styling */
-.dropbtn {
-
-  background-color: royalblue;
-  color: white;
-  font-size: 14px;
-  border: none;
-  padding: 5px;
+.new-client-form input.input-field, 
+.new-client-form .tel-number-field, 
+.new-client-form .textarea-field, 
+ .new-client-form .select-field{
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	border: 1px solid #C2C2C2;
+	box-shadow: 1px 1px 4px #EBEBEB;
+	-moz-box-shadow: 1px 1px 4px #EBEBEB;
+	-webkit-box-shadow: 1px 1px 4px #EBEBEB;
+	border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	padding: 7px;
+	outline: none;
 }
-
-/* The container <div> - needed to position the dropdown content */
-.dropdown {
-  position: relative;
-  display: inline-block;
+.new-client-form .input-field:focus, 
+.new-client-form .tel-number-field:focus, 
+.new-client-form .textarea-field:focus,  
+.new-client-form .select-field:focus{
+	border: 1px solid #0C0;
 }
-
-/* Dropdown Content (Hidden by Default) */
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f1f1f1;
-  min-width: 120px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
+.new-client-form .textarea-field{
+	height:100px;
+	width: 55%;
 }
-
-/* Links inside the dropdown */
-.dropdown-content a {
-  color: black;
-  padding: 5px 5px;
-  text-decoration: none;
-  display: block;
+.new-client-form input[type=submit],
+.new-client-form2 input[type=button]{
+	border: none;
+	padding: 8px 15px 8px 15px;
+	background: #102ec3;
+	color: #fff;
+	box-shadow: 1px 1px 4px #DADADA;
+	-moz-box-shadow: 1px 1px 4px #DADADA;
+	-webkit-box-shadow: 1px 1px 4px #DADADA;
+	border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
 }
-
-/* Change color of dropdown links on hover */
-.dropdown-content a:hover {background-color: #ddd;}
-
-/* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-content {display: block;}
-
-/* Change the background color of the dropdown button when the dropdown content is shown */
-.dropdown:hover .dropbtn {background-color: darkblue;}
-
-/* CHECKBIX FORMAT */
-div #checkbox-container {
-  display: block;
-  position: relative;
-  padding-left: 35px;
-  margin-bottom: 15px;
-  cursor: pointer;
-  font-size: 12px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-
-
-/* SUBMIT BUTTON */
-div .submit {
-  padding-top: 10px;
+.new-client-form input[type=submit]:hover,
+.new-client-form input[type=button]:hover{
+	background: #16195d;
+	color: #fff;
 }

@@ -10,10 +10,7 @@
   <link rel="stylesheet" href="/styles/style.css">
   <link rel="stylesheet" href="/styles/intakeForm.css">
 
-  <!--BOOTSTRAP-->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+ 
 
   <!--FONT AWESOME-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -23,98 +20,73 @@
 
 </head>
 <body>
+
+  <h1>INTAKE FORM</h1>
+
   <div class="new-client-form">
-    <form id="intake-form"></form>
-    <h1>INTAKE FORM</h1>
-        <label for="name">Full Name</label>
-        <input id="name" type="text" name="Name">
+    <form action="/clients.sql" method="post" id="intake-form">
+    <label for="field1"><span>Name <span class="required">*</span></span><input type="text" class="input-field" name="field1" value="" /></label>
+    <label for="field2"><span>Age <span class="required">*</span></span><input type="text" class="input-field" name="field2" value="" /></label>
+    <label><span>Telephone</span><input type="text" class="tel-number-field" name="tel_no_1" value="" maxlength="4" />-<input type="text" class="tel-number-field" name="tel_no_2" value="" maxlength="4"  />-<input type="text" class="tel-number-field" name="tel_no_3" value="" maxlength="10"  /></label>
+    <label for="field4"><span>Email <span class="required">*</span></span><input type="text" class="input-field" name="field2" value="" /></label>
+    <label for="field3"><span>Name <span class="required">*</span></span><input type="text" class="input-field" name="field1" value="" /></label>
+    
+    <label for="field5"><span>Housed?</span><select name="field4" class="select-field">
+    <option value="Select-One">Select One</option>
+    <option value="One">One</option>
+    <option value="Two">Two</option>
+    </select></label>
+    <label for="field6"><span>Address</span><input type="text" class="input-field" name="field2" value="" /></label>
+    <label for="field7"><span>Known Locations </span><input type="text" class="input-field" name="field1" value="" /></label>
 
-        <label for="name">Age</label>
-        <input id="name" type="text" name="Age">
-
-        <label for="phone">Phone</label>
-        <input id="phone" type="text" name="Phone">
-
-        <label for="email">Email</label>
-        <input id="email" type="email" name="Email">
-
-        <div class="housed">
-        <label for="housed">Housed?</label>
-        <div class="custom-select" style="width:400px;">
-            <select>
-              <option value="0">Select One</option>
-              <option value="1">YES</option>
-              <option value="2">NO</option>
-            </select>
-        </div>
-      </div>
-
-      <label for="address">Address</label>
-      <input id="address" name="Address">
-
-      <label for="locations">Known Locations</label>
-      <input id="locations" type="text" name="Locations">
-
-      <label for="citizenship">Citizenship</label>
-      <input id="citizenship" type="text" name="Citizenship">
-
-      <div class="dependents">
-        <label for="dependents">Dependents?</label>
-        <div class="custom-select" style="width:400px;">
-          <select>
-            <option value="0">Select One</option>
-            <option value="1">YES</option>
-            <option value="2">NO</option>
-          </select>
-        </div>
-      </div>
-      <label for="dependents-list">List of Dependents</label>
-      <input id="dependents-list" type="text" name="List-of-Dependents">
+    <label for="field8"><span>Dependents?</span><select name="field4" class="select-field">
+      <option value="Select-One">Select One</option>
+      <option value="One">One</option>
+      <option value="Two">Two</option>
+      </select></label>
+      <label for="field9"><span>Dependents List </span><input type="text" class="input-field" name="field1" value="" /></label>
 
       <div class="resources">
         <h4>Resources</h4>
-        <div class="form-check" id="checkbox-container">
-        <input type="checkbox" id="counselling" value="Counselling">
-        <label for="counselling">Counselling</label>
-        <input type="checkbox" id="housing" value="Housing">
-        <label for="housing">Housing</label>
-        <input type="checkbox" id="legal" value="Legal">
-        <label for="legal">Legal</label>
-        <input type="checkbox" id="addictions" value="Addictions">
-        <label for="addictions">Addictions</label>
-        <input type="checkbox" id="child-care" value="Child-Care">
-        <label for="child-care">Child Care</label>
-        <input type="checkbox" id="shelter" value="Shelter">
-        <label for="shelter">Shelter</label>
-        <input type="checkbox" id="career" value="Career">
-        <label for="career">Career</label><br>
-      </div>
-      </div>
+        <label class="container">Counselling
+          <input type="checkbox">
+          <span class="checkmark"></span>
+        </label>
+        
+        <label class="container">Housing
+          <input type="checkbox">
+          <span class="checkmark"></span>
+        </label>
+        
+        <label class="container">Legal
+          <input type="checkbox">
+          <span class="checkmark"></span>
+        </label>
+        
+        <label class="container">Addictions
+          <input type="checkbox">
+          <span class="checkmark"></span>
+        </label>
 
-      <label for="applied_date">Application Date</label>
-      <input type="date" id="applied-date" name="Applied-Date">
-
-      <div class="submit">
-        <input class="button-primary" type="submit" value="Create File" />
+        <label class="container">Child Care
+          <input type="checkbox">
+          <span class="checkmark"></span>
+        </label>
+        
+        <label class="container">Shelter
+          <input type="checkbox">
+          <span class="checkmark"></span>
+        </label>
+        
+        <label class="container">Career
+          <input type="checkbox">
+          <span class="checkmark"></span>
+        </label>
+        
+        <label for="field11"><span>Known Locations </span><input type="date" class="input-field" name="field1" value="applied-date" /></label>
       </div>
+    <label><span> </span><input type="submit" value="Submit" /></label>
     </form>
-  </div>
+    </div>
 </body>
-<script>
-  const newClientForm = document.getElementById("intake-form");
-
-  newClientForm.addEventListener('submit', function(event) {
-  event.preventDefault();
-    var request = new XMLHttpRequest();
-    var url = '/clientList';
-    request.open('POST', url, true);
-    request.setRequestHeader('Content-Type', 'application/json');
-    request.onreadystatechange = function () {
-        if (request.readyState === 4 && request.status === 200) {
-            var jsonData = JSON.parse(request.response);
-            console.log(jsonData);
-        }
-    };
-});
-</script>
 </html>
