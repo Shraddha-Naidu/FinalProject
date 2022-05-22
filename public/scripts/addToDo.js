@@ -8,13 +8,13 @@ function closeAddToDoForm() {
   document.getElementById("addToDo").style.display = "none";
   document.getElementById("openToDoButton").style.display = "block";
 }
-
 // Refactoring ToDo Add/Complete/Delete/Undo-Delete 
 // with jQuery to avoid page reload
 
 const createToDo = function(toDo) {
+
   let $toDo = `
-    <tr>
+    <tr id="toDo-${toDo.todoid}">
       <td>
       ${toDo.name}
       </td>
@@ -33,16 +33,15 @@ const createToDo = function(toDo) {
       ${toDo.completed}
       </td>
       <td>
-        <form method="POST" action="/toDos/ ${toDo.completed}">
-          <button id="complete-to-do-button" name="${toDo.id}" type="submit"
-            class="btn btn-outline-primary">Complete</button>
-        </form>
+    
+          <button class="btn btn-outline-primary" id="${toDo.todoid}" onClick="delete_click(this.id)" type="submit">Delete</button>
+         
       </td>
       <td>
-      <form method="POST" action="/toDos/delete/ ${toDo.id}">
-        <button id="delete-to-do-button" name="${toDo.id}" type="submit"
-          class="btn btn-outline-primary">Delete</button>
-      </form>
+
+        <button  class="btn btn-outline-primary" id="${toDo.todoid}" onClick="complete_click(this.id)"
+         type="submit">Complete</button>
+    
     </td>
     </tr>
 `
@@ -52,10 +51,48 @@ return $toDo;
 // Renderer
 const renderToDos = function (toDos) {
   $.each(toDos, function(key, value) {
-    console.log(value)
     $("#to-do-container").prepend(createToDo(value))
   })
 };
+
+const delete_click = function(clicked_id)
+{
+    const id = clicked_id;
+    console.log(id)
+    $.ajax( { 
+      method: 'POST',
+      url: "/toDos/delete",
+      data: {id}
+    })
+    .then(() => {
+      $(`#toDo-${id}`).remove()
+    })
+    .catch((e) => {
+      console.log(e);
+    });
+
+
+}
+
+const complete_click = function(clicked_id)
+{
+    const id = clicked_id;
+    console.log(id)
+    $.ajax( { 
+      method: 'POST',
+      url: "/toDos/completed",
+      data: {id}
+    })
+    .then(() => {
+      const val = $(`#toDo-${id}`)
+      .text("Task completed")
+    })
+    .catch((e) => {
+      console.log(e);
+    });
+
+
+}
 
 $(document).ready(function() {
       // Loader
@@ -67,10 +104,15 @@ $(document).ready(function() {
           .then((data) => {;
           console.log("LOADERDATA", data)
           renderToDos(data);
+          })
+          .catch((e) => {
+            console.log(e);
           });
       };
         loadToDos();
     });
+ 
+
   // Submit Handler
   $("#addToDoForm").on('submit', function(event) {
     event.preventDefault();
@@ -82,6 +124,10 @@ $(document).ready(function() {
     .then(() => {
       loadToDos()
     })
-  });
-  
+    .catch((e) => {
+      console.log(e);
+    });
 
+
+
+  })

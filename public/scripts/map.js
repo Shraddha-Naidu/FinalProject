@@ -1,4 +1,4 @@
-// Map Generator Script
+// Dashboard Map Generator Script
 let map = L.map('map').setView([49.273376, -123.103834], 13);
 
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
