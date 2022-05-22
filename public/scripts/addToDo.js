@@ -95,6 +95,24 @@ const complete_click = function(clicked_id)
 }
 
 $(document).ready(function() {
+ 
+
+  // Submit Handler
+  $("#addToDoForm").on('submit', function(event) {
+    event.preventDefault();
+    $.ajax( { 
+      method: 'POST',
+      url: "/toDos",
+      data: $(this).serialize()
+    })
+    .then(() => {
+      console.log("Hello")
+      loadToDos()
+    })
+    .catch((e) => {
+      console.log(e);
+    });
+
       // Loader
       const loadToDos = function() {
         $.ajax({
@@ -111,23 +129,4 @@ $(document).ready(function() {
       };
         loadToDos();
     });
- 
-
-  // Submit Handler
-  $("#addToDoForm").on('submit', function(event) {
-    event.preventDefault();
-    $.ajax( { 
-      method: 'POST',
-      url: "/toDos",
-      data: $(this).serialize()
-    })
-    .then(() => {
-      loadToDos()
-    })
-    .catch((e) => {
-      console.log(e);
-    });
-
-
-
   })

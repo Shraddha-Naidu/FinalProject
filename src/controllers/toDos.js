@@ -34,8 +34,8 @@ module.exports = (db) => {
       const client_id = result.rows[0].id
       const addToDo = 'INSERT INTO todos (user_id, client_id, item, date, time, completed) VALUES ($1,$2,$3,$4,$5,$6) RETURNING *;'
       db.query(addToDo, [user_id, client_id, toDo, date, time, completed])
-      .then(() => {
-        res.redirect('/')
+      .then((result) => {
+        res.status(201).send();
       })
       .catch((e) => {
         console.error(e);
@@ -49,7 +49,7 @@ module.exports = (db) => {
     const updateToDoStatus = 'UPDATE todos SET completed = true WHERE id = $1 RETURNING *;'
       db.query(updateToDoStatus, [id])
       .then((result) => {
-        return res.json({ result: 'ok' })
+        res.status(201).send();
       })
   });
 
@@ -60,8 +60,7 @@ module.exports = (db) => {
     const deleteToDo = 'DELETE FROM todos WHERE id = $1 RETURNING *;'
     db.query(deleteToDo, [id])
     .then((result) => {
-    console.log("DELETE RESULTS", result)
-    return res.json({ result: 'ok' })
+    res.status(201).send();
     })
     .catch((e) => {
       console.error(e);
