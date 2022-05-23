@@ -46,6 +46,7 @@ module.exports = (db) => {
             updatesNewArr.push(row)
           }
         }
+        console.log("CLIENTFILE RESULT ARR", arr[0])
         res.render("clientFile", { result: arr, updatesNewArr })
       })
       .catch((e) => {
