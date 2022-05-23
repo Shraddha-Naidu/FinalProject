@@ -55,7 +55,7 @@ app.use('/', dashboard(db));
 app.use('/day', day(db));
 app.use('/intakeForm', intakeForm(db))
 app.use('/clients', clientList(db))
-app.use('/clients', clientFile(db));
+app.use('/clientfile', clientFile(db));
 app.use('/resources', resources(db));
 app.use('/mail', mail(db));
 app.use('/resourcesforclient', resourcesforclient(db));
