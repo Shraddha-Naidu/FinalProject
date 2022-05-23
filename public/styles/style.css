@@ -18,14 +18,19 @@ body {
 button {
   border: none;
 	padding: 8px 15px 8px 15px;
-	background: #102ec3;
-	color: #fff;
+	background: #1D3557;
+	color: #F1FAEE;
 	box-shadow: 1px 1px 4px #DADADA;
 	-moz-box-shadow: 1px 1px 4px #DADADA;
 	-webkit-box-shadow: 1px 1px 4px #DADADA;
 	border-radius: 3px;
 	-webkit-border-radius: 3px;
 	-moz-border-radius: 3px;
+}
+
+button :hover {
+  background: #457B9D;
+  
 }
 
 
@@ -38,7 +43,7 @@ button {
   z-index: 1; /* Stay on top */
   top: 0; /* Stay at the top */
   left: 0;
-  background-color: darkblue;
+  background-color: #1D3557;
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 20px;
 }
@@ -47,8 +52,8 @@ button {
 .sidenav a {
   padding: 6px 8px 6px 16px;
   text-decoration: none;
-  font-size: 15px;
-  color: #cbcbcb;
+  font-size: 20px;
+  color: #F1FAEE;
   display: block;
   text-align: left;
 }
@@ -59,16 +64,16 @@ button {
 }
 /* Top Logo */
 .sidenav i {
-  color: white;
-  font-size: 45px;
-  padding-top: 30px;
+  color: #F1FAEE;
+  font-size: 55px;
+  padding-top: 50px;
   padding-bottom: 25px;
   padding-left: 50px;
   }
 
   /*Welcome Statement*/
   .sidenav h3{
-    color: white;
+    color: #F1FAEE;
     font-size: 15px;
     padding-bottom: 5px;
     text-align: center;
@@ -76,7 +81,7 @@ button {
 
   /* Today's Date */
   .sidenav h4{
-    color: white;
+    color: #F1FAEE;
     font-size: 15px;
     padding-bottom: 25px;
     text-align: center;
@@ -84,20 +89,20 @@ button {
 
   /* Bottom Menu Items */
   .sidenav div{
-    color: white;
+    color: #F1FAEE;
     font-size: 5px;
     padding-top: 85px;
   }
   /* LOGOUT */
   .sidenav div a{
-    color: white;
+    color: #F1FAEE;
     text-align: left;
     font-size: 10px;
   }
 
   /* Settings Gear */
   .sidenav div i{
-    color: white;
+    color: #F1FAEE;
     text-align: left;
     font-size: 10px;
     padding-top: 5px;
@@ -107,9 +112,9 @@ button {
 
 /* Style Dashboard */
 .main {
-  margin-left: 160px;
   padding: 0px 10px;
   display: grid;
+  margin-right: 20px;
 }
 
 /* Row Styling for Calendar and Client List*/
@@ -121,7 +126,7 @@ div .calendar-client-box {
 
 /* Calendar Styling*/
 div #calendar-box {
-  width: 100%;
+  width: 80%;
   border: 10px black;
   font-size: 15px;
 }

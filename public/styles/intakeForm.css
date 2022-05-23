@@ -3,7 +3,7 @@ body {
 }
 
 .new-client-form{
-	max-width: 750px;
+	max-width: 800px;
 	padding: 20px 12px 10px 20px;
 	font: 13px Arial, Helvetica, sans-serif;
 }
@@ -20,7 +20,7 @@ body {
 	padding-right: 5px;
 }
 .new-client-form span.required{
-	color:red;
+	color:#E63946;
 }
 .new-client-form .tel-number-field{
 	width: 40px;
@@ -50,7 +50,7 @@ body {
 .new-client-form .tel-number-field:focus, 
 .new-client-form .textarea-field:focus,  
 .new-client-form .select-field:focus{
-	border: 1px solid #0C0;
+	border: 1px solid #A8DADC;
 }
 .new-client-form .textarea-field{
 	height:100px;
@@ -60,7 +60,7 @@ body {
 .new-client-form input[type=button]{
 	border: none;
 	padding: 8px 15px 8px 15px;
-	background: #102ec3;
+	background: #1D3557;
 	color: #fff;
 	box-shadow: 1px 1px 4px #DADADA;
 	-moz-box-shadow: 1px 1px 4px #DADADA;
@@ -71,7 +71,7 @@ body {
 }
 .new-client-form input[type=submit]:hover,
 .new-client-form input[type=button]:hover{
-	background: #16195d;
+	background: #457B9D;
 	color: #fff;
 }
 
