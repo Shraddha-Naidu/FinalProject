@@ -30,12 +30,12 @@
               <%= result1.rows[i].time %>
             </td>
             <td>
-              <button class="btn btn-danger" class="delete" id='<%= result1.rows[i].todoid %>' onClick="delete_click(this.id)"
+              <button class="btn btn-danger" style="background: #E63946" class="delete" id='<%= result1.rows[i].todoid %>' onClick="delete_click(this.id)"
                 type="submit">DELETE</button>
             </td>
             <td>
               <button class="btn btn-outline-primary" id='<%= result1.rows[i].todoid %>'
-                onClick="complete_click(this.id)" type="submit">Complete</button>
+                onClick="complete_click(this.id)" type="submit">DONE</button>
             </td>
           </tr>
           <% } else{ %>
@@ -56,8 +56,8 @@
                 <%= result1.rows[i].time %>
               </td>
               <td>
-                <button class="btn btn-danger" id='<%= result1.rows[i].todoid %>' onClick="delete_click(this.id)"
-                  type="submit">Delete</button>
+                <button class="btn btn-danger" style="background: #E63946" id='<%= result1.rows[i].todoid %>' onClick="delete_click(this.id)"
+                  type="submit">DELETE</button>
               </td>
             </tr>
             <% } %>
