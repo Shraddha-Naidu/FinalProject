@@ -162,3 +162,5 @@ deleteEvent(eventId)
     .catch((err) => {
         console.log(err);
     }); */
+
+    //TO BE IMPLEMENTED LATER
