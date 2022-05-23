@@ -8,7 +8,7 @@
         <th>Client Name</th>
         <th>Todo</th>
         <th>Date</th>
-        <th>Time (24 HR)</th>
+        <th>Time</th>
     </thead>
     <tbody id="to-do-container">
       <% for (let i=0; i < result1.rows.length; i++){ %>
@@ -30,8 +30,8 @@
               <%= result1.rows[i].time %>
             </td>
             <td>
-              <button class="btn btn-danger" id='<%= result1.rows[i].todoid %>' onClick="delete_click(this.id)"
-                type="submit">Delete</button>
+              <button class="btn btn-danger" class="delete" id='<%= result1.rows[i].todoid %>' onClick="delete_click(this.id)"
+                type="submit">DELETE</button>
             </td>
             <td>
               <button class="btn btn-outline-primary" id='<%= result1.rows[i].todoid %>'
