@@ -1,20 +1,23 @@
 $(document).ready(function () {
   $('[data-toggle="tooltip"]').tooltip();
   let actions = $(".updateTable td:last-child").html();
+  const pathname = window.location.pathname;
+  const id = window.location.pathname.substr(9, pathname.length)
   // Append table with add row form on add new button click
-  $(".add-newUpdate").click(function () {
+  $(".add-newUpdate").click(function (event) {
+    $.post("/clients/updates", { id }, function (data) {
 
-    $(this).attr("disabled", "disabled");
-    let index = $("table.updateTable tbody tr:last-child").index();
-    let row = '<tr>' +
-      '<td><input type="date" class="date" name="application" id="application"></td>' +
-      '<td><input type="text" class="form-control" name="name" id="description"></td>' +
-      '<td>' + actions + '</td>' +
-      '</tr>';
-    $("table.updateTable").prepend(row);
-    $("table.updateTable tbody tr").eq(index - 1).find(".add, .edit").toggle();
-    $('[data-toggle="tooltip"]').tooltip();
-
+      $(this).attr("disabled", "disabled");
+      let index = $("table.updateTable tbody tr:last-child").index();
+      let row = '<tr>' +
+        '<td><input type="date" class="date" name="application" id="application"></td>' +
+        '<td><input type="text" class="form-control" name="name" id="description"></td>' +
+        '<td>' + actions + '</td>' +
+        '</tr>';
+      $("table.updateTable").prepend(row);
+      $("table.updateTable tbody tr").eq(index - 1).find(".add, .edit").toggle();
+      $('[data-toggle="tooltip"]').tooltip();
+    })
   });
   // Add row on add button click
   $(document).on("click", ".add", function () {

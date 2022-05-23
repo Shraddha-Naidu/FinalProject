@@ -1,8 +1,31 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
+/* COLOR PALETTE */
+/* #1D3557 Button Color/Dashboard
+/* #F1FAEE Text Color
+/* #E63946 delete button/error messages
+/* #457B9D :hover color
+/* #A8DADC outline color
+
+/* BLANKET STYLING */
+
 
 body {
   font-family: 'Poppins', sans-serif;
+  margin-left: 180px;
+}
+
+button {
+  border: none;
+	padding: 8px 15px 8px 15px;
+	background: #102ec3;
+	color: #fff;
+	box-shadow: 1px 1px 4px #DADADA;
+	-moz-box-shadow: 1px 1px 4px #DADADA;
+	-webkit-box-shadow: 1px 1px 4px #DADADA;
+	border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
 }
 
 
@@ -87,19 +110,18 @@ body {
   margin-left: 160px;
   padding: 0px 10px;
   display: grid;
-  justify-content: space-between;
 }
 
 /* Row Styling for Calendar and Client List*/
-div .row {
-  align-items: flex-start;
-  justify-content: space-around;
+div .calendar-client-box {
+  justify-content: space-evenly;
   display: flex;
+  margin-left:20px
 }
 
 /* Calendar Styling*/
 div #calendar-box {
-  width: 300px;
+  width: 100%;
   border: 10px black;
   font-size: 15px;
 }
@@ -107,7 +129,7 @@ div #calendar-box {
 
 /* Contact List Styling*/
 div #client-list-box {
-  width: 300px;
+  width: 100%;
   border: 5px black;
   font-size: 15px;
 }
@@ -117,6 +139,8 @@ div #todo-box {
   border: 5px black;
   font-size: 15px;
   padding-top: 50px;
+  width: 100%;
+  margin-left: 20px
 }
 
 /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */

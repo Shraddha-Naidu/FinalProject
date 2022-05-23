@@ -7,6 +7,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CLIENT CONNECT</title>
 
+  <!--jQuery-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+  <!--Client Side Javascript for ToDo Pop-Up-->
+  <script src="/scripts/addToDo.js"></script>
+
+
   <!--FONT AWESOME-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
     integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
@@ -14,6 +21,7 @@
 
   <!--STYLESHEETS-->
   <link rel="stylesheet" href="/styles/style.css">
+  <link rel="stylesheet" href="/styles/addToDoPopUp.css">
   <!--BOOTSTRAP-->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -27,12 +35,14 @@
   <div class="main">
 
     <!--Grid for Calendar and Client List-->
-    <div class="row">
-      <div class="mb-3 col-xl-6" id="calendar-box">
+    <div class="calendar-client-box">
+      <div id="calendar-box">
         <div class="content-box bg-white shadow-sm">
-          <h4>TODAY</h4>
+          <h4>YOUR WEEK</h4>
           <div>
-            <button href="intakeForm">ADD</button>
+          </div>
+          <div>
+            <%- include('partials/_calendar.ejs') %>
           </div>
         </div>
       </div>
@@ -40,27 +50,69 @@
         <div class="content-box bg-white shadow-sm">
           <h4>CLIENT LIST</h4>
           <div>
-            <button href="#">ADD</button>
+            <button onclick="confirmation()">ADD NEW CLIENT</button>
+            <script>
+              function confirmation() {
+                var ask = window.confirm("Is this a new client?")
+                if(ask) {
+                  window.location.href = "/intakeForm"
+                } else {
+                  window.alert("Please reactivate client file from the client directory.")
+                }
+              }
+            </script>
           </div>
           <%- include('partials/clientList.ejs') %>
         </div>
+        
       </div>
 
     </div>
 
     <!-- Full box for ToDo list -->
-    <div class="content-box mb-3 bg-white shadow-sm" id="todo-box">
+    <div class="content-box mb-3 bg-white shadow-sm">
       <h4>TO-DO</h4>
-      <%- include('partials/toDos.ejs') %>
-        <div>
-          <button>ADD</button>
-        </div>
+      <p id="to-do-box"></p>
+      <div>
+        <button id="openToDoButton" class="open-button" onclick="openAddToDoForm()">ADD</button>
+      </div>
+      <div class="form-popup" id="addToDo">
+        <form id="addToDoForm">
+          <div class="form-group">
+            <label for="toDoText"><b>Activity</b></label>
+            <input class="form-control" type="text" placeholder="" name="toDo">
+            <div>
+
+              <label for="client"><b>Related to Client</b></label>
+              <select class="form-control" name="client" id="client">
+                <% for (let i=0; i < result.rows.length; i++){ %>
+                  <option value="<%= result.rows[i].name %>">
+                    <%= result.rows[i].name %>
+                  </option>
+                  <% } %>
+              </select>
+
+              <label for="date"><b>Date</b></label>
+              <input class="form-control" type="date" placeholder="date" name="date">
+
+              <label for="time"><b>Time</b></label>
+              <input class="form-control" type="time" placeholder="time" name="time">
+              <div>
+                <button class="submit-btn">Add</button>
+                <button type="button" class="btn cancel" onclick="closeAddToDoForm()">Close</button>
+              </div>
+            </div>
+        </form>
+      </div>
+
     </div>
-
-
+    <%- include('partials/toDos.ejs') %>
 
 
   </div>
 </body>
+<script>
+
+</script>
 
 </html>

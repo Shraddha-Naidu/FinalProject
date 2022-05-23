@@ -2,6 +2,16 @@ const express = require('express');
 const route = express.Router();
 
 module.exports = (db) => {
+  route.get('/resources', (req, res) => {
+    client_id = 1;
+    const getResourcesProvidedByClientId = 'SELECT * FROM clients LEFT JOIN resources ON clients.resource_provided=resources.id WHERE clients.id = $1'
+    db.query(getResourcesProvidedByClientId, [client_id])
+      .then((result) => {
+        res.render("resourcesForClient", { result })
+        console.log("RESULTS", result.rows)
+      })
+
+  })
   // ClientFile Page
   route.get('/:id', (req, res) => {
     const client_id = req.params.id
@@ -44,22 +54,22 @@ module.exports = (db) => {
       })
 
   });
-  // route.post('/update', (req, res) => {
-  //   const addUpdate = 'INSERT INTO updates (client_id, description, date) VALUES ($1,$2,$3) RETURNING *;'
-
-  //   const client_id = req.body.id
-  //   const description = req.body.description
-  //   const date = req.body.date
-  //   db.query(addUpdate, [client_id, description, date])
-  //     .then((result) => {
-  //       console.log(result)
-  //       return res.send(result)
-  //     })
-  //     .catch((e) => {
-  //       console.error(e);
-  //       res.send(e);
-  //     });
-  // })
+  route.post('/updates', (req, res) => {
+    const addUpdate = 'INSERT INTO updates (client_id, description, date) VALUES ($1,$2,$3) RETURNING *;'
+    console.log('req.body', req.body)
+    const client_id = req.body.id
+    const description = req.body.description
+    const date = req.body.date
+    db.query(addUpdate, [client_id, description, date])
+      .then((result) => {
+        console.log('result', result)
+        return res.send(result)
+      })
+      .catch((e) => {
+        console.error(e);
+        res.send(e);
+      });
+  })
   route.post('/status', (req, res) => {
     const changeStatus = `UPDATE clients SET isactive = NOT isactive WHERE id = $1 RETURNING *;`;
     db.query(changeStatus, [req.body.id])
