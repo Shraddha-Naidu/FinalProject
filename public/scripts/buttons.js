@@ -1,26 +1,25 @@
 $(document).ready(function () {
   $('[data-toggle="tooltip"]').tooltip();
-  var actions = $("table td:last-child").html();
+  let actions = $(".updateTable td:last-child").html();
   // Append table with add row form on add new button click
-  $(".add-new").click(function () {
+  $(".add-newUpdate").click(function () {
+
     $(this).attr("disabled", "disabled");
-    var index = $("table tbody tr:last-child").index();
-    var row = '<tr>' +
-      '<td></td>' +
-      '<td><input type="text" class="form-control" name="name" id="name"></td>' +
-      '<td><input type="text" class="form-control" name="age" id="age"></td>' +
+    let index = $("table.updateTable tbody tr:last-child").index();
+    let row = '<tr>' +
       '<td><input type="date" class="date" name="application" id="application"></td>' +
-      '<td><input type="text" class="form-control" name="status" id="status"></td>' +
+      '<td><input type="text" class="form-control" name="name" id="description"></td>' +
       '<td>' + actions + '</td>' +
       '</tr>';
-    $("table").prepend(row);
-    $("table tbody tr").eq(index + 1).find(".add, .edit").toggle();
+    $("table.updateTable").prepend(row);
+    $("table.updateTable tbody tr").eq(index - 1).find(".add, .edit").toggle();
     $('[data-toggle="tooltip"]').tooltip();
+
   });
   // Add row on add button click
   $(document).on("click", ".add", function () {
-    var empty = false;
-    var input = $(this).parents("tr").find('input[type="text"]');
+    let empty = false;
+    let input = $(this).parents("tr").find('input[type="text"]');
     input.each(function () {
       if (!$(this).val()) {
         $(this).addClass("error");
@@ -35,21 +34,21 @@ $(document).ready(function () {
         $(this).parent("td").html($(this).val());
       });
       $(this).parents("tr").find(".add, .edit").toggle();
-      $(".add-new").removeAttr("disabled");
+      $(".add-newUpdate").removeAttr("disabled");
     }
   });
   // Edit row on edit button click
   $(document).on("click", ".edit", function () {
     $(this).parents("tr").find("td:not(:last-child)").each(function () {
-      $(this).html('<input type="text" class="form-control" value="' + $(this).text() + '">');
+      $(this).html('<input type="date" class="form-control" value="' + $(this).text() + '">');
     });
     $(this).parents("tr").find(".add, .edit").toggle();
-    $(".add-new").attr("disabled", "disabled");
+    $(".add-newUpdate").attr("disabled", "disabled");
   });
   // Delete row on delete button click
   $(document).on("click", ".delete", function () {
     $(this).parents("tr").remove();
-    $(".add-new").removeAttr("disabled");
+    $(".add-newUpdate").removeAttr("disabled");
   });
 
 });

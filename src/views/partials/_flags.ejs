@@ -1,0 +1,51 @@
+<% for (let i=0; i < result.rows.length; i++){ %>
+
+  <tr>
+    <th>
+      Is she flagged?
+    <td>
+      <%= result.rows[i].start_date %>
+    </td>
+    <td>
+      <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip"
+          title="Edit">&#xE254;</i></a>
+    </td>
+    </th>
+  </tr>
+  <tr>
+    <th>
+      Flag end date
+    <td>
+      <%= result.rows[i].end_date %>
+    </td>
+    <td>
+      <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip"
+          title="Edit">&#xE254;</i></a>
+    </td>
+    </th>
+  </tr>
+  <tr>
+    <th>
+      Provider's Email Address
+    <td>
+      <%= result.rows[i].note %>
+    </td>
+    <td>
+      <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip"
+          title="Edit">&#xE254;</i></a>
+    </td>
+    </th>
+  </tr>
+  <tr>
+    <th>
+      Provider's Address
+    <td>
+      <%= result.rows[i].provider_address %>
+    </td>
+    <td>
+      <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip"
+          title="Edit">&#xE254;</i></a>
+    </td>
+    </th>
+  </tr>
+  <% } %>

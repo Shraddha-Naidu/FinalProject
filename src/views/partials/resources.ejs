@@ -1,51 +1,43 @@
-<% for (let i=0; i < result.rows.length; i++){ %>
+<hr>
+<div class="internal-table">
+  <div class="row">
+    <div class="col-lg">
+      <h3><b>Provided Resources</b>
+      </h3>
+    </div>
+  </div>
+</div>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Provider</th>
+      <th>Resource Type</th>
+      <th>Provider's Phone Number</th>
+      <th>Provider's Email Address</th>
+      <th>Provider's Address</th>
+    </tr>
+  </thead>
+  <tbody>
 
-  <tr>
-    <th>
-      Provided Resource Type
-    <td>
-      <%= result.rows[i].resource_type %>
-    </td>
-    <td>
-      <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip"
-          title="Edit">&#xE254;</i></a>
-    </td>
-    </th>
-  </tr>
-  <tr>
-    <th>
-      Provider's Phone number
-    <td>
-      <%= result.rows[i].provider_phone %>
-    </td>
-    <td>
-      <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip"
-          title="Edit">&#xE254;</i></a>
-    </td>
-    </th>
-  </tr>
-  <tr>
-    <th>
-      Provider's Email Address
-    <td>
-      <%= result.rows[i].provider_email %>
-    </td>
-    <td>
-      <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip"
-          title="Edit">&#xE254;</i></a>
-    </td>
-    </th>
-  </tr>
-  <tr>
-    <th>
-      Provider's Address
-    <td>
-      <%= result.rows[i].provider_address %>
-    </td>
-    <td>
-      <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip"
-          title="Edit">&#xE254;</i></a>
-    </td>
-    </th>
-  </tr>
-  <% } %>
+    <% for (let i=0; i < result.rows.length; i++){ %>
+      <tr>
+        <td>
+          <%= result.rows[i].provider %>
+        </td>
+        <td>
+          <%= result.rows[i].resource_type %>
+        </td>
+        <td>
+          <%= result.rows[i].provider_phone %>
+        </td>
+        <td>
+          <%= result.rows[i].provider_email %>
+        </td>
+        <td>
+          <%= result.rows[i].provider_address %>
+        </td>
+
+      </tr>
+      <% } %>
+  </tbody>
+</table>

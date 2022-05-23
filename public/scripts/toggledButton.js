@@ -1,6 +1,7 @@
 $(document).ready(function () {
 
   $(".toggle-button").click(function () {
+
     const pathname = window.location.pathname;
     const id = window.location.pathname.substr(9, pathname.length)
     if ($(this).hasClass('btn-danger')) {

@@ -13,9 +13,8 @@ CREATE TABLE clients (
   dependants VARCHAR(255) NOT NULL,
   dependents_list VARCHAR (255),
   citizenship TEXT,
-  resource_provided INTEGER REFERENCES resources(id),
   applied_at VARCHAR(50) NOT NULL,
-  isActive BOOLEAN NOT NULL DEFAULT TRUE,
+  isActive BOOLEAN NOT NULL,
   status VARCHAR(255) NOT NULL
 );
 
