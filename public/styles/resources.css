@@ -9,3 +9,7 @@ body {
 #map {
   height: 400px;
 }
+
+#map-container {
+  margin-bottom: 10px;
+}
