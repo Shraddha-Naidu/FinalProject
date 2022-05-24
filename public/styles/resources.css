@@ -16,14 +16,14 @@ body {
 
 /* NEW Resource Modal */
 /* Modal Body*/
-/*.new-resource-modal {
-
-  }*/
+.new-resource-modal {
+  display: nonne;
+  }
 
 /* Modal Content*/
- /* .new-resource-input {
-
-  }*/
+ .new-resource-input {
+  display: none;
+  }
 
   input {
     box-sizing: border-box;

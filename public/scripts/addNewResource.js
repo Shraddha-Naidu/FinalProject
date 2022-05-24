@@ -18,3 +18,4 @@ const loadResources = function() {
 
 //DOM//
 
+$(document).ready(function() {})
