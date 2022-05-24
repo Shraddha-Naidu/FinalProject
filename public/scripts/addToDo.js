@@ -133,7 +133,6 @@ $(document).ready(function() {
 
   // Submit Handler
   $("#addToDoForm").on('submit', function(event) {
-    console.log($(this).serialize())
     event.preventDefault();
     $.ajax( { 
       method: 'POST',

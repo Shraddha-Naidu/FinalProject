@@ -3,7 +3,7 @@ const route = express.Router();
 
 
 module.exports = (db) => {
-  getAllResources = 'SELECT * FROM resources ORDER BY provider ASC'
+  getAllResources = 'SELECT * FROM resources ORDER BY id ASC'
 
    route.get('/', (req, res) => {
      db.query(getAllResources)

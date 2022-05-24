@@ -2,39 +2,23 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RESOURCES</title>
-
-  <!--STYLESHEETS-->
-  <link rel="stylesheet" href="/styles/style.css">
-  <link rel="stylesheet" href="/styles/resources.css">
-
-
-  <!--BOOTSTRAP-->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
-  <!--DATA TABLES-->
-  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.0/css/jquery.dataTables.css">
-  <script type="text/javascript" charset="utf8"
-    src="https://cdn.datatables.net/1.12.0/js/jquery.dataTables.js"></script>
-
-  <script>
-
-    $(document).ready(function () {
-      $('#table_id').DataTable();
-    });
-  </script>
+  <meta name="viewport" content="width=full-width, initial-scale=1">
+  <title>Client Resource Map</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
   <!--FONT AWESOME-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
     integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+  <link rel="stylesheet" href="/styles/style.css">
+  <link rel='stylesheet' href='/styles/resourcesForClient.css'>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
+  
   <!--SIDE BAR-->
   <%- include('partials/_sideBar') %>
 </head>
@@ -48,10 +32,10 @@
       <div class="row content">
         <div class="col-sm-8 text-left">
           <h1>RESOURCE DIRECTORY</h1>
-          
+
           <hr>
           <div class="container-fluid">
-            <%- include('partials/map') %>
+            <%- include('partials/resourcesforclientmap') %>
           </div>
           <h3>All Resources: Listed Alphabetically By Provider</h3>
           <table class="table" id="table_id" class="display">
@@ -63,32 +47,48 @@
                 <th scope="col">Provider Phone:</th>
                 <th scope="col">Provider Address:</th>
             </thead>
-            </tr>
-            <% for (let i=0; i < result.rows.length; i++){ %>
-              <tr>
-                <td>
-                  <%= result.rows[i].provider %>
-                </td>
-                <td>
-                  <%= result.rows[i].resource_type %>
-                </td>
-                <td>
-                  <%= result.rows[i].provider_email %>
-                </td>
+            <tbody id="resources">
+              <% for (let i=0; i < result.rows.length; i++){ %>
+                <tr>
+                  <td>
+                    <%= result.rows[i].provider %>
+                  </td>
+                  <td>
+                    <%= result.rows[i].resource_type %>
+                  </td>
+                  <td>
+                    <%= result.rows[i].provider_email %>
+                  </td>
 
-                <td>
-                  <%= result.rows[i].provider_phone %>
-                </td>
-                <td>
-                  <%= result.rows[i].provider_address %>
-                </td>
-              </tr>
-              <% } %>
+                  <td>
+                    <%= result.rows[i].provider_phone %>
+                  </td>
+                  <td>
+                    <a id="<%= result.rows[i].id %>">
+                      <%= result.rows[i].provider_address %>
+                    </a>
+                  </td>
+                </tr>
+                <% } %>
+
+            </tbody>
         </div>
       </div>
     </div>
   </div>
 </body>
 </div>
-
+<footer>
+     <!--DATA TABLES-->
+     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.0/css/jquery.dataTables.css">
+     <script type="text/javascript" charset="utf8"
+       src="https://cdn.datatables.net/1.12.0/js/jquery.dataTables.js"></script>
+   
+     <script>
+       $(document).ready(function () {
+         $('#table_id').DataTable();
+       });
+     </script>
+   
+</footer>
 </html>

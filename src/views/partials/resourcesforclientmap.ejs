@@ -1,7 +1,328 @@
-<div id="map"></div>
-
-<script src="/scripts/resourcesforclientmap.js">
-
-</script>
+<div id="map2"></div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script async defer
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBLvOmk6IlwoLnFGPKmz8DfJFoISK7Y3O8&callback=initMap"></script>
+<script>
+  function initMap() {
+
+      var mapOptions = {
+        zoom: 12,
+        center: new google.maps.LatLng(49.2827, -123.1207),
+        disableDefaultUI: true,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      };
+
+      map = new google.maps.Map(document.getElementById('map2'), mapOptions);
+    
+
+    const resources_1 = { lat: 49.26608143201947, lng: -123.06412292740539 };
+    const resources_2 = { lat: 49.244065155857825, lng: -123.16218448582511 };
+    const resources_3 = { lat: 49.27364200903821, lng: -123.07360721817597 };
+    const resources_4 = { lat: 49.26602542342208, lng: -123.12922550251379 };
+    const resources_5 = { lat: 49.24854763661023, lng: -123.08528019143206 };
+    const resources_6 = { lat: 49.250788724387306, lng: -123.13300205268489 };
+    const resources_7 = { lat: 49.249892301484266, lng: -123.05094791714943 };
+    const resources_8 = { lat: 49.26576361817364, lng: -123.07258890977572 };
+    const resources_9 = { lat: 49.27386425361637, lng: -123.05249659408167 };
+    const resources_10 = { lat: 49.22343874623897, lng: -123.15103022127276 };
+
+    const marker1 = new google.maps.Marker({
+      position: resources_1,
+      map,
+      title: "44124 Gulseth Avenue",
+    });
+    const marker2 = new google.maps.Marker({
+      position: resources_2,
+      map,
+      title: "672 Pine View Junction",
+    });
+    const marker3 = new google.maps.Marker({
+      position: resources_3,
+      map,
+      title: "056 Laurel Way",
+    });
+    const marker4 = new google.maps.Marker({
+      position: resources_4,
+      map,
+      title: "32 Arizona Pass",
+    });
+    const marker5 = new google.maps.Marker({
+      position: resources_5,
+      map,
+      title: "0939 Summer Ridge Plaza",
+    });
+    const marker6 = new google.maps.Marker({
+      position: resources_6,
+      map,
+      title: "013 Bunker Hill Crossing",
+    });
+    const marker7 = new google.maps.Marker({
+      position: resources_7,
+      map,
+      title: "733 Caliangt Terrace",
+    });
+    const marker8 = new google.maps.Marker({
+      position: resources_8,
+      map,
+      title: "6 Crownhardt Pass",
+    });
+    const marker9 = new google.maps.Marker({
+      position: resources_9,
+      map,
+      title: "06 Riverside Terrace",
+    });
+    const marker10 = new google.maps.Marker({
+      position: resources_10,
+      map,
+      title: "764 Spohn Place",
+    });
+
+    const contentString1 =
+      '<div id="content">' +
+      '<div id="siteNotice">' +
+      "</div>" +
+      '<h3 id="firstHeading" class="firstHeading">Randy Maddyson</h3>' +
+      '<div id="bodyContent">' +
+      "<p><b>Housing Administrator</b></p>" +
+      "</div>" +
+      "</div>";
+      const contentString2 =
+      '<div id="content">' +
+      '<div id="siteNotice">' +
+      "</div>" +
+      '<h3 id="firstHeading" class="firstHeading">Tandie Weadick</h3>' +
+      '<div id="bodyContent">' +
+      "<p><b>Shelter Administrator</b></p>" +
+      "</div>" +
+      "</div>";
+      const contentString3 =
+      '<div id="content">' +
+      '<div id="siteNotice">' +
+      "</div>" +
+      '<h3 id="firstHeading" class="firstHeading">Orlando Abramovicz</h3>' +
+      '<div id="bodyContent">' +
+      "<p><b>Housing Administrator</b></p>" +
+      "</div>" +
+      "</div>";
+      const contentString4 =
+      '<div id="content">' +
+      '<div id="siteNotice">' +
+      "</div>" +
+      '<h3 id="firstHeading" class="firstHeading">Rand Pethybridge</h3>' +
+      '<div id="bodyContent">' +
+      "<p><b>Shelter Administrator</b></p>" +
+      "</div>" +
+      "</div>";
+      const contentString5 =
+      '<div id="content">' +
+      '<div id="siteNotice">' +
+      "</div>" +
+      '<h3 id="firstHeading" class="firstHeading">Arnuad Jonah</h3>' +
+      '<div id="bodyContent">' +
+      "<p><b>Housing Administrator</b></p>" +
+      "</div>" +
+      "</div>";
+      const contentString6 =
+      '<div id="content">' +
+      '<div id="siteNotice">' +
+      "</div>" +
+      '<h3 id="firstHeading" class="firstHeading">Cris Poltun</h3>' +
+      '<div id="bodyContent">' +
+      "<p><b>Lawyer</b></p>" +
+      "</div>" +
+      "</div>";
+      const contentString7 =
+      '<div id="content">' +
+      '<div id="siteNotice">' +
+      "</div>" +
+      '<h3 id="firstHeading" class="firstHeading">Oran Losemann</h3>' +
+      '<div id="bodyContent">' +
+      "<p><b>Addictions Administrator</b></p>" +
+      "</div>" +
+      "</div>";
+      const contentString8 =
+      '<div id="content">' +
+      '<div id="siteNotice">' +
+      "</div>" +
+      '<h3 id="firstHeading" class="firstHeading">Hurley Lettice</h3>' +
+      '<div id="bodyContent">' +
+      "<p><b>Shelter Administrator</b></p>" +
+      "</div>" +
+      "</div>";
+      const contentString9 =
+      '<div id="content">' +
+      '<div id="siteNotice">' +
+      "</div>" +
+      '<h3 id="firstHeading" class="firstHeading">Phillipe Brickwood</h3>' +
+      '<div id="bodyContent">' +
+      "<p><b>Addictions Counsellor</b></p>" +
+      "</div>" +
+      "</div>";
+      const contentString10 =
+      '<div id="content">' +
+      '<div id="siteNotice">' +
+      "</div>" +
+      '<h3 id="firstHeading" class="firstHeading">Brett Udy</h3>' +
+      '<div id="bodyContent">' +
+      "<p><b>Counsellor</b></p>" +
+      "</div>" +
+      "</div>";
+
+    const infowindow1 = new google.maps.InfoWindow({
+      content: contentString1,
+    });
+    const infowindow2 = new google.maps.InfoWindow({
+      content: contentString2,
+    });
+    const infowindow3 = new google.maps.InfoWindow({
+      content: contentString3,
+    });
+    const infowindow4 = new google.maps.InfoWindow({
+      content: contentString4,
+    });
+    const infowindow5 = new google.maps.InfoWindow({
+      content: contentString5,
+    });
+    const infowindow6 = new google.maps.InfoWindow({
+      content: contentString6,
+    });
+    const infowindow7 = new google.maps.InfoWindow({
+      content: contentString7,
+    });
+    const infowindow8 = new google.maps.InfoWindow({
+      content: contentString8,
+    });
+    const infowindow9 = new google.maps.InfoWindow({
+      content: contentString9,
+    });
+    const infowindow10 = new google.maps.InfoWindow({
+      content: contentString10,
+    });
+
+    marker1.addListener("click", () => {
+      infowindow1.open({
+        anchor: marker1,
+        map,
+        shouldFocus: false,
+      });
+    });
+    marker2.addListener("click", () => {
+      infowindow2.open({
+        anchor: marker2,
+        map,
+        shouldFocus: false,
+      });
+    });
+    marker3.addListener("click", () => {
+      infowindow3.open({
+        anchor: marker3,
+        map,
+        shouldFocus: false,
+      });
+    });
+    marker4.addListener("click", () => {
+      infowindow4.open({
+        anchor: marker4,
+        map,
+        shouldFocus: false,
+      });
+    });
+    marker5.addListener("click", () => {
+      infowindow5.open({
+        anchor: marker5,
+        map,
+        shouldFocus: false,
+      });
+    });
+    marker6.addListener("click", () => {
+      infowindow6.open({
+        anchor: marker6,
+        map,
+        shouldFocus: false,
+      });
+    });
+    marker7.addListener("click", () => {
+      infowindow7.open({
+        anchor: marker7,
+        map,
+        shouldFocus: false,
+      });
+    });
+    marker8.addListener("click", () => {
+      infowindow8.open({
+        anchor: marker8,
+        map,
+        shouldFocus: false,
+      });
+    });
+    marker9.addListener("click", () => {
+      infowindow9.open({
+        anchor: marker9,
+        map,
+        shouldFocus: false,
+      });
+    });
+    marker10.addListener("click", () => {
+      infowindow10.open({
+        anchor: marker10,
+        map,
+        shouldFocus: false,
+      });
+    });
+  }
+
+
+  $(document).ready(function () {
+
+    $("#resources").on("click", "#1", function () {
+      var laLatLng1 = new google.maps.LatLng(49.26608143201947, -123.06412292740539);
+      map.panTo(laLatLng1);
+      map.setZoom(16);
+    });
+    $("#resources").on("click", "#2", function () {
+      var laLatLng2 = new google.maps.LatLng(49.244065155857825, -123.16218448582511);
+      map.panTo(laLatLng2);
+      map.setZoom(16);
+    });
+    $("#resources").on("click", "#3", function () {
+      var laLatLng3 = new google.maps.LatLng(49.27364200903821, -123.07360721817597);
+      map.panTo(laLatLng3);
+      map.setZoom(16);
+    });
+    $("#resources").on("click", "#4", function () {
+      var laLatLng4 = new google.maps.LatLng(49.26602542342208, -123.12922550251379);
+      map.panTo(laLatLng4);
+      map.setZoom(16);
+    });
+    $("#resources").on("click", "#5", function () {
+      var laLatLng5 = new google.maps.LatLng(49.24854763661023, -123.08528019143206);
+      map.panTo(laLatLng5);
+      map.setZoom(16);
+    });
+    $("#resources").on("click", "#6", function () {
+      var laLatLng6 = new google.maps.LatLng(49.250788724387306, -123.13300205268489);
+      map.panTo(laLatLng6);
+      map.setZoom(16);
+    });
+    $("#resources").on("click", "#7", function () {
+      var laLatLng7 = new google.maps.LatLng(49.249892301484266, -123.05094791714943);
+      map.panTo(laLatLng7);
+      map.setZoom(16);
+    });
+    $("#resources").on("click", "#8", function () {
+      var laLatLng8 = new google.maps.LatLng(49.26576361817364, -123.07258890977572);
+      map.panTo(laLatLng8);
+      map.setZoom(16);
+    });
+    $("#resources").on("click", "#9", function () {
+      var laLatLng9 = new google.maps.LatLng(49.27386425361637, -123.05249659408167);
+      map.panTo(laLatLng9);
+      map.setZoom(16);
+    });
+    $("#resources").on("click", "#10", function () {
+      var laLatLng10 = new google.maps.LatLng(49.22343874623897, -123.15103022127276);
+      map.panTo(laLatLng10);
+      map.setZoom(16);
+    });
+  });
+</script>
