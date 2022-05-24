@@ -1,14 +1,14 @@
 <div class="col-sm-8 text-left">
 
-  <table class="table" id="table_id" class="display">
+  <table class="todo-table">
 
-    <thead>
+    <thead class="todo-table">
       <tr>
-        <th>Client Id</th>
-        <th>Client Name</th>
-        <th>Todo</th>
-        <th>Date</th>
-        <th>Time</th>
+        <th class="client-id" id="todo-content">ID</th>
+        <th class="client-name" id="todo-content">NAME</th>
+        <th id="todo">TO-DO</th>
+        <th class="todo-date" id="todo-content">DATE</th>
+        <th class ="time" id="todo-content">TIME</th>
     </thead>
     <tbody id="to-do-container">
       <% for (let i=0; i < result1.rows.length; i++){ %>
