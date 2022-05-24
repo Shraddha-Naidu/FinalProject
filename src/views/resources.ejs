@@ -46,12 +46,14 @@
       <div class="row content">
         <div class="col-sm-8 text-left">
           <h1>RESOURCE DIRECTORY</h1>
+          <div>
+            <button id="newResource" >ADD NEW RESOURCE</button>
+          </div>
           
           <hr>
-          <div class="container-fluid">
+          <div class="container-fluid" id="map-container">
             <%- include('partials/map') %>
           </div>
-          <h3>All Resources: Listed Alphabetically By Provider</h3>
           <table class="table" id="table_id" class="display">
             <thead>
               <tr>
