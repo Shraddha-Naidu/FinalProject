@@ -11,7 +11,7 @@ L.marker([49.273376, -123.103834]).addTo(map)
 
   function initMap() {
     let locationOptions = {
-      zoom: 5,
+      zoom: 11,
       center: {lat: 49.2827, lng: -123.1207}
     }
     let map = new google.maps.Map(document.getElementById("map"), locationOptions)

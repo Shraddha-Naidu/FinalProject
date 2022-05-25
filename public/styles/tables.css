@@ -1,0 +1,14 @@
+/* COLOR PALETTE */
+/* #1D3557 Button Color/Dashboard
+/* #F1FAEE Text Color
+/* #E63946 delete button/error messages
+/* #457B9D :hover color
+/* #A8DADC outline color*/
+
+/*Chrome default inputs override */
+table-input {
+    border: 1px solid #aaa;
+    border-radius: 3px;
+    padding: 5px;
+    background-color: transparent;
+}

@@ -26,7 +26,10 @@
   <link rel="stylesheet" href="/styles/style.css">
   <link rel="stylesheet" href="/styles/addToDoPopUp.css">
 
-  <link href="https://cdn.datatables.net/1.12.0/css/jquery.dataTables.min.css">
+   <!--DATA TABLES-->
+   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.0/css/jquery.dataTables.css">
+   <script type="text/javascript" charset="utf8"
+     src="https://cdn.datatables.net/1.12.0/js/jquery.dataTables.js"></script>
 
   
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -59,8 +62,9 @@
             <!--CONFIRMATION POP UP-->
              <div id="confirmation-popup">
                <p>Is this a New or Returning Client?</p>
-               <span><div id="new-btn"><span id="new">NEW</span></div>
-               <div id="returning-btn"><span id="returning">RETURNING</span></div></span>
+               <div id="new-btn"><span id="new">NEW</span></div>
+               <div id="returning-btn"><span id="returning">RETURNING</span></div>
+               <!--<div id="cancel-btn"><span id="cancel">CANCEL</span></div>-->
              </div>
             
           </div>
@@ -126,6 +130,10 @@
     //Links to Client Dirtectory
     $('#returning').click(function(){
       window.location.href='/clients';
+    })
+    //Cancel to close
+    $('close').click(function(){
+      $('#confirmation-popup').hide();
     })
 
   })

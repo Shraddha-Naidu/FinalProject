@@ -30,7 +30,11 @@ button {
 
 button :hover {
   background: #457B9D;
-  
+}
+
+h1 {
+  padding-top: 30px;
+  margin-top: 25px;
 }
 
 
@@ -143,6 +147,7 @@ div #client-list-box {
   width: 100%;
   border: 5px black;
   font-size: 15px;
+  padding-left: 15px;
 }
 
 div #confirmation-popup{
@@ -152,7 +157,7 @@ div #confirmation-popup{
   top: 10%;
   width: 35%;
   padding: 20px;
-  border: #1D3557 2px;
+  border: #1D3557 20px;
   box-shadow: 0px 0px 10px rgb(28, 28, 32);
   display: none;
   text-align: center;
@@ -167,6 +172,13 @@ div #confirmation-popup{
 }
 
 #returning-btn {
+  padding-right: 30px;
+  float: right;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+#cancel-btn {
   padding-right: 30px;
   float: right;
   cursor: pointer;
