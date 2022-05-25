@@ -17,7 +17,7 @@ body {
 /* NEW Resource Modal */
 /* Modal Body*/
 .new-resource-modal {
-  display: nonne;
+  display: none;
   }
 
 /* Modal Content*/

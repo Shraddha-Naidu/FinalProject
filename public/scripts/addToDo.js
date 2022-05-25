@@ -24,11 +24,11 @@ const createToDoTrue = function(toDo) {
       ${toDo.item}
       </td>
       <td>
-      ${ toDo.date}
+      ${ toDo.date.toString().substring(0,16)}
       
       </td>
       <td>
-      ${ toDo.time}
+      ${toDo.time}
       
       </td>
       <td>

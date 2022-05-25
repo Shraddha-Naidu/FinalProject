@@ -63,19 +63,31 @@ button :hover {
   color: #647bcd;
 }
 /* Top Logo */
+p .client {
+  padding-top: 50px;
+  text-align: center;
+  color: #F1FAEE;
+}
+
+h2 .connect {
+  padding-bottom: 50px;
+  text-align: center;
+  color: #F1FAEE;
+}
+
 .sidenav i {
   color: #F1FAEE;
-  font-size: 55px;
-  padding-top: 50px;
-  padding-bottom: 25px;
-  padding-left: 50px;
+  font-size: 75px;
+  padding-top: 55px;
+  padding-bottom: 10px;
+  padding-left: 35px;
   }
 
   /*Welcome Statement*/
   .sidenav h3{
     color: #F1FAEE;
-    font-size: 15px;
-    padding-bottom: 5px;
+    font-size: 25px;
+    padding-bottom: 25px;
     text-align: center;
   }
 
@@ -83,8 +95,9 @@ button :hover {
   .sidenav h4{
     color: #F1FAEE;
     font-size: 15px;
-    padding-bottom: 25px;
-    text-align: center;
+    padding-bottom: 10px;
+    padding-left: 16px;
+    padding-top: 15px
   }
 
   /* Bottom Menu Items */
