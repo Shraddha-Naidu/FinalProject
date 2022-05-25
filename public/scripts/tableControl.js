@@ -10,13 +10,7 @@ $(document).ready(function () {
           columns: ':visible'
         }
       },
-      {
-        extend: 'csv',
-        text: 'CSV',
-        exportOptions: {
-          columns: ':visible'
-        }
-      },
+
       {
         extend: 'excel',
         text: 'EXCEL',
