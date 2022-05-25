@@ -25,8 +25,6 @@ module.exports = (db) => {
     GROUP BY clients.id, users.id, provided_resources.id, flags.id, updates.id, resource_providers.id
     ORDER BY updates.id DESC`;
 
-    // const getResources = 'SELECT * FROM resources WHERE resources.client_id = $1';
-    // const getFlagsByClientId = 'SELECT * FROM flags WHERE client_id = $1'
 
     db.query(getClientData, [client_id])
       .then((result) => {
@@ -50,24 +48,27 @@ module.exports = (db) => {
         console.error(e);
         res.send(e);
       })
-
   });
-  route.post('/updates', (req, res) => {
-    const addUpdate = 'INSERT INTO updates (client_id, description, date) VALUES ($1,$2,$3) RETURNING *;'
-    console.log('req.body', req.body)
-    const client_id = req.body.id
-    const description = req.body.description
-    const date = req.body.date
+
+  route.post('/:id/updates', (req, res) => {
+    const { description, date } = req.body
+    const client_id = req.params.id
+
+    const addUpdate = 'INSERT INTO updates (client_id, description, date) VALUES ($1, $2, $3)  RETURNING *;'
+
+
     db.query(addUpdate, [client_id, description, date])
       .then((result) => {
-        console.log('result', result)
-        return res.send(result)
+        res.status(201).send();
       })
       .catch((e) => {
         console.error(e);
         res.send(e);
       });
-  })
+
+  });
+
+
   route.post('/status', (req, res) => {
     const changeStatus = `UPDATE clients SET isactive = NOT isactive WHERE id = $1 RETURNING *;`;
     db.query(changeStatus, [req.body.id])
@@ -75,6 +76,7 @@ module.exports = (db) => {
         return res.json({ status: 'ok' })
       })
   })
+
   return route;
 };
 

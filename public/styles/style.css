@@ -30,7 +30,11 @@ button {
 
 button :hover {
   background: #457B9D;
-  
+}
+
+h1 {
+  padding-top: 30px;
+  margin-top: 25px;
 }
 
 
@@ -117,6 +121,12 @@ button :hover {
   margin-right: 20px;
 }
 
+/* SECTION TITLES */
+.main h4 {
+  font-size: 20px;
+  text-decoration: underline;
+}
+
 /* Row Styling for Calendar and Client List*/
 div .calendar-client-box {
   justify-content: space-evenly;
@@ -137,6 +147,42 @@ div #client-list-box {
   width: 100%;
   border: 5px black;
   font-size: 15px;
+  padding-left: 15px;
+}
+
+div #confirmation-popup{
+  background-color: white;
+  position: absolute;
+  left: 35%;
+  top: 10%;
+  width: 35%;
+  padding: 20px;
+  border: #1D3557 20px;
+  box-shadow: 0px 0px 10px rgb(28, 28, 32);
+  display: none;
+  text-align: center;
+  font-size: larger;
+}
+
+#new-btn {
+  padding-left: 30px;
+  float: left;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+#returning-btn {
+  padding-right: 30px;
+  float: right;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+#cancel-btn {
+  padding-right: 30px;
+  float: right;
+  cursor: pointer;
+  text-decoration: underline;
 }
 
 /* To-Do list Styling*/
@@ -154,4 +200,15 @@ div #todo-box {
   .sidenav a {font-size: 18px;}
 }
 
+/* TO DO Table Styling */
+thead .todo-table {
+  text-align: center;
+}
 
+th #todo {
+  width: 50%;
+}
+
+tbody #to-do-container {
+  text-align: center;
+}

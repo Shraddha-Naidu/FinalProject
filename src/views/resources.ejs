@@ -28,15 +28,43 @@
       <div class="row content">
         <div class="col-sm-8 text-left">
           <h1>RESOURCE DIRECTORY</h1>
+          <div>
+            <button id="newResource">ADD NEW RESOURCE</button>
+            <div class="new-resource-modal">
+              <div class="new-resource-input">
+                <form>
+                  <label for="provider"><span>PROVIDER<span class="required">*</span></span><input type="text" class="input-field" name="name" id="name" value="" /></label>
+                  <label for="resource-type"><span>RESOURCE TYPE<span class="required">*</span></span><select name="field4" class="select-field">
+                    <option value="Select-One">Select One</option>
+                    <option value="counselling">Counselling</option>
+                    <option value="housing">Housing</option>
+                    <option value="legal">Legal</option>
+                    <option value="addictions">Addictions</option>
+                    <option value="child-care">Child Care</option>
+                    <option value="shelter">Shelter</option>
+                    <option value="career">Career</option>
+                    </select></label>
+                  <label for="email"><span>EMAIL<span class="required">*</span></span><input type="text" class="input-field" name="age" id="age"value="" /></label>
+                  <label for="phone"><span>PHONE<span class="required">*</span></span><input type="text" class="input-field" name="age" id="age"value="" /></label>
+                  <label for="address"><span>ADDRESS <span class="required">*</span></span><input type="text" class="input-field" name="field2" value="" /></label>
+                <button class="add-resource">ADD</button>
+              </form>
+              </div>
+            </div>
+          </div>
+          
           <hr>
-          <table class="table" id="table_id" class="display">
+          <div class="container-fluid" id="map-container">
+            <%- include('partials/map') %>
+          </div>
+          <table class="table" id="table_id" class="row-border stripe hover">
             <thead>
               <tr>
-                <th scope="col">Provider:</th>
-                <th scope="col">Resource Type:</th>
-                <th scope="col">Provider Email:</th>
-                <th scope="col">Provider Phone:</th>
-                <th scope="col">Provider Address:</th>
+                <th scope="col">PROVIDER</th>
+                <th scope="col">RESOURCE TYPE</th>
+                <th scope="col">EMAIL</th>
+                <th scope="col">PHONE</th>
+                <th scope="col">ADDRESS</th>
             </thead>
             <tbody id="resources">
               <h3>All Resources: Listed Alphabetically By Provider</h3>
@@ -80,6 +108,12 @@
   <script>
     $(document).ready(function () {
       $('#table_id').DataTable();
+    });
+
+    $(document).ready(function () {
+      $('#newResource').click(function(){
+        $('#new-resource-modal, new-resource-input').show()
+      });
     });
   </script>
 

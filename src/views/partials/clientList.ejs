@@ -3,10 +3,12 @@
   <table class="table" id="table_id" class="display">
     <thead>
       <tr>
-        <th>Name</th>
-        <th>Age</th>
-        <th>Application date</th>
-        <th>Status</th>
+        <th>NAME</th>
+        <th>AGE</th>
+        <th>PHONE</th>
+        <th>ADDRESS</th>
+        <th>APPLICATION DATE</th>
+        <th>STATUS</th>
     </thead>
     </tr>
 
@@ -21,9 +23,15 @@
         <td>
           <%= result.rows[i].age %>
         </td>
+        <td>
+          <%= result.rows[i].phone %>
+        </td>
+        <td>
+          <%= result.rows[i].address %>
+        </td>
 
         <td>
-          <%= result.rows[i].applied_at %>
+          <%= result.rows[i].applied_at.toString().substring(0,16) %>
         </td>
         <td>
           <%= result.rows[i].status %>
