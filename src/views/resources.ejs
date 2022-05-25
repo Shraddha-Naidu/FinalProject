@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Client Resource Map</title>
+  <title>RESOURCE DIRECTORY</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -55,8 +55,7 @@
           
           <hr>
           <table class="table" id="table_id" class="row-border stripe hover">
-            <thead style="background-color: #1D3557; color: #f1faee; font-size: 15px; ">
-              <tr>
+            <thead style="background-color: #1D3557; color: #f1faee; font-size: 15px; padding-top: 15px;">
                 <th scope="col">PROVIDER</th>
                 <th scope="col">RESOURCE TYPE</th>
                 <th scope="col">EMAIL</th>
@@ -64,7 +63,7 @@
                 <th scope="col">ADDRESS</th>
             </thead>
             <tbody id="resources">
-              <h3>All Resources: Listed Alphabetically By Provider</h3>
+
               <% for (let i=0; i < result.rows.length; i++){ %>
                 <tr>
                   <td>
@@ -91,7 +90,7 @@
         </div>
       </div>
     </div>
-    <div class="container-fluid">
+    <div class="container-fluid" style="padding-bottom: 10px">
       <%- include('partials/resourcesforclientmap') %>
     </div>
   </div>
