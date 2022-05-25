@@ -1,22 +1,23 @@
 <div class="col-sm-8 text-left">
 
-  <table class="todo-table">
+  <table class="todo-table" id='clients'>
 
     <thead class="todo-table">
       <tr>
-        <th class="client-id" id="todo-content">ID</th>
         <th class="client-name" id="todo-content">NAME</th>
         <th id="todo">TO-DO</th>
         <th class="todo-date" id="todo-content">DATE</th>
-        <th class ="time" id="todo-content">TIME</th>
+        <th class="time" id="todo-content">TIME</th>
+        <th class="delete" id="todo-content">DELETE</th>
+        <th class="complete" id="todo-content">COMPLETE</th>
+
+
     </thead>
     <tbody id="to-do-container">
       <% for (let i=0; i < result1.rows.length; i++){ %>
         <% if(result1.rows[i].completed==false){ %>
           <tr id="toDo-<%= result1.rows[i].todoid %>">
-            <td>
-              <%= result1.rows[i].client_id %>
-            </td>
+
             <td>
               <%= result1.rows[i].name %>
             </td>
@@ -30,8 +31,8 @@
               <%= result1.rows[i].time %>
             </td>
             <td>
-              <button class="btn btn-danger" style="background: #E63946" class="delete" id='<%= result1.rows[i].todoid %>' onClick="delete_click(this.id)"
-                type="submit">DELETE</button>
+              <button class="btn btn-danger" style="background: #E63946" class="delete"
+                id='<%= result1.rows[i].todoid %>' onClick="delete_click(this.id)" type="submit">DELETE</button>
             </td>
             <td>
               <button class="btn btn-outline-primary" id='<%= result1.rows[i].todoid %>'
@@ -40,9 +41,7 @@
           </tr>
           <% } else{ %>
             <tr id="toDo-<%= result1.rows[i].todoid %>" class="btn-success">
-              <td>
-                <%= result1.rows[i].client_id %>
-              </td>
+
               <td>
                 <%= result1.rows[i].name %>
               </td>
@@ -56,8 +55,8 @@
                 <%= result1.rows[i].time %>
               </td>
               <td>
-                <button class="btn btn-danger" style="background: #E63946" id='<%= result1.rows[i].todoid %>' onClick="delete_click(this.id)"
-                  type="submit">DELETE</button>
+                <button class="btn btn-danger" style="background: #E63946" id='<%= result1.rows[i].todoid %>'
+                  onClick="delete_click(this.id)" type="submit">DELETE</button>
               </td>
             </tr>
             <% } %>

@@ -22,6 +22,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src='/scripts/addUpdates.js'></script>
   <script src='/scripts/addFlags.js'></script>
+  <script src='/scripts/addDependent.js'></script>
   <script src='/scripts/editButton.js'></script>
 
   <script src='/scripts/toggledButton.js'></script>
@@ -205,7 +206,7 @@
         <div class="internal-table">
           <div class="row">
             <div class="col-lg">
-              <h3><b>Dependants Information</b>
+              <h3><b>List of Dependents</b>
               </h3>
             </div>
           </div>
@@ -213,32 +214,63 @@
         <table class="table">
           <thead>
             <tr>
-              <th>List of Dependants</th>
-              <th>Edit</th>
+              <th>Name</th>
+              <th>Phone Number</th>
+              <th>Email Address</th>
+              <th>Relationship to Client</th>
+              <th>
+                <button id="openDependentButton" type="button" class="btn btn-info add-new"
+                  onclick="openAddDependentForm()"><i class="fa fa-plus"></i>Add Dependent</button>
+              </th>
             </tr>
           </thead>
+          <div class="form-popup" id="addDependent">
+            <form id="addDependentForm">
+              <div class="form-group">
+
+                <label for="DependentName"><b>Name</b></label>
+                <input class="form-control" type="text" placeholder="" name="name">
+                <div>
+                  <label for="DependentPhone"><b>Phone Number</b></label>
+                  <input class="form-control" type="tel" placeholder="" name="phone">
+                  <div>
+                    <label for="DependentEmail"><b>Email Address</b></label>
+                    <input class="form-control" type="email" placeholder="" name="email">
+                    <div>
+                      <label for="relationship"><b>Relationship to Client</b></label>
+                      <input class="form-control" type="text" placeholder="" name="relationship">
+                      <div>
+                        <button class="submit-btn">Add</button>
+                        <button type="button" class="btn cancel" onclick="closeAddDependentForm()">Close</button>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </form>
+          </div>
           <tbody>
-            <% if (result[0].dependants==='true' ) {%>
+            <% dependentNewArr.forEach((i)=> { %>
+
               <tr>
                 <td>
-                  <%= result[0].dependents_list %>
+                  <%= i.dependent_name %>
                 </td>
                 <td>
-                  <a class="add" title="Add"><i class="material-icons">&#xE03B;</i></a>
-                  <a class="edit" title="Edit"><i class="material-icons">&#xE254;</i></a>
-
+                  <%= i.dependent_phone %>
                 </td>
+                <td>
+                  <%= i.dependent_email %>
+                </td>
+                <td>
+                  <%= i.relationship %>
+                </td>
+
               </tr>
-              <% } else { %>
-                <td>
-                  There are no dependants
-                </td>
-                <td>
-                  <a class="add" title="Add"><i class="material-icons">&#xE03B;</i></a>
-                  <a class="edit" title="Edit"><i class="material-icons">&#xE254;</i></a>
 
-                </td>
-                <%}%>
+              <% }) %>
+
           </tbody>
         </table>
 
@@ -274,9 +306,7 @@
             <% for (let i=0; i < result.length; i++){ %>
 
               <tr>
-                <td>
-                  <%= result[i].resource_providers_id %>
-                </td>
+
                 <td>
                   <%= result[i].provider %>
                 </td>
@@ -306,13 +336,15 @@
             </div>
           </div>
         </div>
+
         <table class="table">
           <thead>
             <tr>
               <th>Added at</th>
               <th>Ended at</th>
               <th>Notes</th>
-              <th> <button id="openFlagButton" type="button" class="btn btn-info add-new" onclick="openAddFlagForm()"><i
+              <th>
+                <button id="openFlagButton" type="button" class="btn btn-info add-new" onclick="openAddFlagForm()"><i
                     class="fa fa-plus"></i>Add New Flag</button>
               </th>
           </thead>
