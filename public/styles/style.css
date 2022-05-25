@@ -30,7 +30,6 @@ button {
 
 button :hover {
   background: #457B9D;
-  
 }
 
 
@@ -213,3 +212,38 @@ th #todo {
 tbody #to-do-container {
   text-align: center;
 }
+
+tr:nth-child(even){background-color: #f2f2f2;}
+
+tr:hover {background-color: #ddd;}
+
+
+/* DASHBOARD TABLE STYLING */
+/*
+#clients {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#clients td, #clients th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#clients tr:nth-child(even){background-color: #f2f2f2;}
+
+#clients tr:hover {background-color: #ddd;}
+
+#clients th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #A8DADC;
+  color: black;
+}
+
+#open-confirmation {
+  margin-top:1vh;
+  float:right;
+}
+*/

@@ -2,9 +2,8 @@
 
   <table class="todo-table">
 
-    <thead class="todo-table">
+    <thead class="todo-table" style="background: #A8DADC">
       <tr>
-        <th class="client-id" id="todo-content">ID</th>
         <th class="client-name" id="todo-content">NAME</th>
         <th id="todo">TO-DO</th>
         <th class="todo-date" id="todo-content">DATE</th>
@@ -13,24 +12,22 @@
     <tbody id="to-do-container">
       <% for (let i=0; i < result1.rows.length; i++){ %>
         <% if(result1.rows[i].completed==false){ %>
-          <tr id="toDo-<%= result1.rows[i].todoid %>">
-            <td>
-              <%= result1.rows[i].client_id %>
-            </td>
-            <td>
+          <tr>
+
+            <td style="padding-left: 15px; padding-right: 15px;">
               <%= result1.rows[i].name %>
             </td>
-            <td>
+            <td style="padding-left: 10px; padding-right: 10px;">
               <%= result1.rows[i].item %>
             </td>
-            <td>
+            <td style="padding-left: 10px; padding-right: 10px;">
               <%= result1.rows[i].date.toString().substring(0,16) %>
             </td>
-            <td>
+            <td style="padding-left: 10px; padding-right: 15px;">
               <%= result1.rows[i].time %>
             </td>
             <td>
-              <button class="btn btn-danger" style="background: #E63946" class="delete" id='<%= result1.rows[i].todoid %>' onClick="delete_click(this.id)"
+              <button class="btn btn-danger" style="background: #E63946; padding-left: 10px;" class="delete" id='<%= result1.rows[i].todoid %>' onClick="delete_click(this.id)"
                 type="submit">DELETE</button>
             </td>
             <td>
@@ -39,10 +36,7 @@
             </td>
           </tr>
           <% } else{ %>
-            <tr id="toDo-<%= result1.rows[i].todoid %>" class="btn-success">
-              <td>
-                <%= result1.rows[i].client_id %>
-              </td>
+            <tr>
               <td>
                 <%= result1.rows[i].name %>
               </td>
