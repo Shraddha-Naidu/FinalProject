@@ -17,11 +17,13 @@ body {
 /* NEW Resource Modal */
 /* Modal Body*/
 .new-resource-modal {
-  display: none;
+  visibility: hidden;
   }
 
 /* Modal Content*/
-
+.new-resource-input {
+  visibility: hidden;
+}
 
   input {
     box-sizing: border-box;

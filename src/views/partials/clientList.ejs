@@ -4,7 +4,6 @@
     <thead>
       <tr>
         <th>NAME</th>
-        <th>AGE</th>
         <th>PHONE</th>
         <th>ADDRESS</th>
         <th>APPLICATION DATE</th>
@@ -14,26 +13,23 @@
 
     <% for (let i=0; i < result.rows.length; i++){ %>
       <tr>
-        <td>
+        <td style="padding-left: 10px; padding-right: 10px;">
           <a href="/clientfile/<%= result.rows[i].id %>">
             <%= result.rows[i].name %>
           </a>
 
         </td>
-        <td>
-          <%= result.rows[i].age %>
-        </td>
-        <td>
+        <td style="padding-left: 10px; padding-right: 10px;">
           <%= result.rows[i].phone %>
         </td>
         <td>
           <%= result.rows[i].address %>
         </td>
 
-        <td>
+        <td style="padding-left: 15px; padding-right: 15px;">
           <%= result.rows[i].applied_at.toString().substring(0,16) %>
         </td>
-        <td>
+        <td style="padding-left: 10px; padding-right: 10px;">
           <%= result.rows[i].status %>
         </td>
       </tr>
