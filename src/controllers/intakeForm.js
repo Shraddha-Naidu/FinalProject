@@ -28,9 +28,9 @@ module.exports = (db) => {
  //QUERY CHANGE TO ADD RESOURCES//
 /*
 WITH ins AS (
-  INSERT INTO clients
+  (INSERT INTO clients
   (user_id, name, age, email, phone, isHoused, address, known_locations, dependants, dependents_list, citizenship, applied_at)
-VALUES
+VALUES)
   ($1,$2,$3,$4,$5,$6,$8,$9,$10,$11)
 RETURNING id),
 ins2 AS (

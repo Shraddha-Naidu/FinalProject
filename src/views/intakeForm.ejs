@@ -31,16 +31,14 @@
 
   <div class="new-client-form">
     <form action="/clientList" method="post" id="intake-form">
-      <label for="field1"><span>Name <span class="required">*</span></span><input type="text" class="input-field"
+      <label for="name"><span>Name <span class="required">*</span></span><input type="text" class="input-field"
           name="name" id="name" value="" /></label>
-      <label for="field2"><span>Age <span class="required">*</span></span><input type="text" class="input-field"
+      <label for="age"><span>Age <span class="required">*</span></span><input type="text" class="input-field"
           name="age" id="age" value="" /></label>
-      <label><span>Telephone <span class="required">*</span></span><input type="text" class="tel-number-field"
-          name="tel_no_1" value="" maxlength="4" />-<input type="text" class="tel-number-field" name="tel_no_2" value=""
-          maxlength="4" />-<input type="text" class="tel-number-field" id="phone" name="phone" value="" maxlength="10"
-          style="width: 80px" /></label>
-      <label for="field4"><span>Email <span class="required">*</span></span><input type="text" class="input-field"
-          name="field2" value="" /></label>
+      <label for="phone"><span>Phone <span class="required">*</span></span><input type="text" class="input-field"
+          name="phone" id="phone" value="" /></label>
+      <label for="email"><span>Email <span class="required">*</span></span><input type="text" class="input-field"
+          name="email" id="email" value="" /></label>
 
       <label for="field5"><span>Housed?<span class="required">*</span></span><select name="field4" class="select-field">
           <option value="Select-One">Select One</option>
@@ -58,8 +56,8 @@
           <option value="Yes">Yes</option>
           <option value="No">No</option>
         </select></label>
-      <label for="field9"><span>Dependents List </span><input type="text" class="input-field" name="field1"
-          value="" /></label>
+
+        <!---INSERT DEPENDENTS FORM HERE /DROP DOWN ON YES-->
 
       <div class="resources">
         <h4>Resources Requested</h4>
