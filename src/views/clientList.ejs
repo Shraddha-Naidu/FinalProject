@@ -20,12 +20,17 @@
 
   <link rel="stylesheet" href="/styles/style.css">
   <link rel='stylesheet' href='styles/clientList.css'>
+  <link rel='stylesheet' href='styles/header.css'>
 
   <!-- jQuery -->
   <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenLite.min.js'></script>
+  <!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/CSSPlugin.min.js'></script> -->
   <!-- DataTables JS -->
   <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
   <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
@@ -44,13 +49,20 @@
   <script src="https://cdn.datatables.net/buttons/1.5.0/js/buttons.print.min.js"></script>
   <script src="https://cdn.datatables.net/buttons/1.5.0/js/buttons.colVis.min.js"></script>
 
-  <%- include('partials/_sideBar') %>
-    <script src='/scripts/tableControl.js'></script>
+
+  <%- include('partials/_header') %>
+    <%- include('partials/_sideBar') %>
+
+
+      <script src='/scripts/tableControl.js'></script>
+      <script src='/scripts/animated.js'></script>
 
 </head>
 
-<body>
-  <h1>CLIENT DIRECTORY</h1>
+
+<body class='clientList'>
+
+  <!-- <h1>CLIENT DIRECTORY</h1> -->
 
   <div class="container" id='clientlist'>
     <div class="table-responsive">
