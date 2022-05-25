@@ -5,7 +5,7 @@ module.exports = (db) => {
   // ClientFile Page
   route.get('/', (req, res) => {
 
-    const getAllClients = 'SELECT * FROM clients';
+    const getAllClients = 'SELECT clients.*, users.name as user_name, clients.name as client_name FROM clients JOIN users ON users.id=clients.user_id';
 
     db.query(getAllClients)
       .then((result) => {
