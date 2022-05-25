@@ -94,20 +94,16 @@ module.exports = (db) => {
   route.post('/:id/dependents', (req, res) => {
     const { name, phone, email, relationship } = req.body
     const client_id = req.params.id
-    console.log('re', req.body)
     const addDependent = 'INSERT INTO dependents (client_id, dependent_name, dependent_phone, dependent_email, relationship) VALUES ($1, $2, $3, $4, $5)  RETURNING *;'
-
 
     db.query(addDependent, [client_id, name, phone, email, relationship])
       .then((result) => {
-        console.log(result.rows)
         res.status(201).send();
       })
       .catch((e) => {
         console.error(e);
         res.send(e);
       });
-
   });
 
 

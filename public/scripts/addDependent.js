@@ -1,13 +1,3 @@
-function openAddDependentForm() {
-  document.getElementById("addDependent").style.display = "block";
-  document.getElementById("openDependentButton").style.display = "none";
-}
-
-function closeAddDependentForm() {
-  document.getElementById("addDependent").style.display = "none";
-  document.getElementById("openDependentButton").style.display = "block";
-}
-// with jQuery to avoid page reload
 const createDependent = function (dependent) {
 
   let $dependent = `
@@ -43,7 +33,6 @@ $(document).ready(function () {
   const id = window.location.pathname.substr(12, pathname.length)
   // Submit Handler
   $("#addDependentForm").on('submit', function (event) {
-
     // event.preventDefault();
     $.ajax({
       method: 'POST',

@@ -1,15 +1,4 @@
-function openAddUpdateForm() {
-  document.getElementById("addUpdate").style.display = "block";
-  document.getElementById("openUpdateButton").style.display = "none";
-}
-
-function closeAddUpdateForm() {
-  document.getElementById("addUpdate").style.display = "none";
-  document.getElementById("openUpdateButton").style.display = "block";
-}
-// with jQuery to avoid page reload
 const createUpdate = function (update) {
-
   let $update = `
     <tr id="update-${update.updateid}">
       <td>
@@ -67,4 +56,4 @@ $(document).ready(function () {
     };
     loadUpdates();
   });
-})
+});
