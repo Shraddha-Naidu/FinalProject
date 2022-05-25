@@ -21,9 +21,7 @@ body {
   }
 
 /* Modal Content*/
- .new-resource-input {
-  display: none;
-  }
+
 
   input {
     box-sizing: border-box;

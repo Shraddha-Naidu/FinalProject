@@ -157,7 +157,7 @@ div #confirmation-popup{
   top: 10%;
   width: 35%;
   padding: 20px;
-  border: #1D3557 2px;
+  border: #1D3557 20px;
   box-shadow: 0px 0px 10px rgb(28, 28, 32);
   display: none;
   text-align: center;
@@ -172,6 +172,13 @@ div #confirmation-popup{
 }
 
 #returning-btn {
+  padding-right: 30px;
+  float: right;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+#cancel-btn {
   padding-right: 30px;
   float: right;
   cursor: pointer;
