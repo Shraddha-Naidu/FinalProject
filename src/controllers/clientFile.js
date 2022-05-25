@@ -8,14 +8,12 @@ module.exports = (db) => {
     db.query(getResourcesProvidedByClientId, [client_id])
       .then((result) => {
         res.render("resourcesForClient", { result })
-        console.log("RESULTS", result.rows)
       })
 
   })
   // ClientFile Page
   route.get('/:id', (req, res) => {
     const client_id = req.params.id
-
     const getClientData = `SELECT users.id as user_id, users.name as user_name, users.email, users.type, users.password, users.phone, clients.id as client_id, clients.*, provided_resources.id as provided_resources_id, provided_resources.*, flags.id as flags_id, flags.*, updates.id as updates_id, updates.*,resource_providers.id as resource_providers_id, resource_providers.* FROM users
     LEFT JOIN clients ON clients.user_id=users.id  
     LEFT JOIN provided_resources ON provided_resources.client_id = clients.id
@@ -46,8 +44,7 @@ module.exports = (db) => {
             updatesNewArr.push(row)
           }
         }
-        console.log("CLIENTFILE RESULT ARR", arr[0])
-        res.render("clientFile", { result: arr, updatesNewArr })
+        res.render("clientFile", { result: arr, updatesNewArr, client_id })
       })
       .catch((e) => {
         console.error(e);

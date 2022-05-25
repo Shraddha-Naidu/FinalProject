@@ -9,7 +9,6 @@ module.exports = (db) => {
     const getToDos = 'SELECT todos.id AS todoId, todos.user_id, todos.client_id, todos.item, todos.date, todos.time, todos.completed, clients.name  FROM todos JOIN clients ON todos.client_id = clients.id WHERE todos.user_id = $1 ORDER BY date ASC;'
     db.query(getToDos, [user_id])
       .then((result) => {
-        console.log("JQUERY TODO RESULTS", result.rows)
         res.send(result.rows);
         })
         .catch((e) => {
@@ -54,7 +53,6 @@ module.exports = (db) => {
 
 
   route.post('/delete', (req, res) => {
-    console.log('REQUEST BODY', req.body.id)
     const id = req.body.id
     const deleteToDo = 'DELETE FROM todos WHERE id = $1 RETURNING *;'
     db.query(deleteToDo, [id])

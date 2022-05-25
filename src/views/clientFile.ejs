@@ -250,8 +250,13 @@
               <th>Provider's Phone Number</th>
               <th>Provider's Email Address</th>
               <th>Provider's Address</th>
-              <th><a class="btn btn-info add-newUpdate" href='/resourcesforclient/<%= result[0].client_id %>'><i class="fa fa-plus"></i>
-                  Go To Provided Resources Map</a></th>
+              <% if (result[0].provided_resources_id !=null) {%>
+                <th><a class="btn btn-info add-newUpdate" href='/resourcesforclient/<%= client_id %>'><i
+                      class="fa fa-plus"></i>
+                    Go To Provided Resources Map</a></th>
+                <%} else {%>
+                  <th>No resources have been provided at this time</th>
+                  <%} %>
             </tr>
             </tr>
           </thead>

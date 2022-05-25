@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=full-width, initial-scale=1">
   <title>Client Resource Map</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
@@ -15,8 +16,7 @@
     crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <link rel="stylesheet" href="/styles/style.css">
-  <link rel='stylesheet' href='/styles/resourcesForClient.css'>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <link rel='stylesheet' href='/styles/resourcesforclient.css'>
 
 
   <!--SIDE BAR-->
@@ -24,13 +24,9 @@
 </head>
 
 <body>
-
   <div class="container" id='resourceslist'>
     <div class="table-responsive">
       <div class="table-wrapper">
-    
-
-        <hr>
         <div class="internal-table">
           <div class="row">
             <div class="col">
@@ -39,6 +35,7 @@
             </div>
           </div>
         </div>
+
         <table class="table" id="table_id">
           <thead>
             <tr>
@@ -74,10 +71,10 @@
 
           </tbody>
         </table>
+        <div class="container-fluid" id="clientMap">
+          <%- include('partials/resourcesforclientmap') %>
+        </div>
       </div>
-    </div>
-    <div id="clientMap">
-      <%- include('partials/resourcesforclientmap') %>
     </div>
 </body>
 <footer>
@@ -93,4 +90,5 @@
   </script>
 
 </footer>
+
 </html>

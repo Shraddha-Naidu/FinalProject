@@ -4,8 +4,9 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=full-width, initial-scale=1">
   <title>Client Resource Map</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
@@ -15,29 +16,19 @@
     crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <link rel="stylesheet" href="/styles/style.css">
-  <link rel='stylesheet' href='/styles/resourcesForClient.css'>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <link rel='stylesheet' href='/styles/resourcesforclient.css'>
 
-  
   <!--SIDE BAR-->
   <%- include('partials/_sideBar') %>
 </head>
 
 <body>
   <div class="container">
-    <div class="container-fluid">
-      <%- include('partials/_sideBar') %>
-    </div>
     <div class="container-fluid text-center">
       <div class="row content">
         <div class="col-sm-8 text-left">
           <h1>RESOURCE DIRECTORY</h1>
-
           <hr>
-          <div class="container-fluid">
-            <%- include('partials/resourcesforclientmap') %>
-          </div>
-          <h3>All Resources: Listed Alphabetically By Provider</h3>
           <table class="table" id="table_id" class="display">
             <thead>
               <tr>
@@ -48,6 +39,7 @@
                 <th scope="col">Provider Address:</th>
             </thead>
             <tbody id="resources">
+              <h3>All Resources: Listed Alphabetically By Provider</h3>
               <% for (let i=0; i < result.rows.length; i++){ %>
                 <tr>
                   <td>
@@ -70,25 +62,27 @@
                   </td>
                 </tr>
                 <% } %>
-
             </tbody>
         </div>
       </div>
     </div>
+    <div class="container-fluid">
+      <%- include('partials/resourcesforclientmap') %>
+    </div>
   </div>
 </body>
-</div>
 <footer>
-     <!--DATA TABLES-->
-     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.0/css/jquery.dataTables.css">
-     <script type="text/javascript" charset="utf8"
-       src="https://cdn.datatables.net/1.12.0/js/jquery.dataTables.js"></script>
-   
-     <script>
-       $(document).ready(function () {
-         $('#table_id').DataTable();
-       });
-     </script>
-   
+  <!--DATA TABLES-->
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.0/css/jquery.dataTables.css">
+  <script type="text/javascript" charset="utf8"
+    src="https://cdn.datatables.net/1.12.0/js/jquery.dataTables.js"></script>
+
+  <script>
+    $(document).ready(function () {
+      $('#table_id').DataTable();
+    });
+  </script>
+
 </footer>
+
 </html>

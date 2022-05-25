@@ -12,7 +12,6 @@ module.exports = (db) => {
                     const getToDos = 'SELECT todos.id AS todoId, todos.user_id, todos.client_id, todos.item, todos.date, todos.time, todos.completed, clients.name  FROM todos JOIN clients ON todos.client_id = clients.id WHERE todos.user_id = $1 ORDER BY date ASC;'
                     db.query(getToDos, [user_id])
                     .then((result1) => {
-                         console.log("EJS TODO RESULTS", result1.rows)
                          res.render("dashboard", { result: result, result1: result1 })
                     })
                     .catch((e) => {
@@ -24,40 +23,6 @@ module.exports = (db) => {
           
      });
 
-     route.post('/', (req, res) => {
-          const id = req.body.date;
-          const date = req.body.date
-          let [yyyy, mm, dd] = date.split("-");
-          let revdate = `${dd}-${mm}-${yyyy}`;
-          const searchParams = req.query.name;
-          // 02-01-2022
-          const user_id = 1
-          console.log("REQ DATE", req.body.date)
-          console.log("REVDATE", revdate)
-          const getClientsBySocialWorkerId = 'SELECT * FROM clients WHERE user_id = $1';
-          const getToDos = 'SELECT * FROM todos JOIN clients ON clients.id = todos.client_id WHERE date = $1 AND todos.user_id = $2'
-          db.query(getClientsBySocialWorkerId, [user_id])
-               .then((result) => {
-                    console.log("RESULT", result.rows)
-                    db.query(getToDos, [user_id])
-                         .then((result1) => {
-                              if (result1.rows.length === 0) {
-                                   console.log("NO TODOS IN DATABASE")
-                                   res.redirect("/")
-                              } else {
-                                   console.log("RESULT1", result1.rows)
-                                   res.redirect(`/`, { result: result, result1: result1 })
-                              }
-                         })
-                         .catch((e) => {
-                              console.error(e);
-                              res.send(e);
-                         })
-               })
-     });
-
-
      return route;
 };
 
-//Add new toDo

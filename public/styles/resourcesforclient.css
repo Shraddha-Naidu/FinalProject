@@ -2,8 +2,13 @@
   height: 400px;
 }
 
+#clientMap {
+  width: 80%
+}
+
 body {
   color: grey;
+  background: #f5f5f5;
   font-family: sans-serif;
   font-size: 13px;
 }
@@ -14,6 +19,7 @@ body {
 
 .table-wrapper {
   min-width: 1000px;
+  background: #fff;
   padding: 10px 0px;
   border-radius: 3px;
   box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
@@ -21,8 +27,7 @@ body {
 
 .table-title {
   padding-bottom: 15px;
-  background: linear-gradient(#1D3355, #A8DADC);
-  opacity: 90%;
+  background: linear-gradient(#FA84A4, #84A4FA);
   color: #fff;
   padding: 16px 30px;
   /* margin: -20px -25px 10px; */
@@ -36,7 +41,10 @@ body {
   border-radius: 3px 3px 0 0;
 }
 
-
+.table-title h2 {
+  margin: 5px 0 0;
+  font-size: 24px;
+}
 
 .table-title .btn-group {
   float: right;
@@ -198,10 +206,6 @@ border-color: #f50000;
 table.table td .add,
 table.updateTable td .add {
 display: none;
-}
-
-#resourceslist {
-  margin-right: 4vw;
 }
 
 div.dataTables_wrapper div.dataTables_filter label {
