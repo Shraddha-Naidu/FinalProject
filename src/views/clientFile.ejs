@@ -20,9 +20,9 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  
   <script src='/scripts/addUpdates.js'></script>
   <script src='/scripts/addFlags.js'></script>
+  <script src='/scripts/addDependent.js'></script>
   <script src='/scripts/editButton.js'></script>
 
   <script src='/scripts/toggledButton.js'></script>
@@ -31,368 +31,404 @@
 </head>
 
 <body>
-
   <div class="container" id='clientlist'>
-              <h1><%= result[0].name.toUpperCase() %>
-              </h1>
-
-        <hr>
-        <div class="internal-table">
-          <div class="row">
-            <div class="col-lg">
-              <h3><b>APPLICATION STATUS</b>
-              </h3>
-            </div>
-          </div>
+    <h1>
+      <%= result[0].name.toUpperCase() %>
+    </h1>
+    <hr>
+    <div class="internal-table">
+      <div class="row">
+        <div class="col-lg">
+          <h3><b>APPLICATION STATUS</b>
+          </h3>
         </div>
-        <table class="table">
-          <thead>
-            <tr>
-              <th>Client ID</th>
-              <th>Current Status</th>
-              <th>Case Status</th>
-              <th>Application Date</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>
-                <%= result[0].client_id %>
-              </td>
-              <td>
-                <%= result[0].status %>
-              </td>
-              <td>
-                <% if (result[0].isactive===true) { %>
-                  <button class="btn btn-success toggle-button" id='critical_btn'>
-                    <span>
-                      ACTIVE
-                    </span></button>
-                  <% } else { %>
-                    <button class="btn btn-danger toggle-button">
-                      <span>
-                        INACTIVE
-                      </span></button>
-                    <% } %>
-              </td>
-              <td>
-                <%= result[0].applied_at %>
-              </td>
-
-            </tr>
-          </tbody>
-        </table>
-
-        <hr>
-        <div class="internal-table">
-          <div class="row">
-            <div class="col-lg">
-              <h3><b>PERSONAL INFORMATION</b>
-              </h3>
-            </div>
-          </div>
-        </div>
-        <table class="table">
-          <thead>
-            <tr>
-              <th>Assigned To</th>
-              <th>Age</th>
-              <th>Citizenship</th>
-              <th>Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>
-                <%= result[0].user_name %>
-              </td>
-              <td>
-                <%= result[0].age %>
-              </td>
-              <td>
-                <%= result[0].citizenship %>
-              </td>
-              <td>
-                <%= result[0].status %>
-              </td>
-
-            </tr>
-          </tbody>
-        </table>
-
-        <hr>
-        <div class="internal-table">
-          <div class="row">
-            <div class="col-lg">
-              <h3><b>CONTACT INFORMATION</b>
-              </h3>
-            </div>
-          </div>
-        </div>
-        <table class="table">
-          <thead>
-            <tr>
-              <th>Email Address</th>
-              <th>Phone Number</th>
-              <th>Edit</th>
-            </tr>
-          </thead>
-          <tbody>
-
-            <tr>
-              <td>
-                <%= result[0].email %>
-              </td>
-              <td type='tel'>
-                <%= result[0].phone %>
-              </td>
-              <td>
-                <a class="add" title="Add"><i class="material-icons">&#xE03B;</i></a>
-                <a class="edit" title="Edit"><i class="material-icons">&#xE254;</i></a>
-
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        <hr>
-        <div class="internal-table">
-          <div class="row">
-            <div class="col-lg">
-              <h3><b>HOUSING</b>
-              </h3>
-            </div>
-          </div>
-        </div>
-        <table class="table">
-          <thead>
-            <tr>
-              <th>Housed?</th>
-              <th>Address</th>
-              <th>Known Locations</th>
-              <th>Edit</th>
-            </tr>
-          </thead>
-          <tbody>
-
-            <tr>
-              <td>
-                <%= result[0].ishoused %>
-              </td>
-              <td>
-                <%= result[0].address %>
-              </td>
-              <td>
-                <%= result[0].known_locations %>
-              </td>
-              <td>
-                <a class="add" title="Add"><i class="material-icons">&#xE03B;</i></a>
-                <a class="edit" title="Edit"><i class="material-icons">&#xE254;</i></a>
-
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        <hr>
-        <div class="internal-table">
-          <div class="row">
-            <div class="col-lg">
-              <h3><b>DEPENDENTS</b>
-              </h3>
-            </div>
-          </div>
-        </div>
-        <table class="table">
-          <thead>
-            <tr>
-              <th>List of Dependents</th>
-              <th>Edit</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% if (result[0].dependants==='true' ) {%>
-              <tr>
-                <td>
-                  <%= result[0].dependents_list %>
-                </td>
-                <td>
-                  <a class="add" title="Add"><i class="material-icons">&#xE03B;</i></a>
-                  <a class="edit" title="Edit"><i class="material-icons">&#xE254;</i></a>
-
-                </td>
-              </tr>
+      </div>
+    </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Client ID</th>
+          <th>Current Status</th>
+          <th>Case Status</th>
+          <th>Application Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <%= result[0].client_id %>
+          </td>
+          <td>
+            <%= result[0].status %>
+          </td>
+          <td>
+            <% if (result[0].isactive===true) { %>
+              <button class="btn btn-success toggle-button" id='critical_btn'>
+                <span>
+                  ACTIVE
+                </span></button>
               <% } else { %>
-                <td>
-                  N/A
-                </td>
-                <td>
-                  <a class="add" title="Add"><i class="material-icons">&#xE03B;</i></a>
-                  <a class="edit" title="Edit"><i class="material-icons">&#xE254;</i></a>
-
-                </td>
-                <%}%>
-          </tbody>
-        </table>
-
-        <hr>
-        <div class="internal-table">
-          <div class="row">
-            <div class="col-lg">
-              <h3><b>RESOURCES</b>
-              </h3>
-            </div>
-          </div>
+                <button class="btn btn-danger toggle-button">
+                  <span>
+                    INACTIVE
+                  </span></button>
+                <% } %>
+          </td>
+          <td>
+            <%= result[0].applied_at %>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <hr>
+    <div class="internal-table">
+      <div class="row">
+        <div class="col-lg">
+          <h3><b>PERSONAL INFORMATION</b>
+          </h3>
         </div>
-        <table class="table">
-          <thead>
-            <tr>
-              <th>Provider</th>
-              <th>Resource Type</th>
-              <th>Phone Number</th>
-              <th>Email Address</th>
-              <th>Address</th>
-              <% if (result[0].provided_resources_id !=null) {%>
-                <th><a class="btn btn-info add-newUpdate" href='/resourcesforclient/<%= client_id %>'>
-                    Client Resources Map</a></th>
-                <%} else {%>
-                  <th>No resources have been provided at this time</th>
-                  <%} %>
-            </tr>
-            </tr>
-          </thead>
-          <tbody>
-
-            <% for (let i=0; i < result.length; i++){ %>
-
-              <tr>
-                <td>
-                  <%= result[i].provider %>
-                </td>
-                <td>
-                  <%= result[i].resource_type %>
-                </td>
-                <td>
-                  <%= result[i].provider_phone %>
-                </td>
-                <td>
-                  <%= result[i].provider_email %>
-                </td>
-                <td>
-                  <%= result[i].provider_address %>
-                </td>
-              </tr>
-              <% } %>
-          </tbody>
-        </table>
-
-        <hr>
-        <div class="internal-table">
-          <div class="row">
-            <div class="col-lg">
-              <h3><b>FLAGS</b>
-              </h3>
-            </div>
-          </div>
+      </div>
+    </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Assigned To</th>
+          <th>Age</th>
+          <th>Citizenship</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <%= result[0].user_name %>
+          </td>
+          <td>
+            <%= result[0].age %>
+          </td>
+          <td>
+            <%= result[0].citizenship %>
+          </td>
+          <td>
+            <%= result[0].status %>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <hr>
+    <div class="internal-table">
+      <div class="row">
+        <div class="col-lg">
+          <h3><b>CONTACT INFORMATION</b>
+          </h3>
         </div>
-        <table class="table">
-          <thead>
-            <tr>
-              <th>Start Date</th>
-              <th>End Date</th>
-              <th>Notes</th>
-              <th> <button id="openFlagButton" type="button" class="btn btn-info add-new" onclick="openAddFlagForm()"><i
-                    class="fa fa-plus"></i>ADD FLAG</button>
-              </th>
-          </thead>
-          <div class="form-popup" id="addFlag">
-            <form id="addFlagForm">
-              <div class="form-group">
-
-                <label for="added"><b>Start Date</b></label>
-                <input class="form-control" type="date" placeholder="date" name="added_at">
-                <div>
-                  <label for="ended"><b>End Date</b></label>
-                  <input class="form-control" type="date" placeholder="" name="ended_at">
+      </div>
+    </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Email Address</th>
+          <th>Phone Number</th>
+          <th>Edit</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <%= result[0].email %>
+          </td>
+          <td type='tel'>
+            <%= result[0].phone %>
+          </td>
+          <td>
+            <a class="add" title="Add"><i class="material-icons">&#xE03B;</i></a>
+            <a class="edit" title="Edit"><i class="material-icons">&#xE254;</i></a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <hr>
+    <div class="internal-table">
+      <div class="row">
+        <div class="col-lg">
+          <h3><b>HOUSING</b>
+          </h3>
+        </div>
+      </div>
+    </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Housed?</th>
+          <th>Address</th>
+          <th>Known Locations</th>
+          <th>Edit</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <%= result[0].ishoused %>
+          </td>
+          <td>
+            <%= result[0].address %>
+          </td>
+          <td>
+            <%= result[0].known_locations %>
+          </td>
+          <td>
+            <a class="add" title="Add"><i class="material-icons">&#xE03B;</i></a>
+            <a class="edit" title="Edit"><i class="material-icons">&#xE254;</i></a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <hr>
+    <div class="internal-table">
+      <div class="row">
+        <div class="col-lg">
+          <h3><b>DEPENDENTS</b>
+          </h3>
+        </div>
+      </div>
+    </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Phone Number</th>
+          <th>Email Address</th>
+          <th>Relationship to Client</th>
+          <th>
+            <button id="openDependentButton" type="button" class="btn btn-info add-new" data-toggle="modal"
+              data-target="#dependents"><i class="fa fa-plus"></i>Add Dependent</button>
+          </th>
+        </tr>
+      </thead>
+      <div class="modal fade" id="dependents" role="dialog">
+        <div class="modal-dialog">
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Add Dependent</h4>
+            </div>
+            <div class="modal-body">
+              <form id="addDependentForm">
+                <div class="form-group">
+                  <label for="DependentName"><b>Name</b></label>
+                  <input class="form-control" type="text" placeholder="" name="name">
                   <div>
-                    <label for="flagNote"><b>Notes</b></label>
-                    <input class="form-control" type="text" placeholder="" name="note">
+                    <label for="DependentPhone"><b>Phone Number</b></label>
+                    <input class="form-control" type="tel" placeholder="" name="phone">
                     <div>
-                      <button class="submit-btn">Add</button>
-                      <button type="button" class="btn cancel" onclick="closeAddFlagForm()">Close</button>
+                      <label for="DependentEmail"><b>Email Address</b></label>
+                      <input class="form-control" type="email" placeholder="" name="email">
+                      <div>
+                        <label for="relationship"><b>Relationship to Client</b></label>
+                        <input class="form-control" type="text" placeholder="" name="relationship">
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            </form>
-            <tbody id='flag-container'>
-
-              <tr>
-                <td>
-                  <%= result[0].start_date %>
-                </td>
-                <td>
-                  <%= result[0].end_date %>
-                </td>
-                <td>
-                  <%= result[0].note %>
-                </td>
-
-              </tr>
-            </tbody>
-        </table>
-        <hr>
-        <div class="internal-table">
-          <div class="row">
-            <div class="col-lg">
-              <h3><b>UPDATES
-                </b>
-              </h3>
+                <button class="submit-btn">Add</button>
+                <button type="button" class="submit-btn" data-dismiss="modal">Close</button>
+              </form>
             </div>
           </div>
         </div>
-        <table class="table">
-
-          <thead>
-            <tr>
-              <th>Date Added</th>
-              <th>Client Updates</th>
-
-              <th> <button id="openUpdateButton" type="button" class="btn btn-info add-new"
-                  onclick="openAddUpdateForm()"><i class="fa fa-plus"></i>ADD UPDATE</button>
-              </th>
-            </tr>
-          </thead>
-          <div class="form-popup" id="addUpdate">
-            <form id="addUpdateForm">
-              <div class="form-group">
-
-                <label for="date"><b>Date</b></label>
-                <input class="form-control" type="date" placeholder="date" name="date">
-                <div>
-                  <label for="updateText"><b>Description</b></label>
-                  <input class="form-control" type="text" placeholder="" name="description">
-                  <div>
-                    <button class="submit-btn">Add</button>
-                    <button type="button" class="btn cancel" onclick="closeAddUpdateForm()">Close</button>
-                  </div>
-                </div>
-              </div>
-            </form>
-            <tbody id='update-container'>
-              <% updatesNewArr.forEach((i)=> { %>
-
-                <tr id="update-<%= i.updateid %>">
-                  <td>
-                    <%= i.date %>
-                  </td>
-                  <td>
-                    <%= i.description %>
-                  </td>
-                </tr>
-                <%}) %>
-            </tbody>
-        </table>
+      </div>
+      <tbody>
+        <% dependentNewArr.forEach((i)=> { %>
+          <tr>
+            <td>
+              <%= i.dependent_name %>
+            </td>
+            <td>
+              <%= i.dependent_phone %>
+            </td>
+            <td>
+              <%= i.dependent_email %>
+            </td>
+            <td>
+              <%= i.relationship %>
+            </td>
+          </tr>
+          <% }) %>
+      </tbody>
+    </table>
+    <hr>
+    <div class="internal-table">
+      <div class="row">
+        <div class="col-lg">
+          <h3><b>RESOURCES</b>
+          </h3>
+        </div>
       </div>
     </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Provider</th>
+          <th>Resource Type</th>
+          <th>Phone Number</th>
+          <th>Email Address</th>
+          <th>Address</th>
+          <% if (result[0].provided_resources_id !=null) {%>
+            <th><a class="btn btn-info add-new" href='/resourcesforclient/<%= client_id %>'>
+
+                Client Resources Map<i class='fas fa-arrow-right'></a></i></th>
+            <%} else {%>
+              <th>No resources have been provided at this time</th>
+              <%} %>
+        </tr>
+        </tr>
+      </thead>
+      <tbody>
+        <% for (let i=0; i < result.length; i++){ %>
+          <tr>
+            <td>
+              <%= result[i].provider %>
+            </td>
+            <td>
+              <%= result[i].resource_type %>
+            </td>
+            <td>
+              <%= result[i].provider_phone %>
+            </td>
+            <td>
+              <%= result[i].provider_email %>
+            </td>
+            <td>
+              <%= result[i].provider_address %>
+            </td>
+          </tr>
+          <% } %>
+      </tbody>
+    </table>
+    <hr>
+    <div class="internal-table">
+      <div class="row">
+        <div class="col-lg">
+          <h3><b>FLAGS</b>
+          </h3>
+        </div>
+      </div>
+    </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Start Date</th>
+          <th>End Date</th>
+          <th>Notes</th>
+          <th> <button id="openFlagButton" type="button" class="btn btn-info add-new" data-toggle="modal"
+              data-target="#flag"><i class="fa fa-plus"></i>Add Flag</button>
+          </th>
+      </thead>
+      <div class="modal fade" id="flag" role="dialog">
+        <div class="modal-dialog">
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Add Flag</h4>
+            </div>
+            <div class="modal-body">
+              <form id="addFlagForm">
+                <div class="form-group">
+                  <label for="added"><b>Start Date</b></label>
+                  <input class="form-control" type="date" placeholder="date" name="added_at">
+                  <div>
+                    <label for="ended"><b>End Date</b></label>
+                    <input class="form-control" type="date" placeholder="" name="ended_at">
+                    <div>
+                      <label for="flagNote"><b>Notes</b></label>
+                      <input class="form-control" type="text" placeholder="" name="note">
+                    </div>
+                  </div>
+                </div>
+                <button type='submit' class="submit-btn">Add</button>
+                <button type="button" class="submit-btn" data-dismiss="modal">Close</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <tbody id='flag-container'>
+        <tr>
+          <td>
+            <%= result[0].start_date %>
+          </td>
+          <td>
+            <%= result[0].end_date %>
+          </td>
+          <td>
+            <%= result[0].note %>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <hr>
+    <div class="internal-table">
+      <div class="row">
+        <div class="col-lg">
+          <h3><b>UPDATES
+            </b>
+          </h3>
+        </div>
+      </div>
+    </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Date Added</th>
+          <th>Client Updates</th>
+          <th> <button id="openUpdateButton" type="button" class="btn btn-info add-new" data-toggle="modal"
+              data-target="#myModal"><i class="fa fa-plus"></i>Add New Update</button>
+          </th>
+        </tr>
+      </thead>
+      <!-- Modal -->
+      <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Add New Update</h4>
+            </div>
+            <div class="modal-body">
+              <form id="addUpdateForm">
+                <div class="form-group">
+                  <label for="date"><b>Date</b></label>
+                  <input class="form-control" type="date" placeholder="date" name="date">
+                  <div>
+                    <label for="updateText"><b>Description</b></label>
+                    <input class="form-control" type="text" placeholder="" name="description">
+                  </div>
+                </div>
+                <button class="submit-btn">Add</button>
+                <button type="button" class="submit-btn" data-dismiss="modal">Close</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <tbody id='update-container'>
+        <% updatesNewArr.forEach((i)=> { %>
+          <tr id=" update-<%=i.updateid %>">
+            <td>
+              <%= i.date %>
+            </td>
+            <td>
+              <%= i.description %>
+            </td>
+          </tr>
+          <%}) %>
+      </tbody>
+    </table>
+  </div>
+  </div>
 </body>
 
 </html>

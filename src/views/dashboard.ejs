@@ -10,9 +10,8 @@
   <!--jQuery-->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-  crossorigin="anonymous"></script>
-  
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
   <!--Client Side Javascript for ToDo Pop-Up-->
   <script src="/scripts/addToDo.js"></script>
 
@@ -26,14 +25,15 @@
   <link rel="stylesheet" href="/styles/style.css">
   <link rel="stylesheet" href="/styles/addToDoPopUp.css">
 
-   <!--DATA TABLES-->
-   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.0/css/jquery.dataTables.css">
-   <script type="text/javascript" charset="utf8"
-     src="https://cdn.datatables.net/1.12.0/js/jquery.dataTables.js"></script>
 
-  
+  <!--DATA TABLES-->
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.0/css/jquery.dataTables.css">
+  <script type="text/javascript" charset="utf8"
+    src="https://cdn.datatables.net/1.12.0/js/jquery.dataTables.js"></script>
+
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  
+
 
   <%- include('partials/_sideBar') %>
 </head>
@@ -57,20 +57,20 @@
       <div class="mb-3 col-xl-6" id="client-list-box">
         <div class="content-box bg-white shadow-sm">
           <h4>CLIENT LIST</h4>
-          <div>
-            <button id="open-confirmation"><i class="fa fa-plus"></i>ADD NEW CLIENT</button>
-            <!--CONFIRMATION POP UP-->
-             <div id="confirmation-popup">
-               <p>Is this a New or Returning Client?</p>
-               <div id="new-btn"><span id="new">NEW</span></div>
-               <div id="returning-btn"><span id="returning">RETURNING</span></div>
-               <!--<div id="cancel-btn"><span id="cancel">CANCEL</span></div>-->
-             </div>
-            
-          </div>
           <%- include('partials/clientList.ejs') %>
         </div>
-        
+
+        <div>
+          <button id="open-confirmation">ADD NEW CLIENT</button>
+          <!--CONFIRMATION POP UP-->
+          <div id="confirmation-popup">
+            <p>Is this a New or Returning Client?</p>
+            <div id="new-btn"><span id="new">NEW</span></div>
+            <div id="returning-btn"><span id="returning">RETURNING</span></div>
+            <!--<div id="cancel-btn"><span id="cancel">CANCEL</span></div>-->
+          </div>
+
+        </div>
       </div>
 
     </div>
@@ -80,7 +80,8 @@
       <h4>TO-DO</h4>
       <p id="to-do-box"></p>
       <div>
-        <button id="openToDoButton" class="open-button" onclick="openAddToDoForm()"><i class="fa fa-plus"></i>ADD</button>
+        <button id="openToDoButton" class="open-button" onclick="openAddToDoForm()"><i
+            class="fa fa-plus"></i>ADD</button>
       </div>
       <div class="form-popup" id="addToDo">
         <form id="addToDoForm">
@@ -118,21 +119,21 @@
   </div>
 </body>
 <script>
-  $(document).ready(function(){
+  $(document).ready(function () {
     //Opens Popup
-    $('#open-confirmation').click(function(){
+    $('#open-confirmation').click(function () {
       $('#confirmation-popup').show();
     })
     //Links to Intake
-    $('#new').click(function(){
-      window.location.href='/intakeForm';
+    $('#new').click(function () {
+      window.location.href = '/intakeForm';
     })
     //Links to Client Dirtectory
-    $('#returning').click(function(){
-      window.location.href='/clients';
+    $('#returning').click(function () {
+      window.location.href = '/clients';
     })
     //Cancel to close
-    $('close').click(function(){
+    $('close').click(function () {
       $('#confirmation-popup').hide();
     })
 

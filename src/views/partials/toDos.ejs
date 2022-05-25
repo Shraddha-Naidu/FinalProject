@@ -1,13 +1,17 @@
 <div class="col-sm-8 text-left">
 
-  <table class="todo-table">
+  <table class="todo-table" id='clients'>
 
     <thead class="todo-table" style="background: #A8DADC">
       <tr>
         <th class="client-name" id="todo-content">NAME</th>
         <th id="todo">TO-DO</th>
         <th class="todo-date" id="todo-content">DATE</th>
-        <th class ="time" id="todo-content">TIME</th>
+        <th class="time" id="todo-content">TIME</th>
+        <th class="delete" id="todo-content">DELETE</th>
+        <th class="complete" id="todo-content">COMPLETE</th>
+
+
     </thead>
     <tbody id="to-do-container">
       <% for (let i=0; i < result1.rows.length; i++){ %>
@@ -27,8 +31,8 @@
               <%= result1.rows[i].time %>
             </td>
             <td>
-              <button class="btn btn-danger" style="background: #E63946; padding-left: 10px;" class="delete" id='<%= result1.rows[i].todoid %>' onClick="delete_click(this.id)"
-                type="submit">DELETE</button>
+              <button class="btn btn-danger" style="background: #E63946; padding-left: 10px;" class="delete"
+                id='<%= result1.rows[i].todoid %>' onClick="delete_click(this.id)" type="submit">DELETE</button>
             </td>
             <td>
               <button class="btn btn-outline-primary" id='<%= result1.rows[i].todoid %>'
@@ -50,8 +54,8 @@
                 <%= result1.rows[i].time %>
               </td>
               <td>
-                <button class="btn btn-danger" style="background: #E63946" id='<%= result1.rows[i].todoid %>' onClick="delete_click(this.id)"
-                  type="submit">DELETE</button>
+                <button class="btn btn-danger" style="background: #E63946" id='<%= result1.rows[i].todoid %>'
+                  onClick="delete_click(this.id)" type="submit">DELETE</button>
               </td>
             </tr>
             <% } %>

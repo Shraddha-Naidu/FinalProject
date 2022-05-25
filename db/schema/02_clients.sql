@@ -10,8 +10,6 @@ CREATE TABLE clients (
   isHoused BOOLEAN NOT NULL DEFAULT FALSE,
   address VARCHAR(255) NOT NULL,
   known_locations VARCHAR(255) NOT NULL,
-  dependants VARCHAR(255) NOT NULL,
-  dependents_list VARCHAR (255),
   citizenship TEXT,
   applied_at VARCHAR(50) NOT NULL,
   isActive BOOLEAN NOT NULL,

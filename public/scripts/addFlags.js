@@ -1,13 +1,3 @@
-function openAddFlagForm() {
-  document.getElementById("addFlag").style.display = "block";
-  document.getElementById("openFlagButton").style.display = "none";
-}
-
-function closeAddFlagForm() {
-  document.getElementById("addFlag").style.display = "none";
-  document.getElementById("openFlagButton").style.display = "block";
-}
-// with jQuery to avoid page reload
 const createFlag = function (flag) {
 
   let $flag = `
@@ -40,7 +30,6 @@ $(document).ready(function () {
   const id = window.location.pathname.substr(12, pathname.length)
   // Submit Handler
   $("#addFlagForm").on('submit', function (event) {
-
     // event.preventDefault();
     $.ajax({
       method: 'POST',
@@ -71,4 +60,4 @@ $(document).ready(function () {
     };
     loadFlags();
   });
-})
+});
