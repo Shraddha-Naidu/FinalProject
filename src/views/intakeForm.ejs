@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,43 +11,55 @@
   <link rel="stylesheet" href="/styles/style.css">
   <link rel="stylesheet" href="/styles/intakeForm.css">
 
- 
+
 
   <!--FONT AWESOME-->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  
+
   <!--SIDE BAR-->
   <%- include('partials/_sideBar') %>
 
 </head>
+
 <body>
 
   <h1>INTAKE FORM</h1>
 
   <div class="new-client-form">
     <form action="/clientList" method="post" id="intake-form">
-    <label for="field1"><span>Name <span class="required">*</span></span><input type="text" class="input-field" name="name" id="name" value="" /></label>
-    <label for="field2"><span>Age <span class="required">*</span></span><input type="text" class="input-field" name="age" id="age"value="" /></label>
-    <label><span>Telephone <span class="required">*</span></span><input type="text" class="tel-number-field" name="tel_no_1" value="" maxlength="4" />-<input type="text" class="tel-number-field" name="tel_no_2" value="" maxlength="4"  />-<input type="text" class="tel-number-field" id="phone" name="phone" value="" maxlength="10" style="width: 80px" /></label>
-    <label for="field4"><span>Email <span class="required">*</span></span><input type="text" class="input-field" name="field2" value="" /></label>
-    
-    <label for="field5"><span>Housed?<span class="required">*</span></span><select name="field4" class="select-field">
-    <option value="Select-One">Select One</option>
-    <option value="Yes">Yes</option>
-    <option value="No">No</option>
-    </select></label>
-    <label for="field6"><span>Address</span><input type="text" class="input-field" name="field2" value="" /></label>
-    <label for="field7"><span>Known Locations </span><input type="text" class="input-field" name="field1" value="" /></label>
+      <label for="field1"><span>Name <span class="required">*</span></span><input type="text" class="input-field"
+          name="name" id="name" value="" /></label>
+      <label for="field2"><span>Age <span class="required">*</span></span><input type="text" class="input-field"
+          name="age" id="age" value="" /></label>
+      <label><span>Telephone <span class="required">*</span></span><input type="text" class="tel-number-field"
+          name="tel_no_1" value="" maxlength="4" />-<input type="text" class="tel-number-field" name="tel_no_2" value=""
+          maxlength="4" />-<input type="text" class="tel-number-field" id="phone" name="phone" value="" maxlength="10"
+          style="width: 80px" /></label>
+      <label for="field4"><span>Email <span class="required">*</span></span><input type="text" class="input-field"
+          name="field2" value="" /></label>
 
-    <label for="field3"><span>Citizenship <span class="required">*</span></span><input type="text" class="input-field" name="field1" value="" /></label>
-    <label for="field8"><span>Dependents?</span><select name="field4" class="select-field">
-      <option value="Select-One">Select One</option>
-      <option value="Yes">Yes</option>
-      <option value="No">No</option>
-      </select></label>
-      <label for="field9"><span>Dependents List </span><input type="text" class="input-field" name="field1" value="" /></label>
+      <label for="field5"><span>Housed?<span class="required">*</span></span><select name="field4" class="select-field">
+          <option value="Select-One">Select One</option>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select></label>
+      <label for="field6"><span>Address</span><input type="text" class="input-field" name="field2" value="" /></label>
+      <label for="field7"><span>Known Locations </span><input type="text" class="input-field" name="field1"
+          value="" /></label>
+
+      <label for="field3"><span>Citizenship <span class="required">*</span></span><input type="text" class="input-field"
+          name="field1" value="" /></label>
+      <label for="field8"><span>Dependents?</span><select name="field4" class="select-field">
+          <option value="Select-One">Select One</option>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select></label>
+      <label for="field9"><span>Dependents List </span><input type="text" class="input-field" name="field1"
+          value="" /></label>
 
       <div class="resources">
         <h4>Resources Requested</h4>
@@ -54,17 +67,17 @@
           <input type="checkbox">
           <span class="checkmark"></span>
         </label>
-        
+
         <label class="container">Housing
           <input type="checkbox">
           <span class="checkmark"></span>
         </label>
-        
+
         <label class="container">Legal
           <input type="checkbox">
           <span class="checkmark"></span>
         </label>
-        
+
         <label class="container">Addictions
           <input type="checkbox">
           <span class="checkmark"></span>
@@ -74,45 +87,46 @@
           <input type="checkbox">
           <span class="checkmark"></span>
         </label>
-        
+
         <label class="container">Shelter
           <input type="checkbox">
           <span class="checkmark"></span>
         </label>
-        
+
         <label class="container">Career
           <input type="checkbox">
           <span class="checkmark"></span>
         </label>
-        
-        <label for="field11"><span>Application Date</span><input type="date" class="input-field" name="field1" value="applied-date" /></label>
+
+        <label for="field11"><span>Application Date</span><input type="date" class="input-field" name="field1"
+            value="applied-date" /></label>
       </div>
-    <label><span> </span><input type="submit" value="Submit" /></label>
+      <label><span> </span><input type="submit" value="Submit" /></label>
     </form>
-    </div>
+  </div>
 </body>
 <script>
- /*  VJS Submit
-  const addNewClient = document.getElementById('intake-form');
-  
-  addNewClient.addEventListener('submit', function(event){
-    event.preventDefault();
-    
-    let request = new XMLHttpRequest()
-    let url = '/clientList'
+  /*  VJS Submit
+   const addNewClient = document.getElementById('intake-form');
+   
+   addNewClient.addEventListener('submit', function(event){
+     event.preventDefault();
+     
+     let request = new XMLHttpRequest()
+     let url = '/clientList'
+ 
+     request.open(“POST”, url, true);
+     request.setRequestHeader(“Content-Type”, “application/json”);
+     request.onreadystatechange = function () {
+         if (request.readyState === 4 && request.status === 200) {
+             var jsonData = JSON.parse(request.response);
+             console.log(jsonData);
+         }
+     };
+   }) */
 
-    request.open(“POST”, url, true);
-    request.setRequestHeader(“Content-Type”, “application/json”);
-    request.onreadystatechange = function () {
-        if (request.readyState === 4 && request.status === 200) {
-            var jsonData = JSON.parse(request.response);
-            console.log(jsonData);
-        }
-    };
-  }) */
-  
-  $(document).ready(function() {
-    $("form").submit(function() {
+  $(document).ready(function () {
+    $("form").submit(function () {
       alert("Client Added");
     });
   });

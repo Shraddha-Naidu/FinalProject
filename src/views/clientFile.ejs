@@ -21,6 +21,9 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src='/scripts/addUpdates.js'></script>
+  <script src='/scripts/addFlags.js'></script>
+  <script src='/scripts/editButton.js'></script>
+
   <script src='/scripts/toggledButton.js'></script>
 
   <%- include('partials/_sideBar') %>
@@ -309,28 +312,45 @@
               <th>Added at</th>
               <th>Ended at</th>
               <th>Notes</th>
-              <th>Edit</th>
+              <th> <button id="openFlagButton" type="button" class="btn btn-info add-new" onclick="openAddFlagForm()"><i
+                    class="fa fa-plus"></i>Add New Flag</button>
+              </th>
           </thead>
-          <tbody>
+          <div class="form-popup" id="addFlag">
+            <form id="addFlagForm">
+              <div class="form-group">
 
-            <tr>
-              <td>
-                <%= result[0].start_date %>
-              </td>
-              <td>
-                <%= result[0].end_date %>
-              </td>
-              <td>
-                <%= result[0].note %>
-              </td>
+                <label for="added"><b>Added at</b></label>
+                <input class="form-control" type="date" placeholder="date" name="added_at">
+                <div>
+                  <label for="ended"><b>Ended at</b></label>
+                  <input class="form-control" type="date" placeholder="" name="ended_at">
+                  <div>
+                    <label for="flagNote"><b>Notes</b></label>
+                    <input class="form-control" type="text" placeholder="" name="note">
+                    <div>
+                      <button class="submit-btn">Add</button>
+                      <button type="button" class="btn cancel" onclick="closeAddFlagForm()">Close</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+            <tbody id='flag-container'>
 
-              <td>
-                <a class="add" title="Add"><i class="material-icons">&#xE03B;</i></a>
-                <a class="edit" title="Edit"><i class="material-icons">&#xE254;</i></a>
+              <tr>
+                <td>
+                  <%= result[0].start_date %>
+                </td>
+                <td>
+                  <%= result[0].end_date %>
+                </td>
+                <td>
+                  <%= result[0].note %>
+                </td>
 
-              </td>
-            </tr>
-          </tbody>
+              </tr>
+            </tbody>
         </table>
         <hr>
         <div class="internal-table">
@@ -367,20 +387,22 @@
                     <button class="submit-btn">Add</button>
                     <button type="button" class="btn cancel" onclick="closeAddUpdateForm()">Close</button>
                   </div>
+                </div>
+              </div>
+            </form>
+            <tbody id='update-container'>
+              <% updatesNewArr.forEach((i)=> { %>
 
-                  <tbody id='update-container'>
-                    <% updatesNewArr.forEach((i)=> { %>
-
-                      <tr id="update-<%= i.updateid %>">
-                        <td>
-                          <%= i.date %>
-                        </td>
-                        <td>
-                          <%= i.description %>
-                        </td>
-                      </tr>
-                      <%}) %>
-                  </tbody>
+                <tr id="update-<%= i.updateid %>">
+                  <td>
+                    <%= i.date %>
+                  </td>
+                  <td>
+                    <%= i.description %>
+                  </td>
+                </tr>
+                <%}) %>
+            </tbody>
         </table>
       </div>
     </div>

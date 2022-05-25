@@ -67,6 +67,22 @@ module.exports = (db) => {
       });
 
   });
+  route.post('/:id/flags', (req, res) => {
+    const { added_at, ended_at, note } = req.body
+    const client_id = req.params.id
+    const addFlag = 'INSERT INTO flags (client_id, start_date, end_date, note) VALUES ($1, $2, $3, $4)  RETURNING *;'
+
+
+    db.query(addFlag, [client_id, added_at, ended_at, note])
+      .then((result) => {
+        res.status(201).send();
+      })
+      .catch((e) => {
+        console.error(e);
+        res.send(e);
+      });
+
+  });
 
 
   route.post('/status', (req, res) => {
