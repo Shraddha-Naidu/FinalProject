@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=full-width, initial-scale=1">
-  <title>Client File</title>
+  <title>CLIENT FILE</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
@@ -20,11 +20,13 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
   <script src='/scripts/addUpdates.js'></script>
   <script src='/scripts/addFlags.js'></script>
   <script src='/scripts/editButton.js'></script>
 
   <script src='/scripts/toggledButton.js'></script>
+  <script src='/scripts/animated.js'></script>
 
   <%- include('partials/_sideBar') %>
 </head>
@@ -32,24 +34,14 @@
 <body>
 
   <div class="container" id='clientlist'>
-    <div class="table-responsive">
-      <div class="table-wrapper">
-        <div class="table-title">
-          <div class="row">
-            <div class="col">
-              <h1><b>
-                  <%= result[0].name %>'s
-                </b> File
+              <h1><%= result[0].name.toUpperCase() %>
               </h1>
-            </div>
-          </div>
-        </div>
 
         <hr>
         <div class="internal-table">
           <div class="row">
             <div class="col-lg">
-              <h3><b>Latest Status of the Application</b>
+              <h3><b>APPLICATION STATUS</b>
               </h3>
             </div>
           </div>
@@ -75,12 +67,12 @@
                 <% if (result[0].isactive===true) { %>
                   <button class="btn btn-success toggle-button" id='critical_btn'>
                     <span>
-                      In-Process
+                      ACTIVE
                     </span></button>
                   <% } else { %>
                     <button class="btn btn-danger toggle-button">
                       <span>
-                        Inactive
+                        INACTIVE
                       </span></button>
                     <% } %>
               </td>
@@ -96,7 +88,7 @@
         <div class="internal-table">
           <div class="row">
             <div class="col-lg">
-              <h3><b>Personal Information</b>
+              <h3><b>PERSONAL INFORMATION</b>
               </h3>
             </div>
           </div>
@@ -104,7 +96,7 @@
         <table class="table">
           <thead>
             <tr>
-              <th>Assigned Social Worker</th>
+              <th>Assigned To</th>
               <th>Age</th>
               <th>Citizenship</th>
               <th>Status</th>
@@ -133,7 +125,7 @@
         <div class="internal-table">
           <div class="row">
             <div class="col-lg">
-              <h3><b>Contact Information</b>
+              <h3><b>CONTACT INFORMATION</b>
               </h3>
             </div>
           </div>
@@ -167,7 +159,7 @@
         <div class="internal-table">
           <div class="row">
             <div class="col-lg">
-              <h3><b>Housing Information</b>
+              <h3><b>HOUSING</b>
               </h3>
             </div>
           </div>
@@ -175,7 +167,7 @@
         <table class="table">
           <thead>
             <tr>
-              <th>Is housed?</th>
+              <th>Housed?</th>
               <th>Address</th>
               <th>Known Locations</th>
               <th>Edit</th>
@@ -205,7 +197,7 @@
         <div class="internal-table">
           <div class="row">
             <div class="col-lg">
-              <h3><b>Dependants Information</b>
+              <h3><b>DEPENDENTS</b>
               </h3>
             </div>
           </div>
@@ -213,7 +205,7 @@
         <table class="table">
           <thead>
             <tr>
-              <th>List of Dependants</th>
+              <th>List of Dependents</th>
               <th>Edit</th>
             </tr>
           </thead>
@@ -231,7 +223,7 @@
               </tr>
               <% } else { %>
                 <td>
-                  There are no dependants
+                  N/A
                 </td>
                 <td>
                   <a class="add" title="Add"><i class="material-icons">&#xE03B;</i></a>
@@ -246,7 +238,7 @@
         <div class="internal-table">
           <div class="row">
             <div class="col-lg">
-              <h3><b>Provided Resources</b>
+              <h3><b>RESOURCES</b>
               </h3>
             </div>
           </div>
@@ -256,13 +248,12 @@
             <tr>
               <th>Provider</th>
               <th>Resource Type</th>
-              <th>Provider's Phone Number</th>
-              <th>Provider's Email Address</th>
-              <th>Provider's Address</th>
+              <th>Phone Number</th>
+              <th>Email Address</th>
+              <th>Address</th>
               <% if (result[0].provided_resources_id !=null) {%>
-                <th><a class="btn btn-info add-newUpdate" href='/resourcesforclient/<%= client_id %>'><i
-                      class="fa fa-plus"></i>
-                    Go To Provided Resources Map</a></th>
+                <th><a class="btn btn-info add-newUpdate" href='/resourcesforclient/<%= client_id %>'>
+                    Client Resources Map</a></th>
                 <%} else {%>
                   <th>No resources have been provided at this time</th>
                   <%} %>
@@ -274,9 +265,6 @@
             <% for (let i=0; i < result.length; i++){ %>
 
               <tr>
-                <td>
-                  <%= result[i].resource_providers_id %>
-                </td>
                 <td>
                   <%= result[i].provider %>
                 </td>
@@ -313,17 +301,17 @@
               <th>Ended at</th>
               <th>Notes</th>
               <th> <button id="openFlagButton" type="button" class="btn btn-info add-new" onclick="openAddFlagForm()"><i
-                    class="fa fa-plus"></i>Add New Flag</button>
+                    class="fa fa-plus"></i>ADD FLAG</button>
               </th>
           </thead>
           <div class="form-popup" id="addFlag">
             <form id="addFlagForm">
               <div class="form-group">
 
-                <label for="added"><b>Added at</b></label>
+                <label for="added"><b>Start Date</b></label>
                 <input class="form-control" type="date" placeholder="date" name="added_at">
                 <div>
-                  <label for="ended"><b>Ended at</b></label>
+                  <label for="ended"><b>End Date</b></label>
                   <input class="form-control" type="date" placeholder="" name="ended_at">
                   <div>
                     <label for="flagNote"><b>Notes</b></label>
@@ -366,11 +354,11 @@
 
           <thead>
             <tr>
-              <th>Updated at</th>
-              <th>Description</th>
+              <th>Date Added</th>
+              <th>Client Updates</th>
 
               <th> <button id="openUpdateButton" type="button" class="btn btn-info add-new"
-                  onclick="openAddUpdateForm()"><i class="fa fa-plus"></i>Add New Update</button>
+                  onclick="openAddUpdateForm()"><i class="fa fa-plus"></i>Add Update</button>
               </th>
             </tr>
           </thead>
