@@ -29,10 +29,10 @@
         <div class="col-sm-8 text-left">
           <h1>RESOURCE DIRECTORY</h1>
           <div>
-            <button id="newResource">ADD NEW RESOURCE</button>
+            <button class="open" id="newResource">ADD NEW RESOURCE</button>
             <!--<div class="new-resource-modal">
               <div class="new-resource-input">
-                <form>
+                <form class="new-resource-form">
                   <label for="provider"><span>PROVIDER<span class="required">*</span></span><input type="text" class="input-field" name="name" id="name" value="" /></label>
                   <label for="resource-type"><span>RESOURCE TYPE<span class="required">*</span></span><select name="field4" class="select-field">
                     <option value="Select-One">Select One</option>
@@ -48,9 +48,10 @@
                   <label for="phone"><span>PHONE<span class="required">*</span></span><input type="text" class="input-field" name="age" id="age"value="" /></label>
                   <label for="address"><span>ADDRESS <span class="required">*</span></span><input type="text" class="input-field" name="field2" value="" /></label>
                 <button class="add-resource">ADD</button>
-              </form> -->
+                <button class="cancel">CANCEL</button>
+              </form>
               </div>
-            </div>
+            </div>-->
           </div>
           
           <hr>
@@ -104,12 +105,6 @@
   <script>
     $(document).ready(function () {
       $('#table_id').DataTable();
-    });
-
-    $(document).ready(function () {
-      $('#newResource').click(function(){
-        $('#new-resource-modal, new-resource-input').show()
-      });
     });
   </script>
 

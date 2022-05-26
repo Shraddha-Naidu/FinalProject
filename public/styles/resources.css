@@ -25,6 +25,10 @@ body {
   visibility: hidden;
 }
 
+form .new-resource-form {
+  display:none;
+}
+
   input {
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
