@@ -51,14 +51,9 @@
 
       <label for="field3"><span>Citizenship</span><input type="text" class="input-field"
           name="field1" value="" /></label>
-      <label for="field8"><span>Dependents?</span><select name="field4" class="select-field">
-          <option value="Select-One">Select One</option>
-          <option value="Yes">Yes</option>
-          <option value="No">No</option>
-        </select></label>
 
         <!---INSERT DEPENDENTS FORM HERE /DROP DOWN ON YES-->
-      <!-- Add Resources to client file/ Adding to multiple databases is future todo
+      <!--Add Resources to client file/ Adding to multiple databases is future todo-->
       <div class="resources">
         <h4>Resources Requested</h4>
         <label class="container">Counselling
@@ -94,19 +89,19 @@
         <label class="container">Career
           <input type="checkbox">
           <span class="checkmark"></span>
-        </label>-->
+        </label>
 
-        <label for="field11"><span>Application Date</span><input type="date" class="input-field" name="field1"
+        <label for="applied-date"><span>Application Date</span><input type="date" class="input-field" name="field1"
             value="applied-date" /></label>
       </div>
-      <label><span> </span><input type="submit" value="Submit" /></label>
+      <label><span> </span><input type="submit" value="SUBMIT" /></label>
     </form>
   </div>
 </body>
 <script>
   $(document).ready(function () {
     //Sends data
-    $("#intake-forrm").submit(function(event) {
+    $("#intake-form").submit(function(event) {
     event.preventDefault();
     var form = $(this);
     var url = form.attr('action');
