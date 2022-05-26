@@ -87,11 +87,11 @@
         <form id="addToDoForm">
           <div class="form-group">
             <label for="toDoText"><b>To-Do</b></label>
-            <input class="form-control" type="text" placeholder="" name="toDo" style="width: 45%;">
+            <input class="form-control" type="text" placeholder="" name="toDo" style="width: 48%; padding-bottom: 5px;">
             <div>
 
               <label for="client"><b>Related to Client</b></label>
-              <select class="form-control" name="client" id="client">
+              <select class="form-control" name="client" id="client" style="padding: 6px 16px;">
                 <% for (let i=0; i < result.rows.length; i++){ %>
                   <option value="<%= result.rows[i].name %>">
                     <%= result.rows[i].name %>
