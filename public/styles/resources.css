@@ -44,10 +44,10 @@ form .new-resource-form {
     outline: none;
   }
 
-div .dataTables_wrapper.no-footer {
-  width: 100%
-}
 
 /* Row Highlighting */
 tbody #resources tr:nth-child(even){background-color: #f2f2f2;}
 tbody #resources tr:hover {background-color: #ddd;}
+
+/*Pagination buttons*/
+
