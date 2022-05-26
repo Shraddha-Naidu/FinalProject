@@ -1,18 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
-/* COLOR PALETTE */
-/* #1D3557 Button Color/Dashboard
-/* #F1FAEE Text Color
-/* #E63946 delete button/error messages
-/* #457B9D :hover color
-/* #A8DADC outline color
-
 /* BLANKET STYLING */
 
 
 body {
   font-family: 'Poppins', sans-serif;
-  margin-left: 180px;
+  margin-left: 190px;
 }
 
 button {
@@ -29,7 +22,7 @@ button {
 }
 
 button :hover {
-  background: #457B9D;
+  background: #a8dadc;
 }
 
 
@@ -37,7 +30,7 @@ button :hover {
 /* The sidebar menu */
 .sidenav {
   height: 100%;
-  width: 160px; /* Set the width of the sidebar */
+  width: 170px; /* Set the width of the sidebar */
   position: fixed; /* Fixed Sidebar (stay in place on scroll) */
   z-index: 1; /* Stay on top */
   top: 0; /* Stay at the top */
@@ -155,7 +148,7 @@ div #calendar-box {
 div #client-list-box {
   width: 100%;
   border: 5px black;
-  font-size: 15px;
+  font-size: 14px;
 }
 
 div #confirmation-popup{
