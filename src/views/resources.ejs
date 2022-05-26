@@ -55,32 +55,32 @@
           </div>
           
           <hr>
-          <table class="table" id="table_id" class="row-border stripe hover">
-            <thead style="background-color: #1D3557; color: #f1faee; font-size: 15px; padding-top: 15px;">
-                <th scope="col">PROVIDER</th>
-                <th scope="col">RESOURCE TYPE</th>
-                <th scope="col">EMAIL</th>
-                <th scope="col">PHONE</th>
-                <th scope="col">ADDRESS</th>
+          <table class="table" id="table_id" class="row-border stripe hover" style="padding-top: 15px;">
+            <thead style="background-color: #0B132B; color: #f1faee; font-size: 15px; padding-top: 15px;">
+                <th scope="col" style="padding-left: 40px; padding-right: 40px;">PROVIDER</th>
+                <th scope="col" style="padding-left: 40px; padding-right: 40px;">RESOURCE TYPE</th>
+                <th scope="col" style="padding-left: 40px; padding-right: 40px;">EMAIL</th>
+                <th scope="col" style="padding-left: 40px; padding-right: 40px;">PHONE</th>
+                <th scope="col" style="padding-left: 60px; padding-right: 60px;">ADDRESS</th>
             </thead>
             <tbody id="resources">
 
               <% for (let i=0; i < result.rows.length; i++){ %>
                 <tr>
-                  <td>
+                  <td style="padding-left: 40px; padding-right: 40px;">
                     <%= result.rows[i].provider %>
                   </td>
-                  <td>
+                  <td style="padding-left: 40px; padding-right: 40px;">
                     <%= result.rows[i].resource_type %>
                   </td>
-                  <td>
+                  <td style="padding-left: 40px; padding-right: 40px;">
                     <%= result.rows[i].provider_email %>
                   </td>
 
-                  <td>
+                  <td style="padding-left: 40px; padding-right: 40px;">
                     <%= result.rows[i].provider_phone %>
                   </td>
-                  <td>
+                  <td style="padding-left: 60px; padding-right: 60px; cursor: pointer;">
                     <a id="<%= result.rows[i].id %>">
                       <%= result.rows[i].provider_address %>
                     </a>
