@@ -226,7 +226,12 @@ margin-top:12vh;
     display: flex;
   }
 
-  button {
+  button,
+  .btn.btn-default.buttons-copy.buttons-html5,
+  .btn.btn-default.buttons-excel.buttons-html5,
+  .btn.btn-default.buttons-pdf.buttons-html5,
+  .btn.btn-default.buttons-print,
+  .btn.btn-default.buttons-collection.buttons-colvis {
     border: none;
     padding: 8px 15px 8px 15px;
     background: #1D3557;
@@ -237,4 +242,8 @@ margin-top:12vh;
     border-radius: 3px;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
+  }
+
+  li.paginate_button.active {
+    background: #1D3557;
   }
