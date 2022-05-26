@@ -45,6 +45,7 @@ button :hover {
   background-color: #1D3557;
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 20px;
+  background-image: url('https://www.marcoguglie.it/Codepen/AnimatedHeaderBg/demo-1/img/demo-1-bg.jpg');
 }
 
 /* The navigation menu links */
