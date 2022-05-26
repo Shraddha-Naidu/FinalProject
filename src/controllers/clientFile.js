@@ -15,7 +15,7 @@ module.exports = (db) => {
   route.get('/:id', (req, res) => {
     const client_id = req.params.id
     const getClientData = `SELECT users.id as user_id, users.name as user_name, users.email, users.type, users.password, users.phone, clients.id as client_id, clients.*, provided_resources.id as provided_resources_id, provided_resources.*, flags.id as flags_id, flags.*, updates.id as updates_id, updates.*,resource_providers.id as resource_providers_id, resource_providers.*, dependents.id as dependents_id, dependents.* FROM users
-    LEFT JOIN clients ON clients.user_id=users.id  
+    LEFT JOIN clients ON clients.user_id=users.id
     LEFT JOIN provided_resources ON provided_resources.client_id = clients.id
     LEFT JOIN resource_providers ON resource_providers.id = provided_resources.resource_id
     LEFT JOIN flags ON flags.client_id = clients.id
