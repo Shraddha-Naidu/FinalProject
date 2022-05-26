@@ -1,5 +1,5 @@
  // To Do Form 
-function openAddToDoForm() {
+/* function openAddToDoForm() {
   document.getElementById("addToDo").style.display = "block";
   document.getElementById("openToDoButton").style.display = "none";
 }
@@ -7,7 +7,7 @@ function openAddToDoForm() {
 function closeAddToDoForm() {
   document.getElementById("addToDo").style.display = "none";
   document.getElementById("openToDoButton").style.display = "block";
-}
+} */
 // Refactoring ToDo Add/Complete/Delete/Undo-Delete 
 // with jQuery to avoid page reload
 const createToDoTrue = function(toDo) {
