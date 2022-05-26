@@ -3,7 +3,9 @@
 }
 
 #clientMap {
-  width: 80%
+  width: 100%;
+  padding-top: 15px;
+  align-self: center;
 }
 
 body {
@@ -222,8 +224,17 @@ background-color:#84A4FA;
 display:flex;
 padding: 2vw;
 }
+
+.internal-table{
+  margin: 0px;
+  background-color: #0B132B;
+ margin-bottom: 15px;
+}
 div .row {
-align-items: flex-start;
+  margin-left: 25px;
+align-items: center;
 justify-content: space-between;
 display: flex;
+background-color: #0B132B;
+color: #F1FAEE;
 }

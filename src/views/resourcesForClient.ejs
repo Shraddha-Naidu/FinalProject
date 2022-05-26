@@ -8,7 +8,7 @@
   <title>Client Resource Map</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+ 
 
   <!--FONT AWESOME-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
@@ -30,7 +30,7 @@
         <div class="internal-table">
           <div class="row">
             <div class="col">
-              <h3><b>Resources Provided to: <%= result.rows[0].client_name %> </b>
+              <h3><b>Resources For: <%= result.rows[0].client_name %> </b>
               </h3>
             </div>
           </div>
@@ -39,11 +39,11 @@
         <table class="table" id="table_id">
           <thead>
             <tr>
-              <th>Provider:</th>
-              <th>Resource Type:</th>
-              <th>Provider Email:</th>
-              <th>Provider Phone:</th>
-              <th>Provider Address:</th>
+              <th>Provider</th>
+              <th>Resource Type</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Address</th>
             </tr>
           </thead>
           <tbody id="resources">
