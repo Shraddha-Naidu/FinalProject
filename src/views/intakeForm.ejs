@@ -30,7 +30,7 @@
   <h1>INTAKE FORM</h1>
 
   <div class="new-client-form">
-    <form action="/clientList" method="post" id="intake-form">
+    <form action="/clients" method="post" id="intake-form">
       <label for="name"><span>Name <span class="required">*</span></span><input type="text" class="input-field"
           name="name" id="name" value="" /></label>
       <label for="age"><span>Age <span class="required">*</span></span><input type="text" class="input-field"
@@ -40,10 +40,10 @@
       <label for="email"><span>Email <span class="required">*</span></span><input type="text" class="input-field"
           name="email" id="email" value="" /></label>
 
-      <label for="field5"><span>Housed?<span class="required">*</span></span><select name="field4" class="select-field">
+      <label for="housed"><span>Housed?<span class="required">*</span></span><select name="field4" class="select-field">
           <option value="Select-One">Select One</option>
-          <option value="Yes">Yes</option>
-          <option value="No">No</option>
+          <option value="True">Yes</option>
+          <option value="False">No</option>
         </select></label>
       <label for="field6"><span>Address</span><input type="text" class="input-field" name="field2" value="" /></label>
       <label for="field7"><span>Known Locations </span><input type="text" class="input-field" name="field1"
@@ -58,7 +58,7 @@
         </select></label>
 
         <!---INSERT DEPENDENTS FORM HERE /DROP DOWN ON YES-->
-
+      <!-- Add Resources to client file/ Adding to multiple databases is future todo
       <div class="resources">
         <h4>Resources Requested</h4>
         <label class="container">Counselling
@@ -94,7 +94,7 @@
         <label class="container">Career
           <input type="checkbox">
           <span class="checkmark"></span>
-        </label>
+        </label>-->
 
         <label for="field11"><span>Application Date</span><input type="date" class="input-field" name="field1"
             value="applied-date" /></label>
@@ -104,26 +104,22 @@
   </div>
 </body>
 <script>
-  /*  VJS Submit
-   const addNewClient = document.getElementById('intake-form');
-   
-   addNewClient.addEventListener('submit', function(event){
-     event.preventDefault();
-     
-     let request = new XMLHttpRequest()
-     let url = '/clientList'
- 
-     request.open(“POST”, url, true);
-     request.setRequestHeader(“Content-Type”, “application/json”);
-     request.onreadystatechange = function () {
-         if (request.readyState === 4 && request.status === 200) {
-             var jsonData = JSON.parse(request.response);
-             console.log(jsonData);
-         }
-     };
-   }) */
-
   $(document).ready(function () {
+    //Sends data
+    $("#intake-forrm").submit(function(event) {
+    event.preventDefault();
+    var form = $(this);
+    var url = form.attr('action');
+    $.ajax({
+         type: "POST",
+         url: url,
+         data: form.serialize(), // serializes form input
+         success: function(data){
+             console.log(data);
+         }
+      });
+    });
+    //Alert on form submission
     $("form").submit(function () {
       alert("Client Added");
     });
