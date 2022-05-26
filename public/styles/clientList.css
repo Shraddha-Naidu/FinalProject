@@ -26,7 +26,8 @@ margin-top:12vh;
     }
 
     .internal-table {
-     background: #A8DADC;
+     background: #457B9D;
+     color: #F1FAEE;
       /* padding: 16px 30px; */
       margin: -20px -25px 10px;
       border-radius: 3px 3px 0 0;
@@ -66,6 +67,7 @@ margin-top:12vh;
 
     thead {
       font-weight: 800 !important;
+      background: #A8DADC;
     }
 
     table.table tr th,
@@ -226,12 +228,14 @@ margin-top:12vh;
     display: flex;
   }
 
+  /* Blanket styling for all buttons in Client List and Client File*/
   button,
   .btn.btn-default.buttons-copy.buttons-html5,
   .btn.btn-default.buttons-excel.buttons-html5,
   .btn.btn-default.buttons-pdf.buttons-html5,
   .btn.btn-default.buttons-print,
-  .btn.btn-default.buttons-collection.buttons-colvis {
+  .btn.btn-default.buttons-collection.buttons-colvis,
+  .btn.btn-info.add-new {
     border: none;
     padding: 8px 15px 8px 15px;
     background: #1D3557;
